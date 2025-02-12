@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Mim</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollreveal/4.0.9/scrollreveal.min.js"></script>
+</head>
+<body>
+
+    <!-- Barra de Navegação -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="about.html">Sobre Mim</a></li>
+                <li><a href="#resume">Resumo</a></li>
+                <li><a href="#skills">Portfolio</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Seção principal -->
+    <section class="about">
+        <div class="container">
+            <h1>👋 Olá! Eu sou Maria Clara</h1>
+            <p class="intro-text">
+                Estudante de Engenharia da Computação apaixonada por tecnologia e inovação.  
+                Busco sempre aprender e criar soluções impactantes! 🚀  
+            </p>
+        </div>
+    </section>
+
+    <!-- O que estou fazendo -->
+    <section class="doing">
+        <div class="container">
+            <h2>📌 O que estou fazendo</h2>
+            <div class="doing-grid">
+                <div class="card">
+                    <img src="icons/study.png" alt="Estudando">
+                    <h3>Estudando & Aprimorando</h3>
+                    <p>Aprofundando conhecimentos em desenvolvimento de software, ciência de dados e engenharia de dados.</p>
+                </div>
+                <div class="card">
+                    <img src="icons/web.png" alt="Web Dev">
+                    <h3>Desenvolvimento Web</h3>
+                    <p>Criando interfaces modernas e interativas com tecnologias como HTML, CSS e JavaScript.</p>
+                </div>
+                <div class="card">
+                    <img src="icons/ml.png" alt="Machine Learning">
+                    <h3>Machine Learning & Dados</h3>
+                    <p>Explorando inteligência artificial e análise preditiva em desafios técnicos e projetos práticos.</p>
+                </div>
+                <div class="card">
+                    <img src="icons/sports.png" alt="Esportes">
+                    <h3>Esportes & Equilíbrio</h3>
+                    <p>Praticando esportes para manter um equilíbrio entre mente e corpo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <!-- Conectar -->
+     <section class="connect">
+        <div class="container">
+            <h2>🔗 Vamos nos conectar!</h2>
+            <p>Adoraria trocar ideias sobre tecnologia, inovação e novos projetos! Entre em contato. 😃</p>
+        </div>
+    </section>
+
+    <script>
+        window.addEventListener("scroll", function() {
+            document.body.classList.add("scrolled");
+        });
+    </script>
+    
+
+    <script>
+        // Animações com ScrollReveal
+        ScrollReveal().reveal('.about h1, .about p', { delay: 200, origin: 'left', distance: '50px', duration: 1000 });
+        ScrollReveal().reveal('.doing h2', { delay: 300, origin: 'top', distance: '50px', duration: 1000 });
+        ScrollReveal().reveal('.card', { delay: 400, interval: 200, origin: 'bottom', distance: '50px', duration: 1000 });
+        ScrollReveal().reveal('.connect h2, .connect p', { delay: 500, origin: 'right', distance: '50px', duration: 1000 });
+    </script>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2024 Maria Dutra. Todos os direitos reservados.</p>
+    </footer>
+
+        <!-- Seção Contato -->
+        <section id="contact" class="secao">
+            <h2>Contato</h2>
+            <p>Me encontre nas redes sociais ou envie um e-mail!</p>
+            <div class="social-icons">
+                <a href="https://github.com/dutra1904" target="_blank" class="icon">
+                    <img src="assets/icons/github.jpg" alt="GitHub">
+                </a>
+                <a href="https://www.linkedin.com/in/maria-clara-dutra/" target="_blank" class="icon">
+                    <img src="assets/icons/linkedin.png" alt="LinkedIn">
+                </a>
+                <a href="https://www.instagram.com/maclaradutra_/" target="_blank" class="icon">
+                    <img src="assets/icons/intagram.png" alt="Instagram">
+                </a>
+                <a href="mailto:dutramaria165@gmail.com" target="_blank" class="icon">
+                    <img src="assets/icons/gmail.png" alt="Gmail">
+                </a>
+            </div>
+        </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
