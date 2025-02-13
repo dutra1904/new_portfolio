@@ -590,12 +590,119 @@ body {
 /*---------------------------portfolio--------------------------*/
 /*--------------------------------------------------------------*/
 
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1a1a2e;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
 
+.titulo_projetos {
+    margin-top: 30px;
+    font-size: 34px;
+    top:100px;
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(162, 155, 254, 0.8);
+    background-color: #55546d;
+    border-radius: 20px;
+    margin-top: 50px;
+    text-align: center;
+    width: 100%;
+    bottom: 0;
+    right: 0;
+    padding: 10px;
+    opacity: 0.8;
+    background: rgba(0, 0, 0, 0.7);
+    border-top: 2px solid #b707e2;
+}
 
-
-
-
-
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 40px;
+    width: 80%;
+    max-width: 1200px;
+    align-items: center;
+    padding: 20px;
+    margin: auto;
+  }
+  
+  .card {
+    position: relative;
+    height: 300px;
+    border-radius: 20px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    align-items: flex-end;
+    display: flex;
+  }
+  
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Título do Card */
+  .card-title {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.5rem;
+    font-weight: bold;
+    background: rgba(0, 0, 0, 0.8);
+    color: #cdb4db;
+    padding: 5px 15px;
+    border-radius: 5px;
+  }
+  
+  /* Conteúdo ao passar o mouse */
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(40, 10, 60, 0.85);  /* Opacidade para melhor visibilidade */
+    color: #fff;
+    transform: translateY(100%);
+    transition: transform 0.5s ease;
+    padding-top: 20px;  /* Ajuste de espaçamento superior */
+    box-sizing: border-box;  /* Para garantir que o padding não afete o tamanho */
+  }
+  
+  
+  .card-content p {
+    font-size: 1.2rem;
+    margin: 0;
+    line-height: 1.5;
+    color: #fff; 
+    opacity: 0;  
+    animation: fadeInContent 1s forwards; 
+    animation-delay: 0.2s; 
+  }
+  
+  .card:hover .card-content p {
+    opacity: 1;  
+  }
+  
+  
+  .card:hover .card-content {
+    transform: translateY(0);
+  }
+  
 
 
 /*--------------------------------------------------------------*/
@@ -717,6 +824,35 @@ textarea {
     transform: scale(1.05);
 }
 
-@media screen {
+    @media (max-width: 768px) {
+        .contact-container, .contact-container2 {
+            flex-direction: column; /* Um abaixo do outro */
+            height: auto; /* Altura automática */
+            float: none; /* Remove o float */
+            left: 0; /* Remove o deslocamento */
+            top: 0; /* Remove o deslocamento */
+            margin: 10px; /* Margem ajustada */
+            padding: 20px; /* Espaçamento */
+            align-items: center; /* Centraliza */
+        }
     
-}
+        .contact-info, .contact-form, .contact-right {
+            width: 100%; /* Ocupa toda a largura */
+            margin: 10px 0; /* Margem superior e inferior */
+        }
+    
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 20px;
+        }
+    
+        .contact-right {
+            padding: 20px;
+            height: auto; /* Altura automática */
+        }
+    
+        form input, form textarea {
+            width: 100%;
+        }
+    }
