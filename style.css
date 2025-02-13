@@ -114,9 +114,6 @@ nav ul li a:hover {
 /* Media query para barra de navegação responsiva */
 @media (max-width: 768px) {
 
-    .conteudo {
-        margin-top:100px ;
-    }
     .navbar {
         flex-direction: column;
         align-items: center;
@@ -135,6 +132,12 @@ nav ul li a:hover {
 
     .logo {
         margin-bottom: 20px;
+    }
+
+    .apresentacao {
+
+        height: 120vh;
+        padding: 20px;
     }
 }
 
@@ -310,6 +313,17 @@ nav ul li a:hover {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+@media (max-width: 480px) {
+
+    .titulo {
+        margin-top: -500px;
+        gap:50;
+
+    }
+
+
 }
 
 /*--------------------------------------------------------------*/
