@@ -351,7 +351,7 @@ body {
 
 /* Container principal */
 .container2 {
-    width: 80%;
+    width: 100%;
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -411,21 +411,6 @@ h1 {
 
 }
 
-/* O que estou fazendo */
-.o-que-faco {
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    text-align: center;
-    margin-top: 50px;
-    padding: 20px;
-}
-
-.o-que-faco h2 {
-    font-size: 28px;
-    color: #9b59b6; /* Roxo destaque */
-    margin-bottom: 20px;
-}
 
 /* Grade de cards */
 /* Seção O que estou fazendo */
@@ -439,6 +424,7 @@ h1 {
     font-size: 28px;
     color: #9b59b6; /* Roxo destaque */
     margin-bottom: 20px;
+    align-items: center;
 }
 
 /* Grade de cards */
@@ -448,6 +434,8 @@ h1 {
     gap: 20px;
     max-width: 900px;
     margin: auto;
+    width: 80%;
+
 }
 
 /* Estilização dos cards */
@@ -456,20 +444,35 @@ h1 {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.1);
+    text-align: center; /* Centraliza o conteúdo do card */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Alinha o título no centro horizontalmente */
+    justify-content: flex-start; /* Mantém o conteúdo no topo */
+    gap: 40px; /* Espaçamento entre o título e o texto */
     transition: transform 0.3s ease-in-out;
 }
 
 .card h3 {
-    font-size: 20px;
-    color: #fff;
-    margin-bottom: 10px;
+    font-size: 24px;
+    color: rgba(162, 155, 254, 0.9);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte mais moderna e limpa */
+    margin: 0; /* Remove margens externas */
+    text-align: center; /* Centraliza o título */
+    width: 100%; /* Garante que o título ocupe o espaço completo do card */
+    padding: 10px 0; /* Espaçamento interno superior e inferior */
+    
 }
 
 .card p {
     font-size: 16px;
     color: #ddd;
-    line-height: 1.5;
+    line-height: 1.6;
+    margin: 0; /* Remove margens externas */
+    text-align: justify; /* Alinha o texto para ficar reto */
+    max-width: 100%; /* Limita a largura do texto para melhor leitura */
 }
+
 
 /* Efeito ao passar o mouse */
 .card:hover {
@@ -856,3 +859,8 @@ textarea {
             width: 100%;
         }
     }
+
+
+/*--------------------------------------------------------------*/
+/*-----------deixar o pintado na barra de navegação-------------*/
+/*--------------------------------------------------------------*/
