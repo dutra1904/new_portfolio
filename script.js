@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const nomeTexto = "Olá, eu sou a Maria Dutra";
+    const nomeTexto = "👋🏾 Olá, eu sou a Maria Dutra ";
     const titulos = document.querySelectorAll(".titulo");
     const testeTexto = "👋 Olá! Sou Maria Clara, estudante de Engenharia da Computação na UFG.";
 

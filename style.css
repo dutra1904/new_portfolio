@@ -12,7 +12,7 @@
 
 /* Fundo e cores */
 body {
-    background: linear-gradient(to bottom, #1a1a2e, #3a0ca3);
+    background: linear-gradient(to bottom, #1a1a2e, #100a1d);
     color: white;
     text-align: center;
 }
@@ -44,12 +44,13 @@ header {
 }
 
 /* Fonte mais chamativa para a frase final */
-.conectar {
+.conectar1 {
     margin-top: 15px;
-    font-size: 24px;
+    font-size: 34px;
     font-weight: bold;
     color: #a29bfe;
     text-shadow: 0 0 10px rgba(162, 155, 254, 0.8);
+    border-radius: 50%;
 }
 
 nav ul {
@@ -352,18 +353,33 @@ body {
 .container2 {
     width: 80%;
     margin: auto;
+    display: flex;
+    flex-direction: column;
     text-align: center;
 }
 
 /* Seção de apresentação */
 .sobre {
     padding: 50px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 .foto-perfil2 {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
     object-fit: cover;
     margin-bottom: 15px;
     border: 3px solid #a29bfe;
@@ -372,44 +388,102 @@ body {
 h1 {
     font-size: 28px;
     font-weight: bold;
+    margin-top: 10px;
+    color: rgba(162, 155, 254, 0.8);
+}
+
+/* Texto detalhado */
+.descricao2 {
+    flex: 2;
+    padding-left: 40px;
+    text-align: justify;
+    font-size: 18px;
+    line-height: 1.6;
 }
 
 .skills {
-    color: #1a1a2e;
+    color: #a29bfe;
     margin-top: 15px;
     font-size: 18px;
     font-weight: bold;
-    text-shadow: 0 0 10px rgba(162, 155, 254, 0.8);
+    text-shadow: 0 0 10px rgba(183, 14, 221, 0.8);
 
 
 }
 
 /* O que estou fazendo */
 .o-que-faco {
-    margin-top: 40px;
     padding: 20px;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px;
 }
 
-.itens {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+.o-que-faco h2 {
+    font-size: 28px;
+    color: #9b59b6; /* Roxo destaque */
+    margin-bottom: 20px;
 }
 
-.item {
-    width: 30%;
-    padding: 15px;
-    margin: 10px;
-    background: rgba(255, 255, 255, 0.1);
+/* Grade de cards */
+/* Seção O que estou fazendo */
+.o-que-estou-fazendo {
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px;
+}
+
+.o-que-estou-fazendo h2 {
+    font-size: 28px;
+    color: #9b59b6; /* Roxo destaque */
+    margin-bottom: 20px;
+}
+
+/* Grade de cards */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dois cards por linha */
+    gap: 20px;
+    max-width: 900px;
+    margin: auto;
+}
+
+/* Estilização dos cards */
+.card {
+    background-color: #222;
+    padding: 20px;
     border-radius: 10px;
-    transition: transform 0.3s;
+    box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease-in-out;
 }
 
-.item:hover {
-    transform: scale(1.05);
+.card h3 {
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 10px;
 }
+
+.card p {
+    font-size: 16px;
+    color: #ddd;
+    line-height: 1.5;
+}
+
+/* Efeito ao passar o mouse */
+.card:hover {
+    transform: scale(1.05);
+    background-color: #333;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr; /* Apenas um card por linha em telas menores */
+    }
+}
+
 
 /* Habilidades */
 .habilidades {
@@ -447,7 +521,22 @@ h1 {
     border-radius: 10px;
 }
 
+/* Responsividade */
+@media (max-width: 768px) {
+    .sobre {
+        flex-direction: column;
+        text-align: center;
+    }
 
+    .descricao {
+        padding-left: 0;
+        margin-top: 20px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr; /* Apenas um card por linha em telas menores */
+    }
+}
 
 
 /*--------------------------------------------------------------*/
