@@ -602,6 +602,8 @@ body {
 /*---------------------------contato----------------------------*/
 /*--------------------------------------------------------------*/
 
+PARTE CONTATO CSS
+
 /* Estilos gerais */
 body {
     font-family: Arial, sans-serif;
@@ -616,7 +618,24 @@ body {
     display: flex;
     align-items: center;
     height: 100vh;
-    padding: 50px; /* Espaçamento com as bordas */
+    padding: 10px; /* Espaçamento com as bordas */
+    float: left;
+    position:relative;
+    margin: 15px;
+    left: 70px;
+
+}
+
+.contact-container2 {
+    display: flex;
+    align-items: center;
+    height: 50vh;
+    padding: 10px; /* Espaçamento com as bordas */
+    float: right;
+    position: relative;
+    margin: 215px;
+    left: -50px;
+    top: -30px;
 }
 
 .contact-info {
@@ -639,15 +658,26 @@ body {
     height: 250px;
     border-radius: 20px;
     object-fit: cover;
-    border: 3px solid #6a0dad;
+    margin-bottom: 15px;
+    border: 3px solid #a29bfe;
+}
+
+.subtitulo {
+    background-color: #292929;
+    border-radius: 20px;
+    font-weight: bold;
+    opacity: 0.5;
+
 }
 
 /* Lado direito (formulário) */
 .contact-right {
     background: #1e1e1e;
-    padding: 20px;
-    border-radius: 10px;
-    width: 350px;
+    padding: 30px;
+    border-radius: 15px;
+    width: 700px;
+    height: 500px;
+    align-items: right;
 }
 
 .contact-right h2 {
@@ -666,7 +696,7 @@ form input, form textarea {
 }
 
 textarea {
-    height: 100px;
+    height: 200px;
     resize: none;
 }
 
@@ -685,4 +715,8 @@ textarea {
 .send-btn:hover {
     background: #8a2be2;
     transform: scale(1.05);
+}
+
+@media screen {
+    
 }
