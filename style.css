@@ -20,7 +20,7 @@ body {
 /* Menu fixo */
 header {
     background: rgba(0, 0, 0, 0.7);
-    padding: 15px 0;
+    padding: 10px 0;
     position: fixed;
     width: 100%;
     top: 0;
@@ -110,6 +110,36 @@ nav ul li a:hover {
 }
 
 /*--------------------------------------------------------------*/
+/*----------------------opção de rolagem------------------------*/
+/*--------------------------------------------------------------*/
+
+/* Estilo para toda a barra de rolagem */
+::-webkit-scrollbar {
+    width: 12px; /* Largura da barra de rolagem vertical */
+    height: 12px; /* Altura da barra de rolagem horizontal */
+  }
+  
+  /* Cor de fundo da barra de rolagem */
+  ::-webkit-scrollbar-track {
+    background: #1e1e2f; /* Fundo do track */
+    border-radius: 6px; /* Bordas arredondadas */
+  }
+  
+  /* Cor da parte móvel (thumb) */
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, #6a0dad, #ff66ff);
+    border-radius: 6px;
+    border: 2px solid #1e1e2f; /* Para dar a sensação de separação */
+  }
+  
+  /* Efeito hover no thumb */
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(90deg, #ff66ff, #6a0dad);
+  }
+  
+
+
+/*--------------------------------------------------------------*/
 /*--------------parte dos titulos para cada seção---------------*/
 /*--------------------------------------------------------------*/
 
@@ -130,7 +160,7 @@ nav ul li a:hover {
     text-align: center;
     opacity: 0;
     transform: translateY(30px);
-    animation: aparecer 1s ease-out forwards;
+    transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
 /* Estilização das imagens */
@@ -282,7 +312,140 @@ footer {
 /*---------------------------About me---------------------------*/
 /*--------------------------------------------------------------*/
 
+/* Reset básico */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1a1a2e;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
 
+/* Fonte mais chamativa para a frase final */
+.conhecimento {
+    margin-top: 15px;
+    font-size: 34px;
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(162, 155, 254, 0.8);
+    background-color: #55546d;
+    border-radius: 20px;
+    margin-top: 50px;
+    text-align: center;
+    width: 100%;
+    bottom: 0;
+    right: 0;
+    padding: 10px;
+    opacity: 0.8;
+    background: rgba(0, 0, 0, 0.7);
+    border-top: 2px solid #b707e2;
+}
+
+.animado {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+
+/* Container principal */
+.container2 {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+
+/* Seção de apresentação */
+.sobre {
+    padding: 50px 0;
+}
+
+.foto-perfil2 {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid #a29bfe;
+}
+
+h1 {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.skills {
+    color: #1a1a2e;
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(162, 155, 254, 0.8);
+
+
+}
+
+/* O que estou fazendo */
+.o-que-faco {
+    margin-top: 40px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.itens {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.item {
+    width: 30%;
+    padding: 15px;
+    margin: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.item:hover {
+    transform: scale(1.05);
+}
+
+/* Habilidades */
+.habilidades {
+    margin-top: 40px;
+}
+
+.habilidades-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.habilidade {
+    width: 100px;
+    margin: 15px;
+    text-align: center;
+}
+
+.habilidade img {
+    width: 80px;
+    height: 80px;
+    transition: transform 0.3s;
+}
+
+.habilidade:hover img {
+    transform: scale(1.2);
+}
+
+/* Conectar */
+.conectar {
+    margin-top: 50px;
+    font-size: 20px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
 
 
 

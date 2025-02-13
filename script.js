@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     const nomeTexto = "Olá, eu sou a Maria Dutra";
+    const titulos = document.querySelectorAll(".titulo");
+    const testeTexto = "👋 Olá! Sou Maria Clara, estudante de Engenharia da Computação na UFG.";
 
     let nomeIndex = 0;
     let descricaoIndex = 0;
@@ -25,5 +27,19 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
+    function verificarScroll() {
+        titulos.forEach((titulo) => {
+            const posicao = titulo.getBoundingClientRect().top;
+            const alturaTela = window.innerHeight * 0.8; // Ativa quando estiver 80% visível
+
+            if (posicao < alturaTela) {
+                titulo.style.opacity = "1";
+                titulo.style.transform = "translateY(0)";
+            }
+        });
+    }
+
     escreverNome();
+    window.addEventListener("scroll", verificarScroll);
+    verificarScroll();
 });
