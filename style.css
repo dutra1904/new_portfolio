@@ -98,6 +98,7 @@ nav ul li a:hover {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    margin-top:50px ;
 }
 
 /* Foto de perfil */
@@ -109,6 +110,52 @@ nav ul li a:hover {
     margin-bottom: 15px;
     border: 3px solid #a29bfe;
 }
+
+/* Media query para barra de navegação responsiva */
+@media (max-width: 768px) {
+
+    .conteudo {
+        margin-top:100px ;
+    }
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar li {
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    .logo {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 10px;
+    }
+
+    .navbar ul {
+        padding: 0;
+    }
+
+    .navbar li {
+        font-size: 16px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+}
+
 
 /*--------------------------------------------------------------*/
 /*----------------------opção de rolagem------------------------*/
@@ -705,6 +752,25 @@ body {
   .card:hover .card-content {
     transform: translateY(0);
   }
+
+  @media (max-width: 768px) {
+
+    .titulo_projetos {
+    margin-top: 100px;
+    }
+
+    .cards {
+        gap: 100px;
+        width: 100%;
+        max-width: 1200px;
+        align-items: center;
+        padding: 20px;
+        margin: auto;
+        left: -1200px;
+      }
+
+  }
+  
   
 
 
@@ -836,7 +902,8 @@ textarea {
             top: 0; /* Remove o deslocamento */
             margin: 10px; /* Margem ajustada */
             padding: 20px; /* Espaçamento */
-            align-items: center; /* Centraliza */
+            align-items: center; /* Centraliza */   
+            margin-top:100px ;
         }
     
         .contact-info, .contact-form, .contact-right {
@@ -848,6 +915,7 @@ textarea {
             width: 150px;
             height: 150px;
             margin-bottom: 20px;
+            margin-top:100px ;
         }
     
         .contact-right {
