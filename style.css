@@ -589,6 +589,10 @@ h1 {
     .grid {
         grid-template-columns: 1fr; /* Apenas um card por linha em telas menores */
     }
+
+    .card {
+        gap: 10px; /* Espaçamento entre o título e o texto */
+    }
 }
 
 
