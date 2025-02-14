@@ -56,7 +56,8 @@ Este portfólio foi construído utilizando **HTML, CSS e JavaScript**, com anima
 - Adicionar seção de blog para compartilhar artigos e aprendizados.
 - fazer a parte contact form funcionar 
 - Otimizar para melhor performance.
-- -melhorar o favicon
+- melhorar o favicon
+- fazer melhorias para aplicação em dispositivos menores...
 
 ---
 
