@@ -534,6 +534,8 @@ h1 {
 @media (max-width: 768px) {
     .grid {
         grid-template-columns: 1fr; /* Apenas um card por linha em telas menores */
+        width: 100%;
+
     }
 }
 
@@ -639,6 +641,16 @@ body {
 .btn-download:hover {
     background: #8a2be2;
     transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+
+    .container3 {
+        
+        margin: 100px 50px; /* Margem superior e inferior */
+
+    }
+
 }
 
 
