@@ -2,12 +2,18 @@ document.addEventListener("DOMContentLoaded", function() {
     const nomeTexto = "👋🏾 Olá, eu sou a Maria Dutra ";
     const titulos = document.querySelectorAll(".titulo");
     const testeTexto = "👋 Olá! Sou Maria Clara, estudante de Engenharia da Computação na UFG.";
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navUl = document.querySelector('nav ul');
 
     let nomeIndex = 0;
     let descricaoIndex = 0;
     
     const nomeElemento = document.getElementById("nome");
     const descricaoElemento = document.getElementById("descricao");
+
+    menuToggle.addEventListener('click', () => {
+        navUl.classList.toggle('show');
+    });
 
     function escreverNome() {
         if (nomeIndex < nomeTexto.length) {
