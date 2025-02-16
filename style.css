@@ -164,6 +164,12 @@ nav ul li a:hover {
         font-size: 24px;
         padding: 15px;
     }
+
+    body {
+        background: linear-gradient(to bottom, #43435a, #302448);
+        color: white;
+        text-align: center;
+    }
 }
 
 /* Media query para barra de navegação responsiva */
