@@ -1,0 +1,37 @@
+<section id="projetos" aria-labelledby="projetos-titulo">
+    <h2 class="titulo_projetos" id="projetos-titulo">⬇️ Projetos ⬇️</h2>
+
+    <div class="cards" role="list" aria-label="Lista de projetos">
+        <article
+            class="card fade-in"
+            role="listitem"
+            *ngFor="let projeto of projetos"
+            [style.background-image]="'url(' + projeto.imagem + ')'"
+            (click)="abrirProjeto(projeto.link)"
+            (keydown.enter)="abrirProjeto(projeto.link)"
+            tabindex="0"
+            [attr.aria-label]="projeto.titulo + ' - Abrir projeto'">
+            <div class="card-title">{{ projeto.titulo }}</div>
+            <div class="card-content">
+                <p>{{ projeto.descricao }}</p>
+            </div>
+        </article>
+    </div>
+
+    <!-- Links para redes sociais -->
+    <div class="social-icons" role="list" aria-label="Redes sociais">
+        <a href="https://github.com/dutra1904" target="_blank" rel="noopener noreferrer" class="icon" aria-label="Visitar perfil no GitHub">
+            <img src="/assets/icons/github.jpg" alt="Ícone do GitHub">
+        </a>
+        <a href="https://www.linkedin.com/in/maria-clara-dutra/" target="_blank" rel="noopener noreferrer" class="icon" aria-label="Visitar perfil no LinkedIn">
+            <img src="/assets/icons/linkedin.png" alt="Ícone do LinkedIn">
+        </a>
+        <a href="https://www.instagram.com/maclaradutra_/" target="_blank" rel="noopener noreferrer" class="icon" aria-label="Visitar perfil no Instagram">
+            <img src="/assets/icons/intagram.png" alt="Ícone do Instagram">
+        </a>
+        <a href="mailto:dutramaria165@gmail.com" class="icon" aria-label="Enviar email">
+            <img src="/assets/icons/gmail1.png" alt="Ícone do Gmail">
+        </a>
+    </div>
+</section>
+

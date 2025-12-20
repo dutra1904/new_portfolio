@@ -1,0 +1,319 @@
+.cosmic-home {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px 120px 20px;
+  overflow: hidden;
+  
+  // Fundo com gradiente espacial
+  background: linear-gradient(135deg, #1a0033 0%, #330066 25%, #1a0033 50%, #000033 75%, #1a0033 100%);
+  background-size: 400% 400%;
+  animation: cosmicShift 15s ease infinite;
+}
+
+@keyframes cosmicShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+// Estrelas animadas
+.stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+  
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 
+      100px 200px white,
+      300px 100px white,
+      500px 300px white,
+      700px 150px white,
+      900px 250px white,
+      1100px 80px white,
+      200px 400px white,
+      400px 500px white,
+      600px 450px white,
+      800px 350px white,
+      1000px 500px white,
+      150px 300px white,
+      350px 200px white,
+      550px 100px white,
+      750px 400px white,
+      950px 150px white,
+      250px 500px white,
+      450px 350px white,
+      650px 250px white,
+      850px 500px white,
+      1050px 300px white,
+      50px 150px white,
+      150px 50px white,
+      250px 150px white,
+      350px 250px white,
+      450px 150px white,
+      550px 250px white,
+      650px 150px white,
+      750px 250px white,
+      850px 150px white,
+      950px 250px white,
+      1050px 150px white,
+      1150px 250px white,
+      50px 450px white,
+      150px 550px white,
+      250px 450px white,
+      350px 550px white,
+      450px 450px white,
+      550px 550px white,
+      650px 450px white,
+      750px 550px white,
+      850px 450px white,
+      950px 550px white,
+      1050px 450px white,
+      1150px 550px white;
+    animation: twinkle 3s ease-in-out infinite;
+  }
+  
+  &::after {
+    animation-delay: 1.5s;
+    box-shadow: 
+      120px 180px white,
+      320px 120px white,
+      520px 280px white,
+      720px 170px white,
+      920px 230px white,
+      1120px 90px white,
+      220px 380px white,
+      420px 480px white,
+      620px 430px white,
+      820px 330px white,
+      1020px 480px white,
+      170px 280px white,
+      370px 180px white,
+      570px 120px white,
+      770px 380px white,
+      970px 170px white,
+      270px 480px white,
+      470px 330px white,
+      670px 230px white,
+      870px 480px white,
+      1070px 280px white;
+  }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+// Container do texto de introdução
+.intro-container {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 800px;
+  padding: 0 20px;
+  margin-bottom: 40px;
+}
+
+// Título de introdução
+.intro-title {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+  color: white;
+  margin-bottom: 30px;
+  text-shadow: 
+    0 0 20px rgba(168, 85, 247, 0.5),
+    0 0 40px rgba(168, 85, 247, 0.3);
+  letter-spacing: -0.02em;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+// Descrição de introdução
+.intro-description {
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  font-weight: 400;
+  color: #e5e5e5;
+  line-height: 1.8;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  animation: fadeInUp 1s ease-out 0.2s both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Barra de navegação inferior
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(124, 58, 237, 0.2);
+  z-index: 100;
+  
+  .nav-link {
+    padding: 10px 24px;
+    background: rgba(139, 92, 246, 0.15);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: 50px;
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+    display: inline-block;
+    
+    &:hover {
+      background: rgba(139, 92, 246, 0.25);
+      border-color: rgba(168, 85, 247, 0.5);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(168, 85, 247, 0.3);
+    }
+    
+    &.active {
+      background: rgba(139, 92, 246, 0.3);
+      border-color: rgba(168, 85, 247, 0.6);
+      color: #d8b4fe;
+      box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+    }
+  }
+}
+
+// Seções de conteúdo
+.content-section {
+  min-height: 100vh;
+  padding: 100px 20px 120px 20px;
+  background: #0a0a0a;
+  color: #e5e5e5;
+  scroll-margin-top: 80px;
+  
+  // Ajuste para seção de contato
+  &.contact-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.contact-wrapper {
+  display: flex;
+  gap: 40px;
+  max-width: 1200px;
+  width: 100%;
+  padding: 20px;
+  align-items: flex-start;
+  justify-content: center;
+  
+  .contact-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    flex: 0 0 auto;
+  }
+  
+  .contact-right {
+    flex: 1;
+    max-width: 700px;
+  }
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    
+    .contact-left,
+    .contact-right {
+      width: 100%;
+      max-width: 100%;
+    }
+    
+    .contact-right {
+      height: auto;
+    }
+  }
+}
+
+// Classe para elementos acessíveis apenas para leitores de tela
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+// Títulos das seções com animação
+.section-title {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+// Responsividade
+@media (max-width: 768px) {
+  .cosmic-home {
+    padding: 40px 20px 140px 20px;
+  }
+  
+  .intro-container {
+    margin-bottom: 30px;
+  }
+  
+  .intro-title {
+    margin-bottom: 20px;
+  }
+  
+  .bottom-nav {
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 15px 10px;
+    
+    a {
+      padding: 8px 16px;
+      font-size: 13px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .bottom-nav {
+    a {
+      padding: 6px 12px;
+      font-size: 12px;
+    }
+  }
+}

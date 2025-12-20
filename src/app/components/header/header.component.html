@@ -1,0 +1,38 @@
+<header role="banner">
+    <button 
+        class="menu-toggle" 
+        (click)="toggleMenu()"
+        [attr.aria-expanded]="menuOpen"
+        aria-label="Abrir menu de navegação">
+        ☰
+    </button>
+    <nav role="navigation" aria-label="Navegação principal">
+        <ul [class.show]="menuOpen">
+            <li>
+                <a routerLink="" [class.active]="isActive('')" routerLinkActive="active">
+                    Home
+                </a>
+            </li>
+            <li>
+                <a routerLink="/sobre" [class.active]="isActive('sobre')" routerLinkActive="active">
+                    About Me
+                </a>
+            </li>
+            <li>
+                <a routerLink="/portfolio" [class.active]="isActive('portfolio')" routerLinkActive="active">
+                    Work
+                </a>
+            </li>
+            <li>
+                <a routerLink="/curriculo" [class.active]="isActive('curriculo')" routerLinkActive="active">
+                    Curriculo
+                </a>
+            </li>
+            <li>
+                <a routerLink="/contato" [class.active]="isActive('contato')" routerLinkActive="active">
+                    Contato
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>

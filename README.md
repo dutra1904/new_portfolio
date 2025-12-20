@@ -16,6 +16,55 @@ Este portfólio foi construído utilizando **HTML, CSS e JavaScript**, com anima
 
 ---
 
+## 🚀 Como Rodar Localmente
+
+Existem várias formas de executar este projeto localmente:
+
+### Opção 1: Abrir diretamente no navegador (Mais Simples)
+1. Navegue até a pasta do projeto no explorador de arquivos
+2. Clique duas vezes no arquivo `index.html`
+3. O portfólio será aberto no seu navegador padrão
+
+**Nota:** Esta opção funciona, mas pode ter problemas com alguns recursos. Para uma melhor experiência, use uma das opções abaixo.
+
+### Opção 2: Usar Node.js (Recomendado)
+1. Certifique-se de ter o Node.js instalado
+2. Abra o terminal na pasta do projeto
+3. Execute um dos comandos abaixo:
+
+**Usando npx http-server:**
+```bash
+npx http-server -p 8080
+```
+
+**Ou usando npx serve:**
+```bash
+npx serve -p 3000
+```
+
+4. Acesse `http://localhost:8080` (ou a porta que você escolheu) no seu navegador
+
+### Opção 3: Usar Python (Se tiver instalado)
+1. Abra o terminal na pasta do projeto
+2. Execute um dos comandos abaixo:
+
+**Python 3:**
+```bash
+python -m http.server 8000
+```
+
+**Python 2:**
+```bash
+python -m SimpleHTTPServer 8000
+```
+
+3. Acesse `http://localhost:8000` no seu navegador
+
+### Opção 4: Usar extensão do VS Code
+Se você usa Visual Studio Code, instale a extensão "Live Server" e clique com o botão direito no `index.html` → "Open with Live Server"
+
+---
+
 ## 🛠 Tecnologias Utilizadas
 - **HTML5**: Estruturação das páginas.
 - **CSS3**: Estilização, animações e responsividade.

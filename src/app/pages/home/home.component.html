@@ -1,0 +1,238 @@
+<!-- Seção Home / Hero -->
+<section id="home" class="cosmic-home">
+  <!-- Estrelas no fundo -->
+  <div class="stars"></div>
+  
+  <!-- Texto de apresentação -->
+  <div class="intro-container">
+    <h1 class="intro-title">Olá, eu sou a Maria Dutra</h1>
+    <p class="intro-description">Este portfólio foi criado para compartilhar minha trajetória, projetos e habilidades. Aqui, você encontrará tudo sobre minha paixão por tecnologia e desenvolvimento. 🚀</p>
+  </div>
+
+  <!-- Barra de navegação inferior -->
+  <nav class="bottom-nav">
+    <a (click)="scrollToSection('home')" class="nav-link">Home</a>
+    <a (click)="scrollToSection('about')" class="nav-link">About Me</a>
+    <a (click)="scrollToSection('work')" class="nav-link">Work</a>
+    <a (click)="scrollToSection('curriculo')" class="nav-link">Curriculo</a>
+    <a (click)="scrollToSection('contato')" class="nav-link">Contato</a>
+  </nav>
+</section>
+
+<!-- Seção About Me -->
+<section id="about" class="content-section">
+  <div class="container2">
+    <!-- Seção de apresentação -->
+    <section class="sobre" aria-labelledby="sobre-titulo">
+      <!-- Foto + texto digitado --> 
+      <div class="info">
+        <img src="/assets/icons/foto.jpeg" alt="Foto de perfil de Maria Clara Dutra" class="foto-perfil2">
+        <h1>Maria Clara Dutra</h1>
+        <div class="social-icons" role="list" aria-label="Redes sociais">
+          <a href="https://github.com/dutra1904" target="_blank" rel="noopener noreferrer" class="icon" aria-label="Visitar perfil no GitHub">
+            <img src="/assets/icons/github.jpg" alt="Ícone do GitHub">
+          </a>
+          <a href="https://www.linkedin.com/in/maria-clara-dutra/" target="_blank" rel="noopener noreferrer" class="icon" aria-label="Visitar perfil no LinkedIn">
+            <img src="/assets/icons/linkedin.png" alt="Ícone do LinkedIn">
+          </a>
+          <a href="https://www.instagram.com/maclaradutra_/" target="_blank" rel="noopener noreferrer" class="icon" aria-label="Visitar perfil no Instagram">
+            <img src="/assets/icons/intagram.png" alt="Ícone do Instagram">
+          </a>
+          <a href="mailto:dutramaria165@gmail.com" class="icon" aria-label="Enviar email">
+            <img src="/assets/icons/gmail1.png" alt="Ícone do Gmail">
+          </a>
+        </div>
+      </div>
+      <div class="descricao2">
+        <p>Sou Maria Clara, estudante de Engenharia da Computação na UFG e apaixonada por tecnologia. Minha jornada no mundo da computação começou no ensino médio, e desde então venho aprimorando minhas habilidades por meio de projetos, cursos e desafios práticos.</p>
+
+        <p>Minha motivação vem da busca por soluções tecnológicas inovadoras que causem um impacto positivo no mundo. Tenho facilidade em aprender novas tecnologias e gosto de trabalhar em equipe, sempre trocando ideias e aprendendo com diferentes perspectivas.</p>
+
+        <p>Fora do universo tech, sou apaixonada por desafios intelectuais e esportivos. Além de explorar novas linguagens e frameworks, gosto de me manter ativa e equilibrar minha rotina com hobbies como esportes e desenvolvimento pessoal.</p>
+
+        <p>Estou sempre aberta a conexões e colaborações com profissionais e entusiastas da tecnologia! 🚀</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- Seção: O que estou fazendo -->
+  <h2 class="conhecimento section-title" id="atividades-titulo">📌 O que estou fazendo:</h2>
+  <section class="o-que-estou-fazendo" aria-labelledby="atividades-titulo">
+    <div class="grid">
+      <article class="card" *ngFor="let atividade of atividades">
+        <h3>{{ atividade.titulo }}</h3>
+        <p>{{ atividade.descricao }}</p>
+      </article>
+    </div>
+  </section>
+      
+
+  <!-- Seção: Habilidades Técnicas -->
+  <h2 class="conhecimento section-title" id="habilidades-titulo">⬇️ Conhecimento em ⬇️</h2>
+
+  <!-- Programação -->
+  <section class="habilidades" aria-labelledby="programacao-titulo">
+    <h2 class="habilidades-titulo" id="programacao-titulo">Programação</h2>
+    <div class="habilidades-grid">
+      <div class="habilidade" *ngFor="let habilidade of habilidades.programacao">
+        <img [src]="habilidade.icon" [alt]="habilidade.nome">
+        <p class="skills">{{ habilidade.nome }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ferramentas -->
+  <section class="habilidades" aria-labelledby="ferramentas-titulo">
+    <h2 class="habilidades-titulo" id="ferramentas-titulo">Ferramentas</h2>
+    <div class="habilidades-grid">
+      <div class="habilidade" *ngFor="let ferramenta of habilidades.ferramentas">
+        <img [src]="ferramenta.icon" [alt]="ferramenta.nome">
+        <p class="skills">{{ ferramenta.nome }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Habilidades Interpessoais -->
+  <section class="habilidades" aria-labelledby="interpessoais-titulo">
+    <h2 class="habilidades-titulo" id="interpessoais-titulo">Interpessoais</h2>
+    <div class="habilidades-grid">
+      <div class="habilidade" *ngFor="let habilidade of habilidades.interpessoais">
+        <img [src]="habilidade.icon" [alt]="habilidade.nome">
+        <p class="skills">{{ habilidade.nome }}</p>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- Seção Work / Projects -->
+<section id="work" class="content-section">
+  <h2 class="titulo_projetos section-title" id="projetos-titulo">⬇️ Projetos ⬇️</h2>
+
+  <div class="cards" role="list" aria-label="Lista de projetos">
+    <article
+      class="card fade-in"
+      role="listitem"
+      *ngFor="let projeto of projetos"
+      [style.background-image]="'url(' + projeto.imagem + ')'"
+      (click)="abrirProjeto(projeto.link)"
+      (keydown.enter)="abrirProjeto(projeto.link)"
+      tabindex="0"
+      [attr.aria-label]="projeto.titulo + ' - Abrir projeto'">
+      <div class="card-title">{{ projeto.titulo }}</div>
+      <div class="card-content">
+        <p>{{ projeto.descricao }}</p>
+      </div>
+    </article>
+  </div>
+
+  <!-- Links para redes sociais -->
+  <div class="social-icons" role="list" aria-label="Redes sociais">
+    <a href="https://github.com/dutra1904" target="_blank" rel="noopener noreferrer" class="icon" aria-label="Visitar perfil no GitHub">
+      <img src="/assets/icons/github.jpg" alt="Ícone do GitHub">
+    </a>
+    <a href="https://www.linkedin.com/in/maria-clara-dutra/" target="_blank" rel="noopener noreferrer" class="icon" aria-label="Visitar perfil no LinkedIn">
+      <img src="/assets/icons/linkedin.png" alt="Ícone do LinkedIn">
+    </a>
+    <a href="https://www.instagram.com/maclaradutra_/" target="_blank" rel="noopener noreferrer" class="icon" aria-label="Visitar perfil no Instagram">
+      <img src="/assets/icons/intagram.png" alt="Ícone do Instagram">
+    </a>
+    <a href="mailto:dutramaria165@gmail.com" class="icon" aria-label="Enviar email">
+      <img src="/assets/icons/gmail1.png" alt="Ícone do Gmail">
+    </a>
+  </div>
+</section>
+
+<!-- Seção Currículo -->
+<section id="curriculo" class="content-section">
+  <div class="container3">
+    <h1>📄 Meu Currículo</h1>
+
+    <!-- Exibição do Currículo -->
+    <embed [src]="curriculoPath" type="application/pdf" class="curriculo-viewer" aria-label="Visualizador do currículo em PDF">
+
+    <!-- Botão de Download -->
+    <a [href]="curriculoPath" [download]="curriculoNome" class="btn-download" aria-label="Baixar currículo em PDF">
+      📥 Baixar Currículo
+    </a>
+  </div>
+
+  <!-- Links para redes sociais -->
+  <div class="social-icons" role="list" aria-label="Redes sociais">
+    <a href="https://github.com/dutra1904" target="_blank" rel="noopener noreferrer" class="icon" aria-label="Visitar perfil no GitHub">
+      <img src="/assets/icons/github.jpg" alt="Ícone do GitHub">
+    </a>
+    <a href="https://www.linkedin.com/in/maria-clara-dutra/" target="_blank" rel="noopener noreferrer" class="icon" aria-label="Visitar perfil no LinkedIn">
+      <img src="/assets/icons/linkedin.png" alt="Ícone do LinkedIn">
+    </a>
+    <a href="https://www.instagram.com/maclaradutra_/" target="_blank" rel="noopener noreferrer" class="icon" aria-label="Visitar perfil no Instagram">
+      <img src="/assets/icons/intagram.png" alt="Ícone do Instagram">
+    </a>
+    <a href="mailto:dutramaria165@gmail.com" class="icon" aria-label="Enviar email">
+      <img src="/assets/icons/gmail1.png" alt="Ícone do Gmail">
+    </a>
+  </div>
+</section>
+
+<!-- Seção Contato -->
+<section id="contato" class="content-section contact-section">
+  <div class="contact-wrapper">
+    <!-- Lado Esquerdo - Informações de Contato -->
+    <div class="contact-left">
+      <img src="/assets/icons/foto.jpeg" alt="Foto de perfil de Maria Clara Dutra" class="profile-pic">
+      <h2 class="contact-name">Maria Clara Dutra</h2>
+      <p class="subtitulo">Computer Engineer Student</p>
+
+      <div class="social-icons" role="list" aria-label="Redes sociais">
+        <a href="https://github.com/dutra1904" target="_blank" rel="noopener noreferrer" class="icon" aria-label="Visitar perfil no GitHub">
+          <img src="/assets/icons/github.jpg" alt="Ícone do GitHub">
+        </a>
+        <a href="https://www.linkedin.com/in/maria-clara-dutra/" target="_blank" rel="noopener noreferrer" class="icon" aria-label="Visitar perfil no LinkedIn">
+          <img src="/assets/icons/linkedin.png" alt="Ícone do LinkedIn">
+        </a>
+        <a href="https://www.instagram.com/maclaradutra_/" target="_blank" rel="noopener noreferrer" class="icon" aria-label="Visitar perfil no Instagram">
+          <img src="/assets/icons/intagram.png" alt="Ícone do Instagram">
+        </a>
+        <a href="mailto:dutramaria165@gmail.com" class="icon" aria-label="Enviar email">
+          <img src="/assets/icons/gmail1.png" alt="Ícone do Gmail">
+        </a>
+      </div>
+    </div>
+
+    <!-- Lado Direito - Formulário de Contato -->
+    <div class="contact-right">
+      <h2>Formulário de Contato</h2>
+      <form (ngSubmit)="enviarMensagem()" aria-label="Formulário de contato">
+        <label for="nome" class="sr-only">Nome completo</label>
+        <input 
+          type="text" 
+          id="nome" 
+          name="name" 
+          [(ngModel)]="nome"
+          placeholder="Nome completo" 
+          required 
+          aria-required="true">
+        
+        <label for="email" class="sr-only">Endereço de email</label>
+        <input 
+          type="email" 
+          id="email" 
+          name="email" 
+          [(ngModel)]="email"
+          placeholder="Endereço de email" 
+          required 
+          aria-required="true">
+        
+        <label for="mensagem" class="sr-only">Sua mensagem</label>
+        <textarea 
+          id="mensagem" 
+          name="message" 
+          [(ngModel)]="mensagem"
+          placeholder="Sua mensagem" 
+          required 
+          aria-required="true"></textarea>
+        
+        <button type="submit" class="send-btn">✈️ Enviar Mensagem</button>
+      </form>
+    </div>
+  </div>
+</section>
