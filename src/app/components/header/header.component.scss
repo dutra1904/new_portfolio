@@ -1,2 +1,13 @@
 /* Estilos específicos do header component */
 
+header {
+  transition: opacity 0.3s ease, transform 0.3s ease, position 0.3s ease;
+}
+
+/* Header na página home - começa como parte do conteúdo */
+.scroll-header header {
+  position: relative;
+  top: auto;
+  opacity: 0;
+}
+

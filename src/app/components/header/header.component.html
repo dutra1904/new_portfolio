@@ -9,27 +9,27 @@
     <nav role="navigation" aria-label="Navegação principal">
         <ul [class.show]="menuOpen">
             <li>
-                <a routerLink="" [class.active]="isActive('')" routerLinkActive="active">
+                <a (click)="scrollToSection('home')" [class.active]="activeSection === 'home'">
                     Home
                 </a>
             </li>
             <li>
-                <a routerLink="/sobre" [class.active]="isActive('sobre')" routerLinkActive="active">
+                <a (click)="scrollToSection('about')" [class.active]="activeSection === 'about'">
                     About Me
                 </a>
             </li>
             <li>
-                <a routerLink="/portfolio" [class.active]="isActive('portfolio')" routerLinkActive="active">
+                <a (click)="scrollToSection('work')" [class.active]="activeSection === 'work'">
                     Work
                 </a>
             </li>
             <li>
-                <a routerLink="/curriculo" [class.active]="isActive('curriculo')" routerLinkActive="active">
+                <a (click)="scrollToSection('curriculo')" [class.active]="activeSection === 'curriculo'">
                     Curriculo
                 </a>
             </li>
             <li>
-                <a routerLink="/contato" [class.active]="isActive('contato')" routerLinkActive="active">
+                <a (click)="scrollToSection('contato')" [class.active]="activeSection === 'contato'">
                     Contato
                 </a>
             </li>

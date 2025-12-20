@@ -42,6 +42,14 @@ header {
     z-index: 100;
     border-bottom: 1px solid rgba(124, 58, 237, 0.2);
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+    transition: opacity 0.3s ease, position 0.3s ease;
+}
+
+/* Header na página home - começa como parte do conteúdo */
+.scroll-header header {
+    position: relative;
+    top: auto;
+    opacity: 0;
 }
 
 /* Estilo do texto explicativo */
