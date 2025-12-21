@@ -1,114 +1,57 @@
-# Portfólio Pessoal - Maria Clara
+# Portfolio — Maria Dutra
 
-Bem-vindo ao meu portfólio pessoal! Este projeto foi desenvolvido para apresentar minha trajetória, habilidades e projetos como estudante de Engenharia da Computação na UFG.
+This repository contains the source code for my professional portfolio website, developed to showcase my technical expertise, academic background, and projects in the field of technology.
 
----
-
-## 📋 Sobre o Projeto
-Este portfólio foi construído utilizando **HTML, CSS e JavaScript**, com animações dinâmicas e design responsivo para proporcionar uma experiência intuitiva e interativa aos visitantes.
-
-### Funcionalidades:
-- Apresentação animada do meu nome e descrição.
-- Navegação entre seções (Sobre Mim, Habilidades, Projetos e Currículo).
-- Cards interativos com descrições ao passar o mouse.
-- Ícones de redes sociais com animação e links diretos.
-- Seção Sobre Mim detalhada, com informações pessoais e o que estou fazendo atualmente.
+**Live Version:** [dutra1904.github.io/new_portfolio/](https://dutra1904.github.io/new_portfolio/)
 
 ---
 
-## 🚀 Como Rodar Localmente
+## Professional Profile
+I am a Computer Engineering student dedicated to building efficient and scalable solutions. My technical focus lies at the intersection of Software Development, Data Analysis, and Cloud Infrastructure. I am currently seeking opportunities as a Junior Developer or Intern where I can contribute to high-impact projects while continuing to advance my technical skills.
 
-Existem várias formas de executar este projeto localmente:
+## Core Competencies
 
-### Opção 1: Abrir diretamente no navegador (Mais Simples)
-1. Navegue até a pasta do projeto no explorador de arquivos
-2. Clique duas vezes no arquivo `index.html`
-3. O portfólio será aberto no seu navegador padrão
+### Software & Web Development
+* **Frontend:** HTML5, CSS3, JavaScript (ES6+).
+* **Programming & Logic:** Python (Automation, data manipulation, and scripting).
+* **Backend Concepts:** API integration and application logic.
 
-**Nota:** Esta opção funciona, mas pode ter problemas com alguns recursos. Para uma melhor experiência, use uma das opções abaixo.
+### Data & Cloud Infrastructure
+* **Data Visualization:** Power BI, Microsoft Excel (Advanced dashboard creation and data modeling).
+* **Cloud & DevOps:** Cloudflare (DNS management, security, and performance), Git & GitHub for version control.
+* **Artificial Intelligence:** Leveraging AI tools to optimize productivity and workflow automation.
 
-### Opção 2: Usar Node.js (Recomendado)
-1. Certifique-se de ter o Node.js instalado
-2. Abra o terminal na pasta do projeto
-3. Execute um dos comandos abaixo:
-
-**Usando npx http-server:**
-```bash
-npx http-server -p 8080
-```
-
-**Ou usando npx serve:**
-```bash
-npx serve -p 3000
-```
-
-4. Acesse `http://localhost:8080` (ou a porta que você escolheu) no seu navegador
-
-### Opção 3: Usar Python (Se tiver instalado)
-1. Abra o terminal na pasta do projeto
-2. Execute um dos comandos abaixo:
-
-**Python 3:**
-```bash
-python -m http.server 8000
-```
-
-**Python 2:**
-```bash
-python -m SimpleHTTPServer 8000
-```
-
-3. Acesse `http://localhost:8000` no seu navegador
-
-### Opção 4: Usar extensão do VS Code
-Se você usa Visual Studio Code, instale a extensão "Live Server" e clique com o botão direito no `index.html` → "Open with Live Server"
+### Design & Project Management
+* **UI/UX Design:** Prototyping and interface design using Figma.
+* **Organization:** Agile methodologies and project management using Google Workspace.
 
 ---
 
-## 🛠 Tecnologias Utilizadas
-- **HTML5**: Estruturação das páginas.
-- **CSS3**: Estilização, animações e responsividade.
-- **JavaScript**: Funcionalidades interativas e animações.
-- **Font Awesome**: Ícones de redes sociais.
+## Education
+**Bachelor of Engineering in Computer Science** (In Progress)
+Key areas of study: Algorithms, Data Structures, Computer Systems, and Software Engineering Principles.
+
+### Languages
+* **Portuguese:** Native.
+* **English:** Intermediate (Technical reading, writing, and professional communication).
 
 ---
 
-## 🚀 Funcionalidades Principais
-
-### 🌐 Home Page
-- Introdução com meu nome e descrição animados.
-- Navegação dinâmica para outras seções.
-
-### 👩‍💻 Sobre Mim
-- Apresentação pessoal, trajetória acadêmica e profissional.
-- Lista organizada de habilidades técnicas.
-
-### 🛠 Habilidades
-- Conhecimento em linguagens como Java, Python, C, C#, JavaScript.
-- Experiência com frameworks, desenvolvimento web, machine learning e engenharia de dados.
-
-### 📂 Projetos
-- Calculadora simples
-- Gerenciador de tarefas em C
-- Jogo 'Estelar' em Python com Pygame
-- Site de portfólio personalizado
-- Aplicativo para estudantes
-- Random Meal Generator
-- Flash Cards
-
-### 📄 Currículo
-- Link para download do meu currículo atualizado.
+## Project Structure
+The portfolio is organized to provide a seamless overview of my qualifications:
+* **Home:** Executive summary of my professional profile.
+* **Skills:** Detailed breakdown of technical tools and languages.
+* **Projects:** Portfolio of technical applications with source code access.
+* **Resume:** Digital and downloadable versions of my CV.
 
 ---
 
-## 💡 Melhorias Futuras
-- Adicionar seção de blog para compartilhar artigos e aprendizados.
-- fazer a parte contact form funcionar 
-- Otimizar para melhor performance.
-- melhorar o favicon
-- fazer melhorias para aplicação em dispositivos menores...
+## Contact Information
+I am open to professional networking and career opportunities.
+
+* **LinkedIn:** [Linkedin link](https://www.linkedin.com/in/maria-clara-dutra/)
+* **GitHub:** [github.com/dutra1904](https://github.com/dutra1904)
+* **Email:** [Email](mailto:dutramaria165@gmail.com)
 
 ---
-
-> Desenvolvido com 💜 por Maria Clara.
-
+*Developed with 💟 by Maria Dutra*
