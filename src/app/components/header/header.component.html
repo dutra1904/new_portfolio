@@ -6,31 +6,36 @@
         aria-label="Abrir menu de navegação">
         ☰
     </button>
-    <nav role="navigation" aria-label="Navegação principal">
+    <nav role="navigation" aria-label="Navegação principal" class="nav-pill">
         <ul [class.show]="menuOpen">
             <li>
                 <a (click)="scrollToSection('home')" [class.active]="activeSection === 'home'">
-                    Home
+                    HOME
                 </a>
             </li>
+            <li class="separator">|</li>
             <li>
                 <a (click)="scrollToSection('about')" [class.active]="activeSection === 'about'">
-                    About Me
+                    SOBRE MIM
                 </a>
             </li>
+            <li class="separator">|</li>
             <li>
                 <a (click)="scrollToSection('work')" [class.active]="activeSection === 'work'">
-                    Work
+                    PORTFÓLIO
                 </a>
             </li>
+            <li class="separator">|</li>
             <li>
                 <a (click)="scrollToSection('curriculo')" [class.active]="activeSection === 'curriculo'">
-                    Curriculo
+                    CURRÍCULO
                 </a>
             </li>
+            <li class="separator">|</li>
             <li>
                 <a (click)="scrollToSection('contato')" [class.active]="activeSection === 'contato'">
-                    Contato
+                    CONTATO
+                    <span class="arrow">↗</span>
                 </a>
             </li>
         </ul>

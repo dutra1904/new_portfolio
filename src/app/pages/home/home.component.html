@@ -3,10 +3,59 @@
   <!-- Estrelas no fundo -->
   <div class="stars"></div>
   
-  <!-- Texto de apresentação -->
+  <!-- Header superior -->
+  <div class="home-header">
+    <div class="home-header-left">
+      <span class="logo-text">Maria Dutra</span>
+    </div>
+    <div class="home-header-right">
+      <span class="header-label">Desenvolvimento</span>
+      <div class="status-badge">
+        <span class="status-dot"></span>
+        <span class="status-text">Estou disponível</span>
+      </div>
+      <div class="language-selector">
+        <span class="lang-text">PT</span>
+        <svg class="lang-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Conteúdo de apresentação -->
   <div class="intro-container">
-    <h1 class="intro-title">Olá, eu sou a Maria Dutra</h1>
-    <p class="intro-description">Estudante de Engenharia da Computação na UFG | Desenvolvedora apaixonada por transformar ideias em soluções tecnológicas inovadoras. Especializada em desenvolvimento web, ciência de dados e engenharia de software, busco constantemente desafios que me permitam crescer profissionalmente e criar impacto real através da tecnologia.</p>
+    <div class="intro-content">
+      <!-- Imagem de perfil -->
+      <div class="intro-image-wrapper">
+        <img src="/assets/img/me.png" alt="Maria Dutra" class="intro-image">
+        <!-- Botões de ação -->
+        <div class="intro-buttons">
+          <button (click)="scrollToSection('work')" class="btn-primary">
+            Ver Projetos
+          </button>
+          <a [href]="curriculoPath" [download]="curriculoNome" class="btn-secondary" aria-label="Baixar currículo em PDF">
+            Baixar Currículo
+          </a>
+        </div>
+      </div>
+      
+      <!-- Texto de apresentação -->
+      <div class="intro-text">
+        <h1 class="intro-title">Maria Dutra</h1>
+        <p class="intro-subtitle">Desenvolvedora Full Stack em formação | Engenharia da Computação</p>
+        <div class="intro-tags">
+          <span class="tag">Front-end</span>
+          <span class="tag-separator">•</span>
+          <span class="tag">Back-end</span>
+          <span class="tag-separator">•</span>
+          <span class="tag">Dados</span>
+          <span class="tag-separator">•</span>
+          <span class="tag">IA</span>
+        </div>
+        <p class="intro-description">Desenvolvo soluções digitais completas, unindo interface, lógica, dados e tecnologia para resolver problemas reais.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -14,14 +63,36 @@
 <app-header class="scroll-header"></app-header>
 
 <!-- Seção About Me -->
-<section id="about" class="content-section">
+<section id="about" class="content-section about-section">
+  <div class="stars-about"></div>
   <div class="container2">
     <!-- Seção de apresentação -->
     <section class="sobre" aria-labelledby="sobre-titulo">
-      <!-- Foto + texto digitado --> 
-      <div class="info">
-        <img src="/assets/icons/foto.jpeg" alt="Foto de perfil de Maria Clara Dutra" class="foto-perfil2">
-        <h1>Maria Clara Dutra</h1>
+      <div class="sobre-content">
+        <!-- Foto centralizada no topo -->
+        <div class="info">
+          <img src="/assets/icons/foto.jpeg" alt="Foto de perfil de Maria Clara Dutra" class="foto-perfil2">
+          <h1>Maria Clara Dutra</h1>
+        </div>
+        
+        <!-- Texto centralizado -->
+        <div class="descricao2">
+          <p>Olá, eu sou a Maria Clara.</p>
+          <p>Crio soluções digitais completas para projetos ambiciosos e orientados por design.</p>
+          <p>Utilizando tecnologias de ponta e código robusto e elegante, desenvolvo aplicações que unem interface, lógica, dados e inteligência artificial para criar experiências impactantes.</p>
+          <p>Atuo tanto no Front-end quanto no Back-end, além de trabalhar com análise de dados, cloud, design de interfaces e inteligência artificial, sempre buscando soluções eficientes e bem estruturadas.</p>
+          <p>Tenho perfil analítico, boa organização e facilidade para aprender novas tecnologias, além de experiência com administração e gerenciamento de projetos.</p>
+          <p class="ultimo-paragrafo">
+            Obrigada por explorar meu portfólio.
+            <span class="assinatura-wrapper" id="assinatura">
+              <span class="assinatura-texto">
+                <span class="letra">M</span><span class="letra">a</span><span class="letra">r</span><span class="letra">i</span><span class="letra">a</span>
+              </span>
+            </span>
+          </p>
+        </div>
+        
+        <!-- Redes sociais -->
         <div class="social-icons" role="list" aria-label="Redes sociais">
           <a href="https://github.com/dutra1904" target="_blank" rel="noopener noreferrer" class="icon" aria-label="Visitar perfil no GitHub">
             <img src="/assets/icons/github.jpg" alt="Ícone do GitHub">
@@ -37,62 +108,29 @@
           </a>
         </div>
       </div>
-      <div class="descricao2">
-        <p>Sou Maria Clara, estudante de Engenharia da Computação na UFG e apaixonada por tecnologia. Minha jornada no mundo da computação começou no ensino médio, e desde então venho aprimorando minhas habilidades por meio de projetos, cursos e desafios práticos.</p>
-
-        <p>Minha motivação vem da busca por soluções tecnológicas inovadoras que causem um impacto positivo no mundo. Tenho facilidade em aprender novas tecnologias e gosto de trabalhar em equipe, sempre trocando ideias e aprendendo com diferentes perspectivas.</p>
-
-        <p>Fora do universo tech, sou apaixonada por desafios intelectuais e esportivos. Além de explorar novas linguagens e frameworks, gosto de me manter ativa e equilibrar minha rotina com hobbies como esportes e desenvolvimento pessoal.</p>
-
-        <p>Estou sempre aberta a conexões e colaborações com profissionais e entusiastas da tecnologia! 🚀</p>
-      </div>
     </section>
   </div>
 
-  <!-- Seção: O que estou fazendo -->
-  <h2 class="conhecimento section-title" id="atividades-titulo">📌 O que estou fazendo:</h2>
-  <section class="o-que-estou-fazendo" aria-labelledby="atividades-titulo">
-    <div class="grid">
-      <article class="card" *ngFor="let atividade of atividades">
-        <h3>{{ atividade.titulo }}</h3>
-        <p>{{ atividade.descricao }}</p>
-      </article>
-    </div>
-  </section>
-      
-
   <!-- Seção: Habilidades Técnicas -->
-  <h2 class="conhecimento section-title" id="habilidades-titulo">⬇️ Conhecimento em ⬇️</h2>
+  <h2 class="section-title" id="habilidades-titulo">Habilidades Técnicas</h2>
 
-  <!-- Programação -->
-  <section class="habilidades" aria-labelledby="programacao-titulo">
-    <h2 class="habilidades-titulo" id="programacao-titulo">Programação</h2>
-    <div class="habilidades-grid">
-      <div class="habilidade" *ngFor="let habilidade of habilidades.programacao">
-        <img [src]="habilidade.icon" [alt]="habilidade.nome">
-        <p class="skills">{{ habilidade.nome }}</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Ferramentas -->
-  <section class="habilidades" aria-labelledby="ferramentas-titulo">
-    <h2 class="habilidades-titulo" id="ferramentas-titulo">Ferramentas</h2>
-    <div class="habilidades-grid">
-      <div class="habilidade" *ngFor="let ferramenta of habilidades.ferramentas">
-        <img [src]="ferramenta.icon" [alt]="ferramenta.nome">
-        <p class="skills">{{ ferramenta.nome }}</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Habilidades Interpessoais -->
-  <section class="habilidades" aria-labelledby="interpessoais-titulo">
-    <h2 class="habilidades-titulo" id="interpessoais-titulo">Interpessoais</h2>
-    <div class="habilidades-grid">
-      <div class="habilidade" *ngFor="let habilidade of habilidades.interpessoais">
-        <img [src]="habilidade.icon" [alt]="habilidade.nome">
-        <p class="skills">{{ habilidade.nome }}</p>
+  <section class="habilidades-modernas" aria-labelledby="habilidades-titulo">
+    <div class="topicos-container">
+      <div class="topico-section" *ngFor="let topico of habilidadesPorTopico">
+        <h3 class="topico-titulo">{{ topico.topico }}</h3>
+        <div class="habilidades-grid-modern">
+          <div class="habilidade-card" *ngFor="let habilidade of topico.habilidades">
+            <div class="habilidade-icon-wrapper">
+              <img [src]="habilidade.icon" [alt]="habilidade.nome" 
+                   class="habilidade-icon"
+                   [class.icon-light]="habilidade.icon.includes('trabalho.png') || habilidade.icon.includes('design.png')">
+            </div>
+            <div class="habilidade-content">
+              <h4 class="habilidade-nome">{{ habilidade.nome }}</h4>
+              <p class="habilidade-descricao" *ngIf="habilidade.descricao">{{ habilidade.descricao }}</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -100,75 +138,121 @@
 
 <!-- Seção Work / Projects -->
 <section id="work" class="content-section">
-  <h2 class="titulo_projetos section-title" id="projetos-titulo">⬇️ Projetos ⬇️</h2>
+  <h2 class="section-title" id="projetos-titulo">Projetos</h2>
 
-  <div class="cards" role="list" aria-label="Lista de projetos">
-    <article
-      class="card fade-in"
-      role="listitem"
-      *ngFor="let projeto of projetos"
-      [style.background-image]="'url(' + projeto.imagem + ')'"
-      (click)="abrirProjeto(projeto.link)"
-      (keydown.enter)="abrirProjeto(projeto.link)"
-      tabindex="0"
-      [attr.aria-label]="projeto.titulo + ' - Abrir projeto'">
-      <div class="card-title">{{ projeto.titulo }}</div>
-      <div class="card-content">
-        <p>{{ projeto.descricao }}</p>
-      </div>
-    </article>
+  <div class="carrossel-container">
+    <button class="carrossel-btn carrossel-btn-prev" (click)="projetoAnterior()" aria-label="Projeto anterior">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+
+    <div class="carrossel-wrapper">
+      <article
+        class="card fade-in carrossel-card"
+        (click)="abrirProjeto(projetoAtual.link)"
+        (keydown.enter)="abrirProjeto(projetoAtual.link)"
+        tabindex="0"
+        [attr.aria-label]="projetoAtual.titulo + ' - Abrir projeto'">
+        <div class="card-background" [style.background-image]="'url(' + projetoAtual.imagem + ')'"></div>
+        <div class="card-title">{{ projetoAtual.titulo }}</div>
+        <div class="card-content">
+          <p>{{ projetoAtual.descricao }}</p>
+        </div>
+      </article>
+    </div>
+
+    <button class="carrossel-btn carrossel-btn-next" (click)="proximoProjeto()" aria-label="Próximo projeto">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
   </div>
 
-  <!-- Links para redes sociais -->
-  <div class="social-icons" role="list" aria-label="Redes sociais">
-    <a href="https://github.com/dutra1904" target="_blank" rel="noopener noreferrer" class="icon" aria-label="Visitar perfil no GitHub">
-      <img src="/assets/icons/github.jpg" alt="Ícone do GitHub">
-    </a>
-    <a href="https://www.linkedin.com/in/maria-clara-dutra/" target="_blank" rel="noopener noreferrer" class="icon" aria-label="Visitar perfil no LinkedIn">
-      <img src="/assets/icons/linkedin.png" alt="Ícone do LinkedIn">
-    </a>
-    <a href="https://www.instagram.com/maclaradutra_/" target="_blank" rel="noopener noreferrer" class="icon" aria-label="Visitar perfil no Instagram">
-      <img src="/assets/icons/intagram.png" alt="Ícone do Instagram">
-    </a>
-    <a href="mailto:dutramaria165@gmail.com" class="icon" aria-label="Enviar email">
-      <img src="/assets/icons/gmail1.png" alt="Ícone do Gmail">
-    </a>
+  <div class="carrossel-indicators">
+    <span *ngFor="let projeto of projetos; let i = index" 
+          class="indicator" 
+          [class.active]="i === projetoAtualIndex"
+          (click)="projetoAtualIndex = i"
+          [attr.aria-label]="'Ir para projeto ' + (i + 1)">
+    </span>
   </div>
 </section>
 
 <!-- Seção Currículo -->
 <section id="curriculo" class="content-section">
+  <h2 class="section-title">Currículo</h2>
   <div class="container3">
-    <h1>📄 Meu Currículo</h1>
+    <div class="resume-section unified-resume">
+      <div class="resume-content">
+        <!-- Formação -->
+        <div class="resume-subsection">
+          <h3 class="resume-section-title">Formação Acadêmica</h3>
+          <div class="resume-item">
+            <h4>Engenharia da Computação</h4>
+            <p class="resume-status">Em andamento</p>
+          </div>
+        </div>
 
-    <!-- Exibição do Currículo -->
-    <embed [src]="curriculoPath" type="application/pdf" class="curriculo-viewer" aria-label="Visualizador do currículo em PDF">
+        <!-- Conhecimentos Técnicos -->
+        <div class="resume-subsection">
+          <h3 class="resume-section-title">Conhecimentos Técnicos</h3>
+          <div class="resume-skills">
+            <div class="skill-category">
+              <h4>Desenvolvimento</h4>
+              <p>Front-end e Back-end, aplicações funcionais e responsivas</p>
+            </div>
+            <div class="skill-category">
+              <h4>Análise de Dados</h4>
+              <p>Dashboards e visualizações com Power BI e Excel</p>
+            </div>
+            <div class="skill-category">
+              <h4>Cloud & Segurança</h4>
+              <p>Cloudflare, performance e proteção de aplicações</p>
+            </div>
+            <div class="skill-category">
+              <h4>Ferramentas</h4>
+              <p>Git, GitHub, Figma, metodologias ágeis</p>
+            </div>
+            <div class="skill-category">
+              <h4>Inteligência Artificial</h4>
+              <p>Automação e otimização de processos</p>
+            </div>
+          </div>
+        </div>
 
-    <!-- Botão de Download -->
-    <a [href]="curriculoPath" [download]="curriculoNome" class="btn-download" aria-label="Baixar currículo em PDF">
-      📥 Baixar Currículo
-    </a>
-  </div>
+        <!-- Idiomas -->
+        <div class="resume-subsection">
+          <h3 class="resume-section-title">Idiomas</h3>
+          <div class="resume-languages">
+            <div class="language-item">
+              <span class="language-name">Português</span>
+              <span class="language-level">Nativo</span>
+            </div>
+            <div class="language-item">
+              <span class="language-name">Inglês</span>
+              <span class="language-level">Avançado</span>
+            </div>
+          </div>
 
-  <!-- Links para redes sociais -->
-  <div class="social-icons" role="list" aria-label="Redes sociais">
-    <a href="https://github.com/dutra1904" target="_blank" rel="noopener noreferrer" class="icon" aria-label="Visitar perfil no GitHub">
-      <img src="/assets/icons/github.jpg" alt="Ícone do GitHub">
-    </a>
-    <a href="https://www.linkedin.com/in/maria-clara-dutra/" target="_blank" rel="noopener noreferrer" class="icon" aria-label="Visitar perfil no LinkedIn">
-      <img src="/assets/icons/linkedin.png" alt="Ícone do LinkedIn">
-    </a>
-    <a href="https://www.instagram.com/maclaradutra_/" target="_blank" rel="noopener noreferrer" class="icon" aria-label="Visitar perfil no Instagram">
-      <img src="/assets/icons/intagram.png" alt="Ícone do Instagram">
-    </a>
-    <a href="mailto:dutramaria165@gmail.com" class="icon" aria-label="Enviar email">
-      <img src="/assets/icons/gmail1.png" alt="Ícone do Gmail">
-    </a>
+        </div>
+
+        <!-- Download -->
+        <div class="resume-subsection resume-download">
+          <a [href]="curriculoPath" [download]="curriculoNome" class="btn-download" aria-label="Baixar currículo em PDF">
+            <span>📄</span>
+            Baixar Currículo Completo (PDF)
+          </a>
+          <p class="download-description">Versão completa com formação, habilidades, projetos e informações de contato.</p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- Seção Contato -->
 <section id="contato" class="content-section contact-section">
+  <h2 class="section-title contact-main-title">Contato</h2>
   <div class="contact-wrapper">
     <!-- Lado Esquerdo - Informações de Contato -->
     <div class="contact-left">
@@ -194,15 +278,16 @@
 
     <!-- Lado Direito - Formulário de Contato -->
     <div class="contact-right">
-      <h2>Formulário de Contato</h2>
-      <form (ngSubmit)="enviarMensagem()" aria-label="Formulário de contato">
+      <h2 class="contact-form-title">Contato</h2>
+      <p class="contact-text">Estou aberta a oportunidades, estágios, projetos e conexões profissionais na área de tecnologia.</p>
+      <form (ngSubmit)="enviarMensagem($event)" aria-label="Formulário de contato">
         <label for="nome" class="sr-only">Nome completo</label>
         <input 
           type="text" 
           id="nome" 
           name="name" 
           [(ngModel)]="nome"
-          placeholder="Nome completo" 
+          placeholder="Nome" 
           required 
           aria-required="true">
         
@@ -212,7 +297,7 @@
           id="email" 
           name="email" 
           [(ngModel)]="email"
-          placeholder="Endereço de email" 
+          placeholder="Email" 
           required 
           aria-required="true">
         
@@ -221,11 +306,11 @@
           id="mensagem" 
           name="message" 
           [(ngModel)]="mensagem"
-          placeholder="Sua mensagem" 
+          placeholder="Mensagem" 
           required 
           aria-required="true"></textarea>
         
-        <button type="submit" class="send-btn">✈️ Enviar Mensagem</button>
+        <button type="submit" class="send-btn">Enviar</button>
       </form>
     </div>
   </div>
