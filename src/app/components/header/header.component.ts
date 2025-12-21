@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
+import { Component, OnInit, OnDestroy, HostListener, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, NavigationEnd, RouterModule } from '@angular/router';
 import { filter } from 'rxjs/operators';
@@ -11,6 +11,14 @@ import { filter } from 'rxjs/operators';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit, OnDestroy {
+  @Input() translations: any = {
+    home: 'HOME',
+    about: 'SOBRE MIM',
+    portfolio: 'PORTFÓLIO',
+    resume: 'CURRÍCULO',
+    contact: 'CONTATO'
+  };
+
   menuOpen = false;
   currentRoute = '';
   scrollOpacity = 0;

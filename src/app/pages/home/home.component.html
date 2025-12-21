@@ -9,17 +9,15 @@
       <span class="logo-text">Maria Dutra</span>
     </div>
     <div class="home-header-right">
-      <span class="header-label">Desenvolvimento</span>
+      <span class="header-label">{{ t.header.development }}</span>
       <div class="status-badge">
         <span class="status-dot"></span>
-        <span class="status-text">Estou disponível</span>
+        <span class="status-text">{{ t.header.available }}</span>
       </div>
-      <div class="language-selector">
-        <span class="lang-text">PT</span>
-        <svg class="lang-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </div>
+      <select class="language-selector" [(ngModel)]="currentLanguage">
+        <option value="EN">EN</option>
+        <option value="PT">PT</option>
+      </select>
     </div>
   </div>
   
@@ -32,10 +30,10 @@
         <!-- Botões de ação -->
         <div class="intro-buttons">
           <button (click)="scrollToSection('work')" class="btn-primary">
-            Ver Projetos
+            {{ t.home.viewProjects }}
           </button>
-          <a [href]="curriculoPath" [download]="curriculoNome" class="btn-secondary" aria-label="Baixar currículo em PDF">
-            Baixar Currículo
+          <a [href]="curriculoPath" [download]="curriculoNome" class="btn-secondary" [attr.aria-label]="t.home.downloadResume">
+            {{ t.home.downloadResume }}
           </a>
         </div>
       </div>
@@ -43,24 +41,24 @@
       <!-- Texto de apresentação -->
       <div class="intro-text">
         <h1 class="intro-title">Maria Dutra</h1>
-        <p class="intro-subtitle">Desenvolvedora Full Stack em formação | Engenharia da Computação</p>
+        <p class="intro-subtitle">{{ t.home.subtitle }}</p>
         <div class="intro-tags">
-          <span class="tag">Front-end</span>
+          <span class="tag">{{ t.home.tags.frontend }}</span>
           <span class="tag-separator">•</span>
-          <span class="tag">Back-end</span>
+          <span class="tag">{{ t.home.tags.backend }}</span>
           <span class="tag-separator">•</span>
-          <span class="tag">Dados</span>
+          <span class="tag">{{ t.home.tags.data }}</span>
           <span class="tag-separator">•</span>
-          <span class="tag">IA</span>
+          <span class="tag">{{ t.home.tags.ai }}</span>
         </div>
-        <p class="intro-description">Desenvolvo soluções digitais completas, unindo interface, lógica, dados e tecnologia para resolver problemas reais.</p>
+        <p class="intro-description">{{ t.home.description }}</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- Header que aparece ao rolar -->
-<app-header class="scroll-header"></app-header>
+<app-header class="scroll-header" [translations]="t.header"></app-header>
 
 <!-- Seção About Me -->
 <section id="about" class="content-section about-section">
@@ -77,17 +75,15 @@
         
         <!-- Texto centralizado -->
         <div class="descricao2">
-          <p>Olá, eu sou a Maria Clara.</p>
-          <p>Crio soluções digitais completas para projetos ambiciosos e orientados por design.</p>
-          <p>Utilizando tecnologias de ponta e código robusto e elegante, desenvolvo aplicações que unem interface, lógica, dados e inteligência artificial para criar experiências impactantes.</p>
-          <p>Atuo tanto no Front-end quanto no Back-end, além de trabalhar com análise de dados, cloud, design de interfaces e inteligência artificial, sempre buscando soluções eficientes e bem estruturadas.</p>
-          <p>Tenho perfil analítico, boa organização e facilidade para aprender novas tecnologias, além de experiência com administração e gerenciamento de projetos.</p>
+          <p>{{ t.about.greeting }}</p>
+          <p>{{ t.about.paragraph1 }}</p>
+          <p>{{ t.about.paragraph2 }}</p>
+          <p>{{ t.about.paragraph3 }}</p>
+          <p>{{ t.about.paragraph4 }}</p>
           <p class="ultimo-paragrafo">
-            Obrigada por explorar meu portfólio.
+            <span class="closing-text">{{ t.about.closing }}</span>
             <span class="assinatura-wrapper" id="assinatura">
-              <span class="assinatura-texto">
-                <span class="letra">M</span><span class="letra">a</span><span class="letra">r</span><span class="letra">i</span><span class="letra">a</span>
-              </span>
+              <img src="/assets/icons/MariaClaraDutra.png" alt="Assinatura" class="assinatura-img">
             </span>
           </p>
         </div>
@@ -112,7 +108,7 @@
   </div>
 
   <!-- Seção: Habilidades Técnicas -->
-  <h2 class="section-title" id="habilidades-titulo">Habilidades Técnicas</h2>
+  <h2 class="section-title" id="habilidades-titulo">{{ t.about.technicalSkills }}</h2>
 
   <section class="habilidades-modernas" aria-labelledby="habilidades-titulo">
     <div class="topicos-container">
@@ -123,7 +119,8 @@
             <div class="habilidade-icon-wrapper">
               <img [src]="habilidade.icon" [alt]="habilidade.nome" 
                    class="habilidade-icon"
-                   [class.icon-light]="habilidade.icon.includes('trabalho.png') || habilidade.icon.includes('design.png')">
+                   [class.icon-light]="habilidade.icon.includes('trabalho.png') || habilidade.icon.includes('design.png')"
+                   [class.icon-typescript]="habilidade.icon.includes('Type.webp')">
             </div>
             <div class="habilidade-content">
               <h4 class="habilidade-nome">{{ habilidade.nome }}</h4>
@@ -138,10 +135,10 @@
 
 <!-- Seção Work / Projects -->
 <section id="work" class="content-section">
-  <h2 class="section-title" id="projetos-titulo">Projetos</h2>
+  <h2 class="section-title" id="projetos-titulo">{{ t.projects.title }}</h2>
 
   <div class="carrossel-container">
-    <button class="carrossel-btn carrossel-btn-prev" (click)="projetoAnterior()" aria-label="Projeto anterior">
+    <button class="carrossel-btn carrossel-btn-prev" (click)="projetoAnterior()" [attr.aria-label]="t.projects.previous">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
@@ -162,7 +159,7 @@
       </article>
     </div>
 
-    <button class="carrossel-btn carrossel-btn-next" (click)="proximoProjeto()" aria-label="Próximo projeto">
+    <button class="carrossel-btn carrossel-btn-next" (click)="proximoProjeto()" [attr.aria-label]="t.projects.next">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
@@ -174,64 +171,64 @@
           class="indicator" 
           [class.active]="i === projetoAtualIndex"
           (click)="projetoAtualIndex = i"
-          [attr.aria-label]="'Ir para projeto ' + (i + 1)">
+          [attr.aria-label]="t.projects.goToProject + ' ' + (i + 1)">
     </span>
   </div>
 </section>
 
 <!-- Seção Currículo -->
 <section id="curriculo" class="content-section">
-  <h2 class="section-title">Currículo</h2>
+  <h2 class="section-title">{{ t.resume.title }}</h2>
   <div class="container3">
     <div class="resume-section unified-resume">
       <div class="resume-content">
         <!-- Formação -->
         <div class="resume-subsection">
-          <h3 class="resume-section-title">Formação Acadêmica</h3>
+          <h3 class="resume-section-title">{{ t.resume.academic }}</h3>
           <div class="resume-item">
-            <h4>Engenharia da Computação</h4>
-            <p class="resume-status">Em andamento</p>
+            <h4>{{ t.resume.engineering }}</h4>
+            <p class="resume-status">{{ t.resume.inProgress }}</p>
           </div>
         </div>
 
         <!-- Conhecimentos Técnicos -->
         <div class="resume-subsection">
-          <h3 class="resume-section-title">Conhecimentos Técnicos</h3>
+          <h3 class="resume-section-title">{{ t.resume.technicalKnowledge }}</h3>
           <div class="resume-skills">
             <div class="skill-category">
-              <h4>Desenvolvimento</h4>
-              <p>Front-end e Back-end, aplicações funcionais e responsivas</p>
+              <h4>{{ t.resume.development }}</h4>
+              <p>{{ t.resume.developmentDesc }}</p>
             </div>
             <div class="skill-category">
-              <h4>Análise de Dados</h4>
-              <p>Dashboards e visualizações com Power BI e Excel</p>
+              <h4>{{ t.resume.dataAnalysis }}</h4>
+              <p>{{ t.resume.dataAnalysisDesc }}</p>
             </div>
             <div class="skill-category">
-              <h4>Cloud & Segurança</h4>
-              <p>Cloudflare, performance e proteção de aplicações</p>
+              <h4>{{ t.resume.cloudSecurity }}</h4>
+              <p>{{ t.resume.cloudSecurityDesc }}</p>
             </div>
             <div class="skill-category">
-              <h4>Ferramentas</h4>
-              <p>Git, GitHub, Figma, metodologias ágeis</p>
+              <h4>{{ t.resume.tools }}</h4>
+              <p>{{ t.resume.toolsDesc }}</p>
             </div>
             <div class="skill-category">
-              <h4>Inteligência Artificial</h4>
-              <p>Automação e otimização de processos</p>
+              <h4>{{ t.resume.ai }}</h4>
+              <p>{{ t.resume.aiDesc }}</p>
             </div>
           </div>
         </div>
 
         <!-- Idiomas -->
         <div class="resume-subsection">
-          <h3 class="resume-section-title">Idiomas</h3>
+          <h3 class="resume-section-title">{{ t.resume.languages }}</h3>
           <div class="resume-languages">
             <div class="language-item">
-              <span class="language-name">Português</span>
-              <span class="language-level">Nativo</span>
+              <span class="language-name">{{ t.resume.portuguese }}</span>
+              <span class="language-level">{{ t.resume.native }}</span>
             </div>
             <div class="language-item">
-              <span class="language-name">Inglês</span>
-              <span class="language-level">Avançado</span>
+              <span class="language-name">{{ t.resume.english }}</span>
+              <span class="language-level">{{ t.resume.advanced }}</span>
             </div>
           </div>
 
@@ -239,11 +236,11 @@
 
         <!-- Download -->
         <div class="resume-subsection resume-download">
-          <a [href]="curriculoPath" [download]="curriculoNome" class="btn-download" aria-label="Baixar currículo em PDF">
+          <a [href]="curriculoPath" [download]="curriculoNome" class="btn-download" [attr.aria-label]="t.resume.downloadFull">
             <span>📄</span>
-            Baixar Currículo Completo (PDF)
+            {{ t.resume.downloadFull }}
           </a>
-          <p class="download-description">Versão completa com formação, habilidades, projetos e informações de contato.</p>
+          <p class="download-description">{{ t.resume.downloadDesc }}</p>
         </div>
       </div>
     </div>
@@ -252,13 +249,13 @@
 
 <!-- Seção Contato -->
 <section id="contato" class="content-section contact-section">
-  <h2 class="section-title contact-main-title">Contato</h2>
+  <h2 class="section-title contact-main-title">{{ t.contact.title }}</h2>
   <div class="contact-wrapper">
     <!-- Lado Esquerdo - Informações de Contato -->
     <div class="contact-left">
       <img src="/assets/icons/foto.jpeg" alt="Foto de perfil de Maria Clara Dutra" class="profile-pic">
       <h2 class="contact-name">Maria Clara Dutra</h2>
-      <p class="subtitulo">Computer Engineer Student</p>
+      <p class="subtitulo">{{ t.contact.subtitle }}</p>
 
       <div class="social-icons" role="list" aria-label="Redes sociais">
         <a href="https://github.com/dutra1904" target="_blank" rel="noopener noreferrer" class="icon" aria-label="Visitar perfil no GitHub">
@@ -278,39 +275,39 @@
 
     <!-- Lado Direito - Formulário de Contato -->
     <div class="contact-right">
-      <h2 class="contact-form-title">Contato</h2>
-      <p class="contact-text">Estou aberta a oportunidades, estágios, projetos e conexões profissionais na área de tecnologia.</p>
-      <form (ngSubmit)="enviarMensagem($event)" aria-label="Formulário de contato">
-        <label for="nome" class="sr-only">Nome completo</label>
+      <h2 class="contact-form-title">{{ t.contact.title }}</h2>
+      <p class="contact-text">{{ t.contact.openTo }}</p>
+      <form (ngSubmit)="enviarMensagem($event)" [attr.aria-label]="t.contact.title + ' form'">
+        <label for="nome" class="sr-only">{{ t.contact.name }}</label>
         <input 
           type="text" 
           id="nome" 
           name="name" 
           [(ngModel)]="nome"
-          placeholder="Nome" 
+          [placeholder]="t.contact.name" 
           required 
           aria-required="true">
         
-        <label for="email" class="sr-only">Endereço de email</label>
+        <label for="email" class="sr-only">{{ t.contact.email }}</label>
         <input 
           type="email" 
           id="email" 
           name="email" 
           [(ngModel)]="email"
-          placeholder="Email" 
+          [placeholder]="t.contact.email" 
           required 
           aria-required="true">
         
-        <label for="mensagem" class="sr-only">Sua mensagem</label>
+        <label for="mensagem" class="sr-only">{{ t.contact.message }}</label>
         <textarea 
           id="mensagem" 
           name="message" 
           [(ngModel)]="mensagem"
-          placeholder="Mensagem" 
+          [placeholder]="t.contact.message" 
           required 
           aria-required="true"></textarea>
         
-        <button type="submit" class="send-btn">Enviar</button>
+        <button type="submit" class="send-btn">{{ t.contact.send }}</button>
       </form>
     </div>
   </div>

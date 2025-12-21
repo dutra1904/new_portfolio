@@ -663,6 +663,7 @@ footer {
     line-height: 1.7;
     margin: 0;
     color: #e5e5e5;
+    overflow: visible;
     list-style: none;
     font-family: 'Inter', sans-serif;
     font-weight: 400;
@@ -700,10 +701,20 @@ footer {
 .descricao2 .ultimo-paragrafo {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 20px;
+    justify-content: flex-start;
+    gap: 10px;
     margin-bottom: 30px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    width: 100%;
+    max-width: 100%;
+    overflow: visible;
+    box-sizing: border-box;
+}
+
+.closing-text {
+    flex: 0 1 auto;
+    white-space: nowrap;
+    display: inline-block;
 }
 
 @media (max-width: 600px) {
@@ -711,11 +722,16 @@ footer {
         flex-direction: column;
         align-items: flex-start;
         gap: 15px;
+        flex-wrap: wrap;
     }
     
-    .assinatura-svg {
-        width: 100px;
-        height: 35px;
+    .closing-text {
+        white-space: normal;
+    }
+    
+    .assinatura-img {
+        max-width: 200px;
+        max-height: 80px;
     }
 }
 
@@ -731,12 +747,45 @@ footer {
     transform: translateX(10px);
     transition: opacity 0.6s ease, transform 0.6s ease;
     flex-shrink: 0;
-    margin-left: 15px;
+    flex-basis: auto;
+    margin-left: -20px;
+    position: relative;
+    overflow: visible;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .assinatura-wrapper.visible {
     opacity: 1;
     transform: translateX(0);
+}
+
+.assinatura-img {
+    max-width: 300px;
+    width: auto;
+    height: auto;
+    max-height: 100px;
+    display: block;
+    position: relative;
+    opacity: 0;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    clip-path: inset(0 100% 0 0);
+    transition: opacity 0.3s ease;
+    object-fit: contain;
+}
+
+.assinatura-wrapper.visible .assinatura-img {
+    opacity: 1;
+    animation: desenharAssinatura 5s ease-out forwards;
+}
+
+@keyframes desenharAssinatura {
+    0% {
+        clip-path: inset(0 100% 0 0);
+    }
+    100% {
+        clip-path: inset(0 0 0 0);
+    }
 }
 
 .assinatura-texto {
@@ -1035,6 +1084,12 @@ footer {
     height: 40px;
     object-fit: contain;
     transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Ícone do TypeScript - maior que os outros */
+.habilidade-icon.icon-typescript {
+    width: 80px;
+    height: 80px;
 }
 
 /* Ícones escuros que precisam ser invertidos para ficarem claros */
