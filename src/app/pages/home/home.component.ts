@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from '../../components/header/header.component';
+//import { SignaturePad } from 'signature_pad'; 
 
 @Component({
   selector: 'app-home',
@@ -11,8 +12,189 @@ import { HeaderComponent } from '../../components/header/header.component';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit, OnDestroy {
-  // Dados do About - Habilidades Técnicas organizadas por tópicos
-  habilidadesPorTopico = [
+  // Controle do idioma - padrão: Inglês
+  currentLanguage: 'EN' | 'PT' = 'EN';
+
+  // Objeto de traduções completo
+  translations = {
+    PT: {
+      // Header
+      header: {
+        development: 'Desenvolvimento',
+        available: 'Estou disponível',
+        home: 'HOME',
+        about: 'SOBRE MIM',
+        portfolio: 'PORTFÓLIO',
+        resume: 'CURRÍCULO',
+        contact: 'CONTATO'
+      },
+      // Home/Hero
+      home: {
+        viewProjects: 'Ver Projetos',
+        downloadResume: 'Baixar Currículo',
+        subtitle: 'Desenvolvedora Full Stack em formação | Engenharia da Computação',
+        tags: {
+          frontend: 'Front-end',
+          backend: 'Back-end',
+          data: 'Dados',
+          ai: 'IA'
+        },
+        description: 'Desenvolvo soluções digitais completas, unindo interface, lógica, dados e tecnologia para resolver problemas reais.'
+      },
+      // About
+      about: {
+        greeting: 'Olá, eu sou a Maria Clara.',
+        paragraph1: 'Crio soluções digitais completas para projetos ambiciosos e orientados por design.',
+        paragraph2: 'Utilizando tecnologias de ponta e código robusto e elegante, desenvolvo aplicações que unem interface, lógica, dados e inteligência artificial para criar experiências impactantes.',
+        paragraph3: 'Atuo tanto no Front-end quanto no Back-end, além de trabalhar com análise de dados, cloud, design de interfaces e inteligência artificial, sempre buscando soluções eficientes e bem estruturadas.',
+        paragraph4: 'Tenho perfil analítico, boa organização e facilidade para aprender novas tecnologias, além de experiência com administração e gerenciamento de projetos.',
+        closing: 'Obrigada por explorar meu portfólio.',
+        technicalSkills: 'Habilidades Técnicas'
+      },
+      // Skills topics
+      skillsTopics: {
+        development: 'Desenvolvimento',
+        dataAndIntegrations: 'Dados e Integrações',
+        toolsCloudManagement: 'Ferramentas, Cloud e Gestão'
+      },
+      // Projects
+      projects: {
+        title: 'Projetos',
+        previous: 'Projeto anterior',
+        next: 'Próximo projeto',
+        goToProject: 'Ir para projeto'
+      },
+      // Resume
+      resume: {
+        title: 'Currículo',
+        academic: 'Formação Acadêmica',
+        engineering: 'Engenharia da Computação',
+        inProgress: 'Em andamento',
+        technicalKnowledge: 'Conhecimentos Técnicos',
+        development: 'Desenvolvimento',
+        developmentDesc: 'Front-end e Back-end, aplicações funcionais e responsivas',
+        dataAnalysis: 'Análise de Dados',
+        dataAnalysisDesc: 'Dashboards e visualizações com Power BI e Excel',
+        cloudSecurity: 'Cloud & Segurança',
+        cloudSecurityDesc: 'Cloudflare, performance e proteção de aplicações',
+        tools: 'Ferramentas',
+        toolsDesc: 'Git, GitHub, Figma, metodologias ágeis',
+        ai: 'Inteligência Artificial',
+        aiDesc: 'Automação e otimização de processos',
+        languages: 'Idiomas',
+        portuguese: 'Português',
+        english: 'Inglês',
+        native: 'Nativo',
+        advanced: 'Avançado',
+        downloadFull: 'Baixar Currículo Completo (PDF)',
+        downloadDesc: 'Versão completa com formação, habilidades, projetos e informações de contato.'
+      },
+      // Contact
+      contact: {
+        title: 'Contato',
+        subtitle: 'Estudante de Engenharia da Computação',
+        openTo: 'Estou aberta a oportunidades, estágios, projetos e conexões profissionais na área de tecnologia.',
+        name: 'Nome',
+        email: 'Email',
+        message: 'Mensagem',
+        send: 'Enviar',
+        fillAllFields: 'Por favor, preencha todos os campos do formulário.',
+        invalidEmail: 'Por favor, insira um endereço de email válido.',
+        emailSubject: 'Contato do Portfólio',
+        emailError: 'Não foi possível abrir o cliente de email. Por favor, envie um email diretamente para dutramaria165@gmail.com'
+      }
+    },
+    EN: {
+      // Header
+      header: {
+        development: 'Development',
+        available: 'I\'m available',
+        home: 'HOME',
+        about: 'ABOUT ME',
+        portfolio: 'PORTFOLIO',
+        resume: 'RESUME',
+        contact: 'CONTACT'
+      },
+      // Home/Hero
+      home: {
+        viewProjects: 'View Projects',
+        downloadResume: 'Download Resume',
+        subtitle: 'Full Stack Developer in training | Computer Engineering',
+        tags: {
+          frontend: 'Front-end',
+          backend: 'Back-end',
+          data: 'Data',
+          ai: 'AI'
+        },
+        description: 'I develop complete digital solutions, combining interface, logic, data and technology to solve real problems.'
+      },
+      // About
+      about: {
+        greeting: 'Hello, I\'m Maria Clara.',
+        paragraph1: 'I create complete digital solutions for ambitious, design-driven projects.',
+        paragraph2: 'Using cutting-edge technologies and robust, elegant code, I develop applications that combine interface, logic, data, and artificial intelligence to create impactful experiences.',
+        paragraph3: 'I work on both Front-end and Back-end, in addition to working with data analysis, cloud, interface design and artificial intelligence, always seeking efficient and well-structured solutions.',
+        paragraph4: 'I have an analytical profile, good organization and ease in learning new technologies, in addition to experience with administration and project management.',
+        closing: 'Thank you for exploring my portfolio.',
+        technicalSkills: 'Technical Skills'
+      },
+      // Skills topics
+      skillsTopics: {
+        development: 'Development',
+        dataAndIntegrations: 'Data and Integrations',
+        toolsCloudManagement: 'Tools, Cloud and Management'
+      },
+      // Projects
+      projects: {
+        title: 'Projects',
+        previous: 'Previous project',
+        next: 'Next project',
+        goToProject: 'Go to project'
+      },
+      // Resume
+      resume: {
+        title: 'Resume',
+        academic: 'Academic Background',
+        engineering: 'Computer Engineering',
+        inProgress: 'In progress',
+        technicalKnowledge: 'Technical Knowledge',
+        development: 'Development',
+        developmentDesc: 'Front-end and Back-end, functional and responsive applications',
+        dataAnalysis: 'Data Analysis',
+        dataAnalysisDesc: 'Dashboards and visualizations with Power BI and Excel',
+        cloudSecurity: 'Cloud & Security',
+        cloudSecurityDesc: 'Cloudflare, performance and application protection',
+        tools: 'Tools',
+        toolsDesc: 'Git, GitHub, Figma, agile methodologies',
+        ai: 'Artificial Intelligence',
+        aiDesc: 'Automation and process optimization',
+        languages: 'Languages',
+        portuguese: 'Portuguese',
+        english: 'English',
+        native: 'Native',
+        advanced: 'Advanced',
+        downloadFull: 'Download Full Resume (PDF)',
+        downloadDesc: 'Complete version with education, skills, projects and contact information.'
+      },
+      // Contact
+      contact: {
+        title: 'Contact',
+        subtitle: 'Computer Engineering Student',
+        openTo: 'I\'m open to opportunities, internships, projects and professional connections in the technology field.',
+        name: 'Name',
+        email: 'Email',
+        message: 'Message',
+        send: 'Send',
+        fillAllFields: 'Please fill in all form fields.',
+        invalidEmail: 'Please enter a valid email address.',
+        emailSubject: 'Portfolio Contact',
+        emailError: 'Unable to open email client. Please send an email directly to dutramaria165@gmail.com'
+      }
+    }
+  };
+
+  // Dados do About - Habilidades Técnicas organizadas por tópicos (português)
+  habilidadesPorTopicoPT = [
     {
       topico: 'Desenvolvimento',
       habilidades: [
@@ -110,10 +292,109 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
   ];
 
+  // Habilidades em inglês
+  habilidadesPorTopicoEN = [
+    {
+      topico: 'Development',
+      habilidades: [
+        {
+          nome: 'HTML5',
+          icon: '/assets/icons/html.png',
+          descricao: 'Semantic structuring of web pages, accessibility best practices and content organization.'
+        },
+        {
+          nome: 'JavaScript',
+          icon: '/assets/icons/js.png',
+          descricao: 'DOM manipulation, programming logic, events, validations and dynamic interactions on the front-end.'
+        },
+        {
+          nome: 'Python',
+          icon: '/assets/icons/python.png',
+          descricao: 'Programming logic, task automation, data manipulation and integration with other tools.'
+        },
+        {
+          nome: 'TypeScript',
+          icon: '/assets/icons/Type.webp',
+          descricao: 'Development with static typing, improving code quality and facilitating application maintenance.'
+        },
+        {
+          nome: 'Tailwind CSS',
+          icon: '/assets/icons/tailancss.png',
+          descricao: 'Utility CSS framework for creating modern and responsive interfaces with utility classes.'
+        }
+      ]
+    },
+    {
+      topico: 'Data and Integrations',
+      habilidades: [
+        {
+          nome: 'APIs & Integrations',
+          icon: '/assets/icons/js.png',
+          descricao: 'REST API consumption, front-end and back-end integration and external data manipulation.'
+        },
+        {
+          nome: 'Database (concepts)',
+          icon: '/assets/icons/sql.png',
+          descricao: 'Database concepts, information organization, basic queries and data structuring.'
+        },
+        {
+          nome: 'Power BI',
+          icon: '/assets/icons/powerbi.png',
+          descricao: 'Data analysis, processing and visualization through interactive dashboards and indicators.'
+        },
+        {
+          nome: 'Excel',
+          icon: '/assets/icons/excel.png',
+          descricao: 'Data analysis and organization, use of formulas, tables and charts to support decision making.'
+        },
+        {
+          nome: 'Supabase',
+          icon: '/assets/icons/supabase.png',
+          descricao: 'Backend-as-a-service platform with PostgreSQL database, authentication, storage and real-time APIs.'
+        }
+      ]
+    },
+    {
+      topico: 'Tools, Cloud and Management',
+      habilidades: [
+        {
+          nome: 'Cloudflare',
+          icon: '/assets/icons/cloudflare.png',
+          descricao: 'Cloud concepts, security, DNS, performance and web application protection.'
+        },
+        {
+          nome: 'Figma',
+          icon: '/assets/icons/figma.png',
+          descricao: 'Prototype creation, interface design and UI/UX concepts focused on user experience.'
+        },
+        {
+          nome: 'Git & GitHub',
+          icon: '/assets/icons/gitHub.png',
+          descricao: 'Code versioning, change control, repository organization and collaborative work with Git.'
+        },
+        {
+          nome: 'Artificial Intelligence',
+          icon: '/assets/icons/ia.png',
+          descricao: 'Using AI as a development support tool, task automation and increased productivity.'
+        },
+        {
+          nome: 'Project Administration',
+          icon: '/assets/icons/trabalho.png',
+          descricao: 'Planning, task organization, deadline tracking and collaborative work.'
+        },
+        {
+          nome: 'Agile Methodologies (concepts)',
+          icon: '/assets/icons/design.png',
+          descricao: 'Project organization using agile methodology concepts such as Scrum and Kanban.'
+        }
+      ]
+    }
+  ];
+
   atividades = [];
 
-  // Dados do Portfolio
-  projetos = [
+  // Dados do Portfolio em português
+  projetosPT = [
     {
       titulo: 'Aplicativo BrainHub',
       descricao: 'Nesse projeto mostrei meus conhecimentos, criando uma área de cadastro, login e a plataforma que tem por objetivo ser um app para estudantes.',
@@ -152,6 +433,63 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
   ];
 
+  // Projetos em inglês
+  projetosEN = [
+    {
+      titulo: 'BrainHub App',
+      descricao: 'In this project I demonstrated my skills by creating a registration area, login and a platform aimed at being an app for students.',
+      imagem: '/assets/img/brainhub.png',
+      link: 'https://github.com/dutra1904/BrainHub.git'
+    },
+    {
+      titulo: 'Task Manager',
+      descricao: 'A simple task manager built in C, with features to add, view, update, complete and delete completed tasks.',
+      imagem: '/assets/img/gerenciador-background.png',
+      link: 'https://github.com/dutra1904/gerenciador_de_tarefas.git'
+    },
+    {
+      titulo: 'Space Game',
+      descricao: 'This work presents the development of a space battle game, Stellar Clash, which uses advanced data structures such as lists, queues, trees and graphs.',
+      imagem: '/assets/img/batalha-background.png',
+      link: 'https://github.com/dutra1904/stellar_clash.git'
+    },
+    {
+      titulo: 'Flashcards',
+      descricao: 'Tool for studying with interactive and personalized cards.',
+      imagem: '/assets/img/flashcard-background.png',
+      link: 'https://dutra1904.github.io/flash_cards/'
+    },
+    {
+      titulo: 'Random Meal Generator',
+      descricao: 'This program displays a random meal obtained from TheMealDB API. When clicking the button, it fetches a new meal and displays the name, image, ingredients and preparation instructions. Additionally, if available, a YouTube video is embedded to assist in recipe preparation.',
+      imagem: '/assets/img/random-meal-background.png',
+      link: 'https://dutra1904.github.io/random-meal-generator/'
+    },
+    {
+      titulo: 'Simple Calculator',
+      descricao: 'A simple and stylish calculator with a unique purple theme, developed with HTML, CSS and JavaScript.',
+      imagem: '/assets/img/calculadora-background.png',
+      link: 'https://dutra1904.github.io/calculadora/'
+    }
+  ];
+
+  // Getters para retornar dados baseados no idioma atual
+  get habilidadesPorTopico() {
+    return this.currentLanguage === 'EN' ? this.habilidadesPorTopicoEN : this.habilidadesPorTopicoPT;
+  }
+
+  get projetos() {
+    return this.currentLanguage === 'EN' ? this.projetosEN : this.projetosPT;
+  }
+
+  get t() {
+    return this.translations[this.currentLanguage];
+  }
+
+  changeLanguage(lang: 'EN' | 'PT'): void {
+    this.currentLanguage = lang;
+  }
+
   // Dados do Resume
   curriculoPath = '/assets/Curriculo.pdf';
   curriculoNome = 'Maria_Clara_Curriculo.pdf';
@@ -163,6 +501,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   // Controle do carrossel de projetos
   projetoAtualIndex = 0;
+
 
   ngOnInit(): void {
     this.animarTitulos();
@@ -243,19 +582,19 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     // Validar campos antes de enviar
     if (!this.nome || !this.email || !this.mensagem) {
-      alert('Por favor, preencha todos os campos do formulário.');
+      alert(this.t.contact.fillAllFields);
       return;
     }
 
     // Validar formato do email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(this.email)) {
-      alert('Por favor, insira um endereço de email válido.');
+      alert(this.t.contact.invalidEmail);
       return;
     }
 
     // Criar link mailto
-    const assunto = encodeURIComponent('Contato do Portfólio');
+    const assunto = encodeURIComponent(this.t.contact.emailSubject);
     const corpo = encodeURIComponent(`Nome: ${this.nome}\nEmail: ${this.email}\n\nMensagem:\n${this.mensagem}`);
     const mailtoLink = `mailto:dutramaria165@gmail.com?subject=${assunto}&body=${corpo}`;
     
@@ -271,7 +610,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       }, 100);
     } catch (error) {
       console.error('Erro ao abrir cliente de email:', error);
-      alert('Não foi possível abrir o cliente de email. Por favor, envie um email diretamente para dutramaria165@gmail.com');
+      alert(this.t.contact.emailError);
     }
   }
 

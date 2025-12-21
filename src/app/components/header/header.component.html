@@ -10,31 +10,31 @@
         <ul [class.show]="menuOpen">
             <li>
                 <a (click)="scrollToSection('home')" [class.active]="activeSection === 'home'">
-                    HOME
+                    {{ translations.home }}
                 </a>
             </li>
             <li class="separator">|</li>
             <li>
                 <a (click)="scrollToSection('about')" [class.active]="activeSection === 'about'">
-                    SOBRE MIM
+                    {{ translations.about }}
                 </a>
             </li>
             <li class="separator">|</li>
             <li>
                 <a (click)="scrollToSection('work')" [class.active]="activeSection === 'work'">
-                    PORTFÓLIO
+                    {{ translations.portfolio }}
                 </a>
             </li>
             <li class="separator">|</li>
             <li>
                 <a (click)="scrollToSection('curriculo')" [class.active]="activeSection === 'curriculo'">
-                    CURRÍCULO
+                    {{ translations.resume }}
                 </a>
             </li>
             <li class="separator">|</li>
             <li>
                 <a (click)="scrollToSection('contato')" [class.active]="activeSection === 'contato'">
-                    CONTATO
+                    {{ translations.contact }}
                     <span class="arrow">↗</span>
                 </a>
             </li>
