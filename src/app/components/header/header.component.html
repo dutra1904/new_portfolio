@@ -1,12 +1,13 @@
 <header role="banner">
     <button 
         class="menu-toggle" 
+        [class.menu-open]="menuOpen"
         (click)="toggleMenu()"
         [attr.aria-expanded]="menuOpen"
-        aria-label="Abrir menu de navegação">
-        ☰
+        [attr.aria-label]="menuOpen ? 'Fechar menu de navegação' : 'Abrir menu de navegação'">
+        <span class="hamburger-icon">☰</span>
     </button>
-    <nav role="navigation" aria-label="Navegação principal" class="nav-pill">
+    <nav role="navigation" aria-label="Navegação principal" class="nav-pill" [class.show]="menuOpen">
         <ul [class.show]="menuOpen">
             <li>
                 <a (click)="scrollToSection('home')" [class.active]="activeSection === 'home'">

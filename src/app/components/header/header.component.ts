@@ -181,6 +181,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   @HostListener('window:scroll', [])
   onWindowScroll(): void {
+    // Fechar menu ao rolar em dispositivos móveis
+    if (this.menuOpen && window.innerWidth <= 768) {
+      this.menuOpen = false;
+    }
+
     // Detectar qual seção está visível
     const sections = ['home', 'about', 'work', 'curriculo', 'contato'];
     const scrollY = window.scrollY || window.pageYOffset;
