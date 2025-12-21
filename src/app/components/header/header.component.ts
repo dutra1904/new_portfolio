@@ -54,6 +54,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
       header.style.top = 'auto';
       header.style.opacity = '0';
       header.style.transform = 'translateY(0)';
+      header.style.display = 'flex';
+      header.style.justifyContent = 'center';
       
       // Calcular a posição inicial do header (altura da seção home)
       const homeSection = document.querySelector('#home');
@@ -79,24 +81,52 @@ export class HeaderComponent implements OnInit, OnDestroy {
     if (!headerElement) return;
 
     const header = headerElement as HTMLElement;
-    const headerRect = header.getBoundingClientRect();
+    const homeSection = document.querySelector('#home');
+    
+    if (!homeSection) return;
+    
+    const homeRect = homeSection.getBoundingClientRect();
+    const homeBottom = homeRect.bottom + scrollY;
+    const scrollHeaderContainer = document.querySelector('.scroll-header');
     
     // Calcular opacidade baseada na posição do scroll
     // Começa a aparecer quando começa a rolar
     const startFade = this.headerOffset * 0.2; // Começa a aparecer em 20% da altura da seção home
     const endFade = this.headerOffset * 0.6; // Aparece completamente em 60%
     
-    // Quando o header chega no topo da viewport
-    if (headerRect.top <= 0) {
-      // Header chegou no topo - fixar (se ainda não estiver fixo)
-      if (!this.isFixed) {
-        this.isFixed = true;
-        header.style.position = 'fixed';
-        header.style.top = '0';
-        header.style.width = '100%';
-        header.style.left = '0';
-        header.style.zIndex = '100';
+    // Se o scroll voltou para cima (antes do final da seção home), voltar header para posição relativa
+    if (scrollY < this.headerOffset * 0.85 && this.isFixed) {
+      this.isFixed = false;
+      header.style.position = 'relative';
+      header.style.top = 'auto';
+      header.style.width = 'auto';
+      header.style.left = 'auto';
+      header.style.display = 'flex';
+      header.style.justifyContent = 'center';
+      
+      // Recalcular opacidade baseada no scroll
+      if (scrollY < startFade) {
+        this.scrollOpacity = 0;
+      } else if (scrollY >= endFade) {
+        this.scrollOpacity = 1;
+      } else {
+        this.scrollOpacity = (scrollY - startFade) / (endFade - startFade);
       }
+      header.style.opacity = this.scrollOpacity.toString();
+      return;
+    }
+    
+    // Quando o header chega no topo da viewport e ainda não está fixo
+    if (homeBottom <= scrollY + 100 && !this.isFixed) {
+      // Header chegou no topo - fixar
+      this.isFixed = true;
+      header.style.position = 'fixed';
+      header.style.top = '20px';
+      header.style.width = '100%';
+      header.style.left = '0';
+      header.style.zIndex = '100';
+      header.style.display = 'flex';
+      header.style.justifyContent = 'center';
       // Opacidade total quando fixo
       this.scrollOpacity = 1;
       header.style.opacity = '1';
@@ -104,6 +134,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
       // Header ainda está subindo com o conteúdo (apenas se não estiver fixo)
       header.style.position = 'relative';
       header.style.top = 'auto';
+      header.style.display = 'flex';
+      header.style.justifyContent = 'center';
       
       if (scrollY < startFade) {
         this.scrollOpacity = 0;

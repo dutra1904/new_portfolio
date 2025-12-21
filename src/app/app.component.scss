@@ -1,8 +1,10 @@
 /* Estilos globais do app component */
 main {
   min-height: calc(100vh - 200px);
-  background: #0a0a0a;
+  background: transparent;
   color: #e5e5e5;
+  position: relative;
+  z-index: 2;
   
   &.no-header {
     min-height: 100vh;
