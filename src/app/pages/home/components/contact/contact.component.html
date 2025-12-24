@@ -1,0 +1,70 @@
+<div class="tab-content">
+  <div class="title-tabs-wrapper">
+    <h2 class="tab-title">{{ translations?.contact?.title }}</h2>
+    <div class="tabs-navigation-content">
+      <button 
+        class="tab-button-content" 
+        [class.active]="isActiveTab('about')"
+        (click)="setActiveTab('about')">
+        {{ translations?.header?.about }}
+      </button>
+      <button 
+        class="tab-button-content" 
+        [class.active]="isActiveTab('portfolio')"
+        (click)="setActiveTab('portfolio')">
+        {{ translations?.header?.portfolio }}
+      </button>
+      <button 
+        class="tab-button-content" 
+        [class.active]="isActiveTab('resume')"
+        (click)="setActiveTab('resume')">
+        {{ translations?.header?.resume }}
+      </button>
+      <button 
+        class="tab-button-content" 
+        [class.active]="isActiveTab('contact')"
+        (click)="setActiveTab('contact')">
+        {{ translations?.header?.contact }}
+      </button>
+    </div>
+  </div>
+  <div class="contact-text">
+    <p>{{ translations?.contact?.openTo }}</p>
+  </div>
+  <form (ngSubmit)="enviarMensagem($event)" [attr.aria-label]="translations?.contact?.title + ' form'" class="contact-form">
+    <div class="form-row-inputs">
+      <label for="nome" class="sr-only">{{ translations?.contact?.name }}</label>
+      <input 
+        type="text" 
+        id="nome" 
+        name="name" 
+        [(ngModel)]="nome"
+        [placeholder]="translations?.contact?.name" 
+        required 
+        aria-required="true">
+      
+      <label for="email" class="sr-only">{{ translations?.contact?.email }}</label>
+      <input 
+        type="email" 
+        id="email" 
+        name="email" 
+        [(ngModel)]="email"
+        [placeholder]="translations?.contact?.email" 
+        required 
+        aria-required="true">
+    </div>
+    
+    <label for="mensagem" class="sr-only">{{ translations?.contact?.message }}</label>
+    <textarea 
+      id="mensagem" 
+      name="message" 
+      [(ngModel)]="mensagem"
+      [placeholder]="translations?.contact?.message" 
+      required 
+      aria-required="true"></textarea>
+    
+    <button type="submit" class="send-btn">{{ translations?.contact?.send }}</button>
+  </form>
+</div>
+
+
