@@ -1,13 +1,16 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { HeaderComponent } from '../../components/header/header.component';
+import { AboutMeComponent } from './components/about-me/about-me.component';
+import { PortfolioComponent } from './components/portfolio/portfolio.component';
+import { ResumeComponent } from './components/resume/resume.component';
+import { ContactComponent } from './components/contact/contact.component';
 //import { SignaturePad } from 'signature_pad'; 
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, FormsModule, HeaderComponent],
+  imports: [CommonModule, FormsModule, AboutMeComponent, PortfolioComponent, ResumeComponent, ContactComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
@@ -59,14 +62,14 @@ export class HomeComponent implements OnInit, OnDestroy {
       },
       // Projects
       projects: {
-        title: 'Projetos',
+        title: 'PORTFÓLIO',
         previous: 'Projeto anterior',
         next: 'Próximo projeto',
         goToProject: 'Ir para projeto'
       },
       // Resume
       resume: {
-        title: 'Currículo',
+        title: 'CURRÍCULO',
         academic: 'Formação Acadêmica',
         engineering: 'Engenharia da Computação',
         inProgress: 'Em andamento',
@@ -91,8 +94,10 @@ export class HomeComponent implements OnInit, OnDestroy {
       },
       // Contact
       contact: {
-        title: 'Contato',
+        title: 'CONTATO',
         subtitle: 'Estudante de Engenharia da Computação',
+        birthYear: '2005',
+        bornIn: 'Nascido em:',
         openTo: 'Estou aberta a oportunidades, estágios, projetos e conexões profissionais na área de tecnologia.',
         name: 'Nome',
         email: 'Email',
@@ -146,14 +151,14 @@ export class HomeComponent implements OnInit, OnDestroy {
       },
       // Projects
       projects: {
-        title: 'Projects',
+        title: 'PORTFOLIO',
         previous: 'Previous project',
         next: 'Next project',
         goToProject: 'Go to project'
       },
       // Resume
       resume: {
-        title: 'Resume',
+        title: 'RESUME',
         academic: 'Academic Background',
         engineering: 'Computer Engineering',
         inProgress: 'In progress',
@@ -178,8 +183,10 @@ export class HomeComponent implements OnInit, OnDestroy {
       },
       // Contact
       contact: {
-        title: 'Contact',
+        title: 'CONTACT',
         subtitle: 'Computer Engineering Student',
+        birthYear: '2005',
+        bornIn: 'Born in:',
         openTo: 'I\'m open to opportunities, internships, projects and professional connections in the technology field.',
         name: 'Name',
         email: 'Email',
@@ -396,16 +403,16 @@ export class HomeComponent implements OnInit, OnDestroy {
   // Dados do Portfolio em português
   projetosPT = [
     {
-      titulo: 'Aplicativo BrainHub',
-      descricao: 'Nesse projeto mostrei meus conhecimentos, criando uma área de cadastro, login e a plataforma que tem por objetivo ser um app para estudantes.',
-      imagem: 'assets/img/brainhub.png',
-      link: 'https://github.com/dutra1904/BrainHub.git'
-    },
-    {
       titulo: 'Gerenciador de Tarefas',
       descricao: 'Um simples gerenciador de tarefas feito em C, com funcionalidades para adicionar, visualizar, atualizar, completar e excluir tarefas concluídas.',
       imagem: 'assets/img/gerenciador-background.png',
       link: 'https://github.com/dutra1904/gerenciador_de_tarefas.git'
+    },
+    {
+      titulo: 'Aplicativo BrainHub',
+      descricao: 'Nesse projeto mostrei meus conhecimentos, criando uma área de cadastro, login e a plataforma que tem por objetivo ser um app para estudantes.',
+      imagem: 'assets/img/brainhub.png',
+      link: 'https://github.com/dutra1904/BrainHub.git'
     },
     {
       titulo: 'Jogo Espacial',
@@ -436,16 +443,16 @@ export class HomeComponent implements OnInit, OnDestroy {
   // Projetos em inglês
   projetosEN = [
     {
-      titulo: 'BrainHub App',
-      descricao: 'In this project I demonstrated my skills by creating a registration area, login and a platform aimed at being an app for students.',
-      imagem: 'assets/img/brainhub.png',
-      link: 'https://github.com/dutra1904/BrainHub.git'
-    },
-    {
       titulo: 'Task Manager',
       descricao: 'A simple task manager built in C, with features to add, view, update, complete and delete completed tasks.',
       imagem: 'assets/img/gerenciador-background.png',
       link: 'https://github.com/dutra1904/gerenciador_de_tarefas.git'
+    },
+    {
+      titulo: 'BrainHub App',
+      descricao: 'In this project I demonstrated my skills by creating a registration area, login and a platform aimed at being an app for students.',
+      imagem: 'assets/img/brainhub.png',
+      link: 'https://github.com/dutra1904/BrainHub.git'
     },
     {
       titulo: 'Space Game',
@@ -494,18 +501,69 @@ export class HomeComponent implements OnInit, OnDestroy {
   curriculoPath = 'assets/Curriculo.pdf';
   curriculoNome = 'Maria_Clara_Curriculo.pdf';
 
-  // Dados do Contact
-  nome = '';
-  email = '';
-  mensagem = '';
 
   // Controle do carrossel de projetos
   projetoAtualIndex = 0;
+
+  // Controle de tabs
+  activeTab: 'about' | 'portfolio' | 'resume' | 'contact' = 'about';
+
+  setActiveTab(tab: 'about' | 'portfolio' | 'resume' | 'contact'): void {
+    this.activeTab = tab;
+  }
+
+  isActiveTab(tab: 'about' | 'portfolio' | 'resume' | 'contact'): boolean {
+    return this.activeTab === tab;
+  }
 
 
   ngOnInit(): void {
     this.animarTitulos();
     this.observarAssinatura();
+    this.detectarHashEAtivarTab();
+    this.prevenirScrollEmIcones();
+    
+    // Escutar mudanças no hash da URL
+    window.addEventListener('hashchange', () => {
+      this.detectarHashEAtivarTab();
+    });
+  }
+
+  private detectarHashEAtivarTab(): void {
+    const hash = window.location.hash;
+    if (hash === '#work' || hash === '#portfolio') {
+      this.setActiveTab('portfolio');
+      setTimeout(() => {
+        const element = document.getElementById('about');
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    } else if (hash === '#curriculo' || hash === '#resume') {
+      this.setActiveTab('resume');
+      setTimeout(() => {
+        const element = document.getElementById('about');
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    } else if (hash === '#contato' || hash === '#contact') {
+      this.setActiveTab('contact');
+      setTimeout(() => {
+        const element = document.getElementById('about');
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    } else if (hash === '#about') {
+      this.setActiveTab('about');
+      setTimeout(() => {
+        const element = document.getElementById('about');
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    }
   }
 
   projetoAnterior(): void {
@@ -570,44 +628,37 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
   }
 
+  scrollToNextSection(): void {
+    // Rola para a seção "about" que é a próxima seção
+    this.scrollToSection('about');
+  }
+
   abrirProjeto(link: string): void {
     window.open(link, '_blank');
   }
 
-  enviarMensagem(event?: Event): void {
-    // Prevenir comportamento padrão do formulário
-    if (event) {
-      event.preventDefault();
-    }
-
+  enviarMensagem(data: {nome: string, email: string, mensagem: string}): void {
     // Validar campos antes de enviar
-    if (!this.nome || !this.email || !this.mensagem) {
+    if (!data.nome || !data.email || !data.mensagem) {
       alert(this.t.contact.fillAllFields);
       return;
     }
 
     // Validar formato do email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(this.email)) {
+    if (!emailRegex.test(data.email)) {
       alert(this.t.contact.invalidEmail);
       return;
     }
 
     // Criar link mailto
     const assunto = encodeURIComponent(this.t.contact.emailSubject);
-    const corpo = encodeURIComponent(`Nome: ${this.nome}\nEmail: ${this.email}\n\nMensagem:\n${this.mensagem}`);
+    const corpo = encodeURIComponent(`Nome: ${data.nome}\nEmail: ${data.email}\n\nMensagem:\n${data.mensagem}`);
     const mailtoLink = `mailto:dutramaria165@gmail.com?subject=${assunto}&body=${corpo}`;
     
     // Abrir cliente de email
     try {
       window.location.href = mailtoLink;
-      
-      // Limpar formulário após um pequeno delay
-      setTimeout(() => {
-        this.nome = '';
-        this.email = '';
-        this.mensagem = '';
-      }, 100);
     } catch (error) {
       console.error('Erro ao abrir cliente de email:', error);
       alert(this.t.contact.emailError);
@@ -631,5 +682,56 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     window.addEventListener('scroll', verificarScroll);
     verificarScroll();
+    
+    // Prevenir que scroll interfira com cliques nos ícones sociais
+    this.prevenirScrollEmIcones();
+  }
+
+  private prevenirScrollEmIcones(): void {
+    // Aguardar o DOM estar pronto
+    setTimeout(() => {
+      const icons = document.querySelectorAll('.sidebar-left .social-icons .icon');
+      const sidebarContent = document.querySelector('.sidebar-content');
+      
+      icons.forEach((icon) => {
+        // Prevenir que eventos de toque iniciem scroll no container
+        icon.addEventListener('touchstart', (e) => {
+          e.stopPropagation();
+        }, { passive: false });
+        
+        icon.addEventListener('touchmove', (e) => {
+          e.stopPropagation();
+          e.preventDefault(); // Prevenir scroll durante o movimento
+        }, { passive: false });
+        
+        icon.addEventListener('touchend', (e) => {
+          e.stopPropagation();
+        }, { passive: false });
+        
+        // Prevenir que mouse wheel inicie scroll quando sobre o ícone
+        icon.addEventListener('wheel', (e) => {
+          e.stopPropagation();
+        }, { passive: false });
+        
+        // Prevenir que mousedown inicie scroll
+        icon.addEventListener('mousedown', (e) => {
+          e.stopPropagation();
+        });
+        
+        // Garantir que cliques funcionem - não prevenir default para permitir navegação
+        icon.addEventListener('click', (e) => {
+          e.stopPropagation();
+          // O link já vai navegar naturalmente, só precisamos prevenir que o scroll interfira
+        }, true); // Usar capture phase para garantir que seja executado primeiro
+      });
+      
+      // Prevenir scroll quando o mouse está sobre os ícones
+      const socialIconsContainer = document.querySelector('.sidebar-left .social-icons');
+      if (socialIconsContainer && sidebarContent) {
+        socialIconsContainer.addEventListener('wheel', (e) => {
+          e.stopPropagation();
+        }, { passive: false });
+      }
+    }, 100);
   }
 }

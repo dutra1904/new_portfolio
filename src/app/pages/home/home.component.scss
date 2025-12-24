@@ -447,6 +447,68 @@
   }
 }
 
+// Seta para baixo indicando scroll
+.scroll-down-arrow {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(168, 85, 247, 0.1);
+  border: 2px solid rgba(168, 85, 247, 0.3);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+  animation: bounceArrow 2s ease-in-out infinite;
+  
+  i {
+    font-size: 1.5rem;
+    color: #a855f7;
+    transition: all 0.3s ease;
+  }
+  
+  &:hover {
+    background: rgba(168, 85, 247, 0.2);
+    border-color: rgba(168, 85, 247, 0.5);
+    transform: translateX(-50%) translateY(-5px);
+    box-shadow: 0 4px 20px rgba(168, 85, 247, 0.3);
+    
+    i {
+      color: #ec4899;
+      transform: scale(1.1);
+    }
+  }
+  
+  &:active {
+    transform: translateX(-50%) translateY(-2px);
+  }
+  
+  @media (max-width: 768px) {
+    width: 45px;
+    height: 45px;
+    bottom: 30px;
+    
+    i {
+      font-size: 1.3rem;
+    }
+  }
+}
+
+@keyframes bounceArrow {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(10px);
+  }
+}
+
 
 // Seções de conteúdo
 .content-section {
@@ -516,67 +578,115 @@
       text-align: center;
     }
     
-    form {
+    form,
+    .contact-form {
       display: flex;
       flex-direction: column;
-      gap: 15px;
+      gap: 24px;
+      
+      .form-row-inputs {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        
+        @media (max-width: 768px) {
+          grid-template-columns: 1fr;
+        }
+      }
       
       input,
       textarea {
         width: 100%;
-        padding: 12px 16px;
-        border-radius: 8px;
-        border: 1px solid rgba(168, 85, 247, 0.2);
-        background: rgba(24, 24, 24, 0.8);
+        padding: 16px 20px;
+        border-radius: 12px;
+        border: 2px solid rgba(168, 85, 247, 0.3);
+        background: rgba(18, 18, 18, 0.9);
         color: #e5e5e5;
-        font-size: 15px;
+        font-size: 1rem;
         transition: all 0.3s ease;
         font-family: 'Inter', sans-serif;
+        box-sizing: border-box;
+        backdrop-filter: blur(10px);
         
         &::placeholder {
           color: #888;
+          opacity: 0.8;
         }
         
         &:focus {
           outline: none;
-          border-color: rgba(168, 85, 247, 0.5);
-          background: rgba(30, 30, 30, 0.9);
-          box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.1);
+          border-color: rgba(168, 85, 247, 0.7);
+          background: rgba(24, 24, 24, 0.95);
+          box-shadow: 
+            0 0 0 4px rgba(168, 85, 247, 0.15),
+            0 4px 20px rgba(168, 85, 247, 0.2);
+          transform: translateY(-2px);
+        }
+        
+        &:hover:not(:focus) {
+          border-color: rgba(168, 85, 247, 0.4);
+          background: rgba(20, 20, 20, 0.95);
         }
       }
       
       textarea {
-        height: 150px;
+        height: 180px;
         resize: vertical;
-        min-height: 120px;
+        min-height: 150px;
+        font-family: 'Inter', sans-serif;
+        line-height: 1.6;
       }
       
       .send-btn {
-        width: 100%;
-        padding: 14px 20px;
+        align-self: flex-end;
+        padding: 14px 36px;
         background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
         color: #ffffff;
         border: none;
-        border-radius: 8px;
+        border-radius: 12px;
         cursor: pointer;
-        font-size: 16px;
+        font-size: 1rem;
         font-weight: 600;
         transition: all 0.3s ease;
         font-family: 'Inter', sans-serif;
         margin-top: 10px;
         box-shadow: 
-          0 4px 20px rgba(168, 85, 247, 0.3),
-          0 0 0 0 1px rgba(168, 85, 247, 0.1) inset;
+          0 4px 20px rgba(168, 85, 247, 0.4),
+          0 0 0 1px rgba(168, 85, 247, 0.2) inset;
+        position: relative;
+        overflow: hidden;
+        
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+          transition: left 0.5s;
+        }
         
         &:hover {
-          transform: translateY(-2px);
+          transform: translateY(-3px);
           box-shadow: 
-            0 8px 30px rgba(168, 85, 247, 0.4),
-            0 0 0 1px rgba(168, 85, 247, 0.2) inset;
+            0 8px 30px rgba(168, 85, 247, 0.5),
+            0 0 0 1px rgba(168, 85, 247, 0.3) inset;
+          
+          &::before {
+            left: 100%;
+          }
         }
         
         &:active {
-          transform: translateY(0);
+          transform: translateY(-1px);
+        }
+        
+        &:focus {
+          outline: none;
+          box-shadow: 
+            0 0 0 4px rgba(168, 85, 247, 0.3),
+            0 8px 30px rgba(168, 85, 247, 0.5);
         }
       }
     }
@@ -630,6 +740,722 @@
   
   .intro-title {
     margin-bottom: 30px;
+  }
+}
+
+// ==========================================
+// ESTILOS PARA LAYOUT COM TABS
+// ==========================================
+
+.tabs-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  position: relative;
+  z-index: 2;
+  min-height: calc(100vh - 80px);
+}
+
+
+// Container principal com duas colunas
+.tabs-content-wrapper {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 40px;
+  align-items: start;
+  min-height: calc(100vh - 80px);
+  max-height: calc(100vh - 80px);
+  
+  @media (max-width: 1024px) {
+    grid-template-columns: 280px 1fr;
+    gap: 30px;
+  }
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    min-height: calc(100vh - 80px);
+    max-height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: column;
+    
+    .sidebar-left {
+      order: 2;
+      flex: 0 0 auto;
+    }
+    
+    .content-right {
+      order: 1;
+      flex: 1 1 auto;
+    }
+  }
+}
+
+// Sidebar esquerda
+.sidebar-left {
+  position: sticky;
+  top: 40px;
+  background: rgba(18, 18, 18, 0.6);
+  border: 1px solid rgba(168, 85, 247, 0.2);
+  border-radius: 16px;
+  padding: 30px;
+  backdrop-filter: blur(10px);
+  max-height: calc(100vh - 80px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  pointer-events: auto;
+  z-index: 5;
+  
+  @media (max-width: 768px) {
+    position: relative;
+    top: 0;
+    order: 2;
+    max-height: 400px;
+    height: auto;
+    overflow: hidden;
+  }
+  
+  @media (max-width: 480px) {
+    max-height: 350px;
+  }
+}
+
+.sidebar-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  padding-right: 10px;
+  position: relative;
+  
+  // Prevenir que o scroll interfira com cliques em elementos interativos
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  
+  // Estilizar scrollbar
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: rgba(168, 85, 247, 0.1);
+    border-radius: 10px;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: rgba(168, 85, 247, 0.3);
+    border-radius: 10px;
+    
+    &:hover {
+      background: rgba(168, 85, 247, 0.5);
+    }
+  }
+  
+  // Garantir que elementos interativos sejam sempre clicáveis
+  a, button {
+    position: relative;
+    z-index: 10;
+    pointer-events: auto;
+    touch-action: manipulation;
+  }
+  
+  // Prevenir que o scroll interfira com cliques em ícones
+  .social-icons {
+    // Isolar completamente do scroll - não permitir scroll nesta área
+    position: sticky;
+    bottom: 0;
+    z-index: 1000;
+    pointer-events: auto;
+    margin-top: 0;
+    padding-top: 0;
+    background: linear-gradient(to top, rgba(18, 18, 18, 0.95) 0%, rgba(18, 18, 18, 0.8) 70%, transparent 100%);
+    
+    .icon {
+      touch-action: manipulation !important;
+      -ms-touch-action: manipulation !important;
+      // Prevenir que scroll capture eventos
+      -webkit-tap-highlight-color: rgba(168, 85, 247, 0.3);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    overflow-y: auto;
+    padding-right: 10px;
+    max-height: 100%;
+  }
+}
+
+.sidebar-photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(168, 85, 247, 0.3);
+  margin: 0 auto 20px auto;
+  box-shadow: 0 4px 20px rgba(168, 85, 247, 0.2);
+  
+  @media (max-width: 768px) {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+.sidebar-name {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 auto 10px auto;
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+  width: 100%;
+  
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
+}
+
+.sidebar-subtitle {
+  font-size: 0.95rem;
+  color: #b0b0b0;
+  margin-bottom: 30px;
+  font-weight: 500;
+}
+
+.contact-info {
+  width: 100%;
+  margin-bottom: 10px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.contact-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+  align-items: flex-start;
+  width: 100%;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.contact-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  text-align: left;
+  
+  i {
+    font-size: 0.9rem;
+    color: #a855f7;
+    flex-shrink: 0;
+  }
+}
+
+.contact-value {
+  font-size: 0.95rem;
+  color: #e5e5e5;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  text-align: left;
+  width: 100%;
+  display: block;
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;
+  cursor: pointer;
+  
+  &:hover {
+    color: #a855f7;
+  }
+  
+  // Para valores que não são links
+  &:not(a) {
+    cursor: default;
+    pointer-events: none;
+    
+    &:hover {
+      color: #e5e5e5;
+    }
+  }
+  
+  // Garantir que links sejam sempre clicáveis
+  &[href] {
+    pointer-events: auto;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+}
+
+.sidebar-left .social-icons {
+  margin-top: 0 !important;
+  justify-content: flex-start;
+  width: 100%;
+  position: relative;
+  z-index: 10000 !important;
+  pointer-events: auto !important;
+  isolation: isolate;
+  transform: translateZ(0);
+  flex-shrink: 0; // Não encolher
+  
+  .icon {
+    width: 45px;
+    height: 45px;
+    position: relative;
+    z-index: 10001 !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation !important;
+    -ms-touch-action: manipulation !important;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    outline: none;
+    transform: translateZ(0);
+    will-change: transform;
+    text-decoration: none;
+    // Forçar que seja clicável
+    -webkit-tap-highlight-color: rgba(168, 85, 247, 0.5);
+    
+    i {
+      font-size: 1.6rem;
+      pointer-events: none;
+      position: relative;
+      z-index: 1;
+    }
+    
+    // Garantir que o link funcione - sobrescrever qualquer estilo
+    &[href] {
+      pointer-events: auto !important;
+      cursor: pointer !important;
+      display: inline-flex !important;
+      position: relative !important;
+      z-index: 10001 !important;
+    }
+    
+    // Prevenir scroll quando clicar
+    &:active,
+    &:focus,
+    &:hover {
+      touch-action: none !important;
+      pointer-events: auto !important;
+    }
+    
+    &:focus {
+      outline: 2px solid rgba(168, 85, 247, 0.5);
+      outline-offset: 2px;
+      border-radius: 50%;
+    }
+  }
+}
+
+// Conteúdo direito
+.content-right {
+  min-height: 500px;
+  max-height: calc(100vh - 80px);
+  background: rgba(18, 18, 18, 0.4);
+  border: 1px solid rgba(168, 85, 247, 0.2);
+  border-radius: 16px;
+  padding: 40px;
+  backdrop-filter: blur(10px);
+  text-align: left;
+  overflow-y: auto;
+  overflow-x: hidden;
+  
+  // Estilizar scrollbar
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: rgba(168, 85, 247, 0.1);
+    border-radius: 10px;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: rgba(168, 85, 247, 0.3);
+    border-radius: 10px;
+    
+    &:hover {
+      background: rgba(168, 85, 247, 0.5);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    padding: 30px 20px;
+    order: 1;
+    max-height: none;
+    min-height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    flex: 1 1 auto;
+  }
+  
+  @media (max-width: 480px) {
+    min-height: 300px;
+    padding: 20px 15px;
+  }
+}
+
+.tab-content {
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.title-tabs-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+}
+
+.tab-title {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  flex-shrink: 0;
+  position: relative;
+  padding-bottom: 8px;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #a855f7, #ec4899);
+    border-radius: 2px;
+  }
+}
+
+// Tabs ao lado do título - estilo de barra horizontal
+.tabs-navigation-content {
+  display: flex;
+  gap: 0;
+  flex-wrap: wrap;
+  align-items: center;
+  background: rgba(24, 24, 24, 0.6);
+  border-radius: 8px;
+  padding: 4px;
+  border: 1px solid rgba(168, 85, 247, 0.1);
+  
+  @media (max-width: 768px) {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+.tab-button-content {
+  padding: 10px 20px;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  color: #b0b0b0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+  white-space: nowrap;
+  position: relative;
+  
+  &:hover {
+    color: #e5e5e5;
+    background: rgba(168, 85, 247, 0.05);
+  }
+  
+  &.active {
+    color: #a855f7;
+    background: rgba(168, 85, 247, 0.15);
+    box-shadow: 0 2px 8px rgba(168, 85, 247, 0.2);
+  }
+  
+  @media (max-width: 768px) {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    flex: 1;
+    text-align: center;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+  }
+}
+
+// Estilos para conteúdo About
+.tab-content .about-text,
+.content-right .about-text {
+  font-size: 1.2rem !important;
+  line-height: 1.7 !important;
+  color: #e5e5e5 !important;
+  margin-bottom: 40px !important;
+  text-align: left !important;
+  padding: 60px 50px !important;
+  min-height: 450px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  background: rgba(24, 24, 24, 0.5) !important;
+  border: 1px solid rgba(168, 85, 247, 0.1) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+  
+  p {
+    margin-bottom: 40px !important;
+    line-height: 1.7 !important;
+    font-family: 'Inter', sans-serif !important;
+    text-align: left !important;
+    
+    &:first-child {
+      font-size: 1.3rem !important;
+      font-weight: 500 !important;
+      color: #ffffff !important;
+    }
+    
+    &:last-child {
+      margin-bottom: 0 !important;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    padding: 40px 30px !important;
+    min-height: 350px !important;
+    font-size: 1.1rem !important;
+    
+    p {
+      margin-bottom: 30px !important;
+    }
+  }
+}
+
+.tab-content .skills-title,
+.content-right .skills-title {
+  font-size: 2.5rem !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  margin: 40px 0 30px 0 !important;
+  font-family: 'Inter', sans-serif !important;
+  text-align: center !important;
+  
+  @media (max-width: 768px) {
+    font-size: 2rem !important;
+  }
+}
+
+// Estilos para conteúdo Resume
+.resume-content-wrapper {
+  width: 100%;
+  text-align: left;
+  
+  .resume-section,
+  .resume-content,
+  .resume-subsection,
+  .resume-item,
+  .resume-skills,
+  .skill-category,
+  .resume-languages,
+  .language-item {
+    text-align: left;
+  }
+  
+  h3, h4, p {
+    text-align: left;
+  }
+}
+
+// Estilos para conteúdo Contact
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0;
+  
+  .form-row-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  input,
+  textarea {
+    width: 100%;
+    padding: 16px 20px;
+    border-radius: 12px;
+    border: 2px solid rgba(168, 85, 247, 0.3);
+    background: rgba(18, 18, 18, 0.9);
+    color: #e5e5e5;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+    box-sizing: border-box;
+    backdrop-filter: blur(10px);
+    
+    &::placeholder {
+      color: #888;
+      opacity: 0.8;
+    }
+    
+    &:focus {
+      outline: none;
+      border-color: rgba(168, 85, 247, 0.7);
+      background: rgba(24, 24, 24, 0.95);
+      box-shadow: 
+        0 0 0 4px rgba(168, 85, 247, 0.15),
+        0 4px 20px rgba(168, 85, 247, 0.2);
+      transform: translateY(-2px);
+    }
+    
+    &:hover:not(:focus) {
+      border-color: rgba(168, 85, 247, 0.4);
+      background: rgba(20, 20, 20, 0.95);
+    }
+  }
+  
+  textarea {
+    height: 180px;
+    resize: vertical;
+    min-height: 150px;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+  }
+  
+  .send-btn {
+    align-self: flex-end;
+    padding: 14px 36px;
+    background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+    margin-top: 10px;
+    box-shadow: 
+      0 4px 20px rgba(168, 85, 247, 0.4),
+      0 0 0 1px rgba(168, 85, 247, 0.2) inset;
+    position: relative;
+    overflow: hidden;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s;
+    }
+    
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 
+        0 8px 30px rgba(168, 85, 247, 0.5),
+        0 0 0 1px rgba(168, 85, 247, 0.3) inset;
+      
+      &::before {
+        left: 100%;
+      }
+    }
+    
+    &:active {
+      transform: translateY(-1px);
+    }
+    
+    &:focus {
+      outline: none;
+      box-shadow: 
+        0 0 0 4px rgba(168, 85, 247, 0.3),
+        0 8px 30px rgba(168, 85, 247, 0.5);
+    }
+  }
+}
+
+.tab-content .contact-text,
+.content-right .contact-text {
+  font-size: 1.2rem !important;
+  color: #b8b8b8 !important;
+  line-height: 2.4 !important;
+  margin-bottom: 40px !important;
+  text-align: left !important;
+  max-width: 100% !important;
+  padding: 60px 50px !important;
+  min-height: 450px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  background: rgba(24, 24, 24, 0.5) !important;
+  border: 1px solid rgba(168, 85, 247, 0.1) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+  
+  p {
+    margin-bottom: 40px !important;
+    line-height: 2.4 !important;
+    
+    &:last-child {
+      margin-bottom: 0 !important;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    padding: 40px 30px !important;
+    min-height: 350px !important;
+    font-size: 1.1rem !important;
+    
+    p {
+      margin-bottom: 30px !important;
+    }
   }
 }
 

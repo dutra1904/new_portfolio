@@ -1,0 +1,98 @@
+<div class="tab-content">
+  <div class="title-tabs-wrapper">
+    <h2 class="tab-title">{{ translations?.resume?.title }}</h2>
+    <div class="tabs-navigation-content">
+      <button 
+        class="tab-button-content" 
+        [class.active]="isActiveTab('about')"
+        (click)="setActiveTab('about')">
+        {{ translations?.header?.about }}
+      </button>
+      <button 
+        class="tab-button-content" 
+        [class.active]="isActiveTab('portfolio')"
+        (click)="setActiveTab('portfolio')">
+        {{ translations?.header?.portfolio }}
+      </button>
+      <button 
+        class="tab-button-content" 
+        [class.active]="isActiveTab('resume')"
+        (click)="setActiveTab('resume')">
+        {{ translations?.header?.resume }}
+      </button>
+      <button 
+        class="tab-button-content" 
+        [class.active]="isActiveTab('contact')"
+        (click)="setActiveTab('contact')">
+        {{ translations?.header?.contact }}
+      </button>
+    </div>
+  </div>
+  <div class="resume-content-wrapper">
+    <div class="resume-section unified-resume">
+      <div class="resume-content">
+        <!-- Formação -->
+        <div class="resume-subsection">
+          <h3 class="resume-section-title">{{ translations?.resume?.academic }}</h3>
+          <div class="resume-item">
+            <h4>{{ translations?.resume?.engineering }}</h4>
+            <p class="resume-status">{{ translations?.resume?.inProgress }}</p>
+          </div>
+        </div>
+
+        <!-- Conhecimentos Técnicos -->
+        <div class="resume-subsection">
+          <h3 class="resume-section-title">{{ translations?.resume?.technicalKnowledge }}</h3>
+          <div class="resume-skills">
+            <div class="skill-category">
+              <h4>{{ translations?.resume?.development }}</h4>
+              <p>{{ translations?.resume?.developmentDesc }}</p>
+            </div>
+            <div class="skill-category">
+              <h4>{{ translations?.resume?.dataAnalysis }}</h4>
+              <p>{{ translations?.resume?.dataAnalysisDesc }}</p>
+            </div>
+            <div class="skill-category">
+              <h4>{{ translations?.resume?.cloudSecurity }}</h4>
+              <p>{{ translations?.resume?.cloudSecurityDesc }}</p>
+            </div>
+            <div class="skill-category">
+              <h4>{{ translations?.resume?.tools }}</h4>
+              <p>{{ translations?.resume?.toolsDesc }}</p>
+            </div>
+            <div class="skill-category">
+              <h4>{{ translations?.resume?.ai }}</h4>
+              <p>{{ translations?.resume?.aiDesc }}</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Idiomas -->
+        <div class="resume-subsection">
+          <h3 class="resume-section-title">{{ translations?.resume?.languages }}</h3>
+          <div class="resume-languages">
+            <div class="language-item">
+              <span class="language-name">{{ translations?.resume?.portuguese }}</span>
+              <span class="language-level">{{ translations?.resume?.native }}</span>
+            </div>
+            <div class="language-item">
+              <span class="language-name">{{ translations?.resume?.english }}</span>
+              <span class="language-level">{{ translations?.resume?.advanced }}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Download -->
+        <div class="resume-subsection resume-download">
+          <a [href]="curriculoPath" [download]="curriculoNome" class="btn-download" [attr.aria-label]="translations?.resume?.downloadFull">
+            <span>📄</span>
+            {{ translations?.resume?.downloadFull }}
+          </a>
+          <p class="download-description">{{ translations?.resume?.downloadDesc }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
