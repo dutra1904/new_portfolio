@@ -164,8 +164,32 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   scrollToSection(sectionId: string): void {
     this.menuOpen = false; // Fechar menu ao clicar
-    const element = document.getElementById(sectionId);
+    
+    // Mapear seções antigas para a nova estrutura com tabs
+    const sectionMap: { [key: string]: string } = {
+      'work': 'about',
+      'portfolio': 'about',
+      'curriculo': 'about',
+      'resume': 'about',
+      'contato': 'about',
+      'contact': 'about'
+    };
+    
+    const targetSection = sectionMap[sectionId] || sectionId;
+    const element = document.getElementById(targetSection);
+    
     if (element) {
+      // Definir hash para que o home component possa detectar e mudar a tab
+      if (sectionId === 'work' || sectionId === 'portfolio') {
+        window.location.hash = '#portfolio';
+      } else if (sectionId === 'curriculo' || sectionId === 'resume') {
+        window.location.hash = '#resume';
+      } else if (sectionId === 'contato' || sectionId === 'contact') {
+        window.location.hash = '#contact';
+      } else {
+        window.location.hash = '#' + sectionId;
+      }
+      
       const offset = this.isFixed ? 80 : 20; // Offset para o header fixo
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - offset;

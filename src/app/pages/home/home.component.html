@@ -55,262 +55,124 @@
       </div>
     </div>
   </div>
+  
+  <!-- Seta para baixo indicando scroll -->
+  <button 
+    class="scroll-down-arrow" 
+    (click)="scrollToNextSection()"
+    aria-label="Rolar para próxima seção">
+    <i class="pi pi-arrow-down"></i>
+  </button>
 </section>
 
-<!-- Header que aparece ao rolar -->
-<app-header class="scroll-header" [translations]="t.header"></app-header>
-
-<!-- Seção About Me -->
+<!-- Seção com Tabs - About Me, Portfolio, Resume, Contact -->
 <section id="about" class="content-section about-section">
   <div class="stars-about"></div>
-  <div class="container2">
-    <!-- Seção de apresentação -->
-    <section class="sobre" aria-labelledby="sobre-titulo">
-      <div class="sobre-content">
-        <!-- Foto centralizada no topo -->
-        <div class="info">
-          <img src="assets/icons/foto.jpeg" alt="Foto de perfil de Maria Clara Dutra" class="foto-perfil2">
-          <h1>Maria Clara Dutra</h1>
+  
+  <!-- Container principal com layout de duas colunas -->
+  <div class="tabs-container">
+    <!-- Conteúdo principal -->
+    <div class="tabs-content-wrapper">
+      <!-- Sidebar esquerda - Informações pessoais -->
+      <aside class="sidebar-left">
+        <div class="sidebar-content">
+          <!-- Foto de perfil -->
+          <img src="assets/icons/foto.jpeg" alt="Foto de perfil de Maria Clara Dutra" class="sidebar-photo">
+          
+          <!-- Nome -->
+          <h1 class="sidebar-name">Maria Clara Dutra</h1>
+          
+          <!-- Subtítulo -->
+          <p class="sidebar-subtitle">{{ t.contact.subtitle }}</p>
+          
+          <!-- Informações de contato -->
+          <div class="contact-info">
+            <div class="contact-item">
+              <span class="contact-label">
+                <i class="pi pi-envelope"></i> EMAIL
+              </span>
+              <a href="mailto:dutramaria165&#64;gmail.com" class="contact-value">dutramaria165&#64;gmail.com</a>
         </div>
-        
-        <!-- Texto centralizado -->
-        <div class="descricao2">
-          <p>{{ t.about.greeting }}</p>
-          <p>{{ t.about.paragraph1 }}</p>
-          <p>{{ t.about.paragraph2 }}</p>
-          <p>{{ t.about.paragraph3 }}</p>
-          <p>{{ t.about.paragraph4 }}</p>
-          <p class="ultimo-paragrafo">
-            <span class="closing-text">{{ t.about.closing }}</span>
-            <span class="assinatura-wrapper" id="assinatura">
-              <img src="assets/icons/MariaClaraDutra.png" alt="Assinatura" class="assinatura-img">
+            <div class="contact-item">
+              <span class="contact-label">
+                <i class="pi pi-map-marker"></i> CURRENT PLACE
             </span>
-          </p>
+              <span class="contact-value">Brazil</span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-label">
+                <i class="pi pi-calendar"></i> BIRTH YEAR
+            </span>
+              <span class="contact-value">{{ t.contact.birthYear }}</span>
+            </div>
         </div>
         
         <!-- Redes sociais -->
         <div class="social-icons" role="list" aria-label="Redes sociais">
           <a href="https://github.com/dutra1904" target="_blank" rel="noopener noreferrer" class="icon" aria-label="Visitar perfil no GitHub">
-            <img src="assets/icons/github.jpg" alt="Ícone do GitHub">
+            <i class="pi pi-github"></i>
           </a>
           <a href="https://www.linkedin.com/in/maria-clara-dutra/" target="_blank" rel="noopener noreferrer" class="icon" aria-label="Visitar perfil no LinkedIn">
-            <img src="assets/icons/linkedin.png" alt="Ícone do LinkedIn">
+            <i class="pi pi-linkedin"></i>
           </a>
           <a href="https://www.instagram.com/maclaradutra_/" target="_blank" rel="noopener noreferrer" class="icon" aria-label="Visitar perfil no Instagram">
-            <img src="assets/icons/intagram.png" alt="Ícone do Instagram">
+            <i class="pi pi-instagram"></i>
           </a>
-          <a href="mailto:dutramaria165@gmail.com" class="icon" aria-label="Enviar email">
-            <img src="assets/icons/gmail1.png" alt="Ícone do Gmail">
+          <a href="mailto:dutramaria165&#64;gmail.com" class="icon" aria-label="Enviar email">
+            <i class="pi pi-google"></i>
           </a>
         </div>
       </div>
-    </section>
-  </div>
+      </aside>
 
-  <!-- Seção: Habilidades Técnicas -->
-  <h2 class="section-title" id="habilidades-titulo">{{ t.about.technicalSkills }}</h2>
+      <!-- Conteúdo direito - muda conforme a tab -->
+      <div class="content-right">
+        <!-- Tab About Me -->
+        <app-about-me 
+          *ngIf="activeTab === 'about'"
+          [translations]="t"
+          [habilidadesPorTopico]="habilidadesPorTopico"
+          [activeTab]="activeTab"
+          [isActiveTab]="isActiveTab.bind(this)"
+          [setActiveTab]="setActiveTab.bind(this)">
+        </app-about-me>
 
-  <section class="habilidades-modernas" aria-labelledby="habilidades-titulo">
-    <div class="topicos-container">
-      <div class="topico-section" *ngFor="let topico of habilidadesPorTopico">
-        <h3 class="topico-titulo">{{ topico.topico }}</h3>
-        <div class="habilidades-grid-modern">
-          <div class="habilidade-card" *ngFor="let habilidade of topico.habilidades">
-            <div class="habilidade-icon-wrapper">
-              <img [src]="habilidade.icon" [alt]="habilidade.nome" 
-                   class="habilidade-icon"
-                   [class.icon-light]="habilidade.icon.includes('trabalho.png') || habilidade.icon.includes('design.png')"
-                   [class.icon-typescript]="habilidade.icon.includes('Type.webp')">
-            </div>
-            <div class="habilidade-content">
-              <h4 class="habilidade-nome">{{ habilidade.nome }}</h4>
-              <p class="habilidade-descricao" *ngIf="habilidade.descricao">{{ habilidade.descricao }}</p>
-            </div>
-          </div>
-        </div>
+        <!-- Tab Portfolio -->
+        <app-portfolio 
+          *ngIf="activeTab === 'portfolio'"
+          [translations]="t"
+          [projetos]="projetos"
+          [projetoAtualIndex]="projetoAtualIndex"
+          [activeTab]="activeTab"
+          [isActiveTab]="isActiveTab.bind(this)"
+          [setActiveTab]="setActiveTab.bind(this)"
+          [abrirProjeto]="abrirProjeto.bind(this)"
+          (projetoAnteriorEvent)="projetoAnterior()"
+          (proximoProjetoEvent)="proximoProjeto()"
+          (indexChangeEvent)="projetoAtualIndex = $event">
+        </app-portfolio>
+
+        <!-- Tab Resume -->
+        <app-resume 
+          *ngIf="activeTab === 'resume'"
+          [translations]="t"
+          [curriculoPath]="curriculoPath"
+          [curriculoNome]="curriculoNome"
+          [activeTab]="activeTab"
+          [isActiveTab]="isActiveTab.bind(this)"
+          [setActiveTab]="setActiveTab.bind(this)">
+        </app-resume>
+
+        <!-- Tab Contact -->
+        <app-contact 
+          *ngIf="activeTab === 'contact'"
+          [translations]="t"
+          [activeTab]="activeTab"
+          [isActiveTab]="isActiveTab.bind(this)"
+          [setActiveTab]="setActiveTab.bind(this)"
+          (enviarMensagemEvent)="enviarMensagem($event)">
+        </app-contact>
       </div>
-    </div>
-  </section>
-</section>
-
-<!-- Seção Work / Projects -->
-<section id="work" class="content-section about-section">
-  <div class="stars-about"></div>
-  <h2 class="section-title" id="projetos-titulo">{{ t.projects.title }}</h2>
-
-  <div class="carrossel-container">
-    <button class="carrossel-btn carrossel-btn-prev" (click)="projetoAnterior()" [attr.aria-label]="t.projects.previous">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </button>
-
-    <div class="carrossel-wrapper">
-      <article
-        class="card fade-in carrossel-card"
-        (click)="abrirProjeto(projetoAtual.link)"
-        (keydown.enter)="abrirProjeto(projetoAtual.link)"
-        tabindex="0"
-        [attr.aria-label]="projetoAtual.titulo + ' - Abrir projeto'">
-        <div class="card-background" [style.background-image]="'url(' + projetoAtual.imagem + ')'"></div>
-        <div class="card-title">{{ projetoAtual.titulo }}</div>
-        <div class="card-content">
-          <p>{{ projetoAtual.descricao }}</p>
-        </div>
-      </article>
-    </div>
-
-    <button class="carrossel-btn carrossel-btn-next" (click)="proximoProjeto()" [attr.aria-label]="t.projects.next">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </button>
-  </div>
-
-  <div class="carrossel-indicators">
-    <span *ngFor="let projeto of projetos; let i = index" 
-          class="indicator" 
-          [class.active]="i === projetoAtualIndex"
-          (click)="projetoAtualIndex = i"
-          [attr.aria-label]="t.projects.goToProject + ' ' + (i + 1)">
-    </span>
-  </div>
-</section>
-
-<!-- Seção Currículo -->
-<section id="curriculo" class="content-section about-section">
-  <div class="stars-about"></div>
-  <h2 class="section-title">{{ t.resume.title }}</h2>
-  <div class="container3">
-    <div class="resume-section unified-resume">
-      <div class="resume-content">
-        <!-- Formação -->
-        <div class="resume-subsection">
-          <h3 class="resume-section-title">{{ t.resume.academic }}</h3>
-          <div class="resume-item">
-            <h4>{{ t.resume.engineering }}</h4>
-            <p class="resume-status">{{ t.resume.inProgress }}</p>
-          </div>
-        </div>
-
-        <!-- Conhecimentos Técnicos -->
-        <div class="resume-subsection">
-          <h3 class="resume-section-title">{{ t.resume.technicalKnowledge }}</h3>
-          <div class="resume-skills">
-            <div class="skill-category">
-              <h4>{{ t.resume.development }}</h4>
-              <p>{{ t.resume.developmentDesc }}</p>
-            </div>
-            <div class="skill-category">
-              <h4>{{ t.resume.dataAnalysis }}</h4>
-              <p>{{ t.resume.dataAnalysisDesc }}</p>
-            </div>
-            <div class="skill-category">
-              <h4>{{ t.resume.cloudSecurity }}</h4>
-              <p>{{ t.resume.cloudSecurityDesc }}</p>
-            </div>
-            <div class="skill-category">
-              <h4>{{ t.resume.tools }}</h4>
-              <p>{{ t.resume.toolsDesc }}</p>
-            </div>
-            <div class="skill-category">
-              <h4>{{ t.resume.ai }}</h4>
-              <p>{{ t.resume.aiDesc }}</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Idiomas -->
-        <div class="resume-subsection">
-          <h3 class="resume-section-title">{{ t.resume.languages }}</h3>
-          <div class="resume-languages">
-            <div class="language-item">
-              <span class="language-name">{{ t.resume.portuguese }}</span>
-              <span class="language-level">{{ t.resume.native }}</span>
-            </div>
-            <div class="language-item">
-              <span class="language-name">{{ t.resume.english }}</span>
-              <span class="language-level">{{ t.resume.advanced }}</span>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Download -->
-        <div class="resume-subsection resume-download">
-          <a [href]="curriculoPath" [download]="curriculoNome" class="btn-download" [attr.aria-label]="t.resume.downloadFull">
-            <span>📄</span>
-            {{ t.resume.downloadFull }}
-          </a>
-          <p class="download-description">{{ t.resume.downloadDesc }}</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Seção Contato -->
-<section id="contato" class="content-section contact-section">
-  <h2 class="section-title contact-main-title">{{ t.contact.title }}</h2>
-  <div class="contact-wrapper">
-    <!-- Lado Esquerdo - Informações de Contato -->
-    <div class="contact-left">
-      <img src="assets/icons/foto.jpeg" alt="Foto de perfil de Maria Clara Dutra" class="profile-pic">
-      <h2 class="contact-name">Maria Clara Dutra</h2>
-      <p class="subtitulo">{{ t.contact.subtitle }}</p>
-
-      <div class="social-icons" role="list" aria-label="Redes sociais">
-        <a href="https://github.com/dutra1904" target="_blank" rel="noopener noreferrer" class="icon" aria-label="Visitar perfil no GitHub">
-          <img src="assets/icons/github.jpg" alt="Ícone do GitHub">
-        </a>
-        <a href="https://www.linkedin.com/in/maria-clara-dutra/" target="_blank" rel="noopener noreferrer" class="icon" aria-label="Visitar perfil no LinkedIn">
-          <img src="assets/icons/linkedin.png" alt="Ícone do LinkedIn">
-        </a>
-        <a href="https://www.instagram.com/maclaradutra_/" target="_blank" rel="noopener noreferrer" class="icon" aria-label="Visitar perfil no Instagram">
-          <img src="assets/icons/intagram.png" alt="Ícone do Instagram">
-        </a>
-        <a href="mailto:dutramaria165@gmail.com" class="icon" aria-label="Enviar email">
-          <img src="assets/icons/gmail1.png" alt="Ícone do Gmail">
-        </a>
-      </div>
-    </div>
-
-    <!-- Lado Direito - Formulário de Contato -->
-    <div class="contact-right">
-      <h2 class="contact-form-title">{{ t.contact.title }}</h2>
-      <p class="contact-text">{{ t.contact.openTo }}</p>
-      <form (ngSubmit)="enviarMensagem($event)" [attr.aria-label]="t.contact.title + ' form'">
-        <label for="nome" class="sr-only">{{ t.contact.name }}</label>
-        <input 
-          type="text" 
-          id="nome" 
-          name="name" 
-          [(ngModel)]="nome"
-          [placeholder]="t.contact.name" 
-          required 
-          aria-required="true">
-        
-        <label for="email" class="sr-only">{{ t.contact.email }}</label>
-        <input 
-          type="email" 
-          id="email" 
-          name="email" 
-          [(ngModel)]="email"
-          [placeholder]="t.contact.email" 
-          required 
-          aria-required="true">
-        
-        <label for="mensagem" class="sr-only">{{ t.contact.message }}</label>
-        <textarea 
-          id="mensagem" 
-          name="message" 
-          [(ngModel)]="mensagem"
-          [placeholder]="t.contact.message" 
-          required 
-          aria-required="true"></textarea>
-        
-        <button type="submit" class="send-btn">{{ t.contact.send }}</button>
-      </form>
     </div>
   </div>
 </section>
