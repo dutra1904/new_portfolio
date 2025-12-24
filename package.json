@@ -6,6 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "build:cloudflare": "ng build --configuration production",
+    "build:ghpages": "ng build --configuration production --base-href /new_portfolio/",
+    "deploy:ghpages": "ng deploy --base-href=/new_portfolio/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },

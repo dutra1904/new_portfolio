@@ -31,6 +31,11 @@
                 "glob": "_redirects",
                 "input": "public",
                 "output": "."
+              },
+              {
+                "glob": "404.html",
+                "input": "public",
+                "output": "."
               }
             ],
             "styles": [
@@ -40,6 +45,7 @@
           },
           "configurations": {
             "production": {
+              "baseHref": "/new_portfolio/",
               "budgets": [
                 {
                   "type": "initial",
@@ -78,7 +84,10 @@
           "defaultConfiguration": "development"
         },
         "deploy": {
-          "builder": "angular-cli-ghpages:deploy"
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "baseHref": "/new_portfolio/"
+          }
         }
       }
     }
