@@ -403,10 +403,10 @@ export class HomeComponent implements OnInit, OnDestroy {
   // Dados do Portfolio em português
   projetosPT = [
     {
-      titulo: 'Gerenciador de Tarefas',
-      descricao: 'Um simples gerenciador de tarefas feito em C, com funcionalidades para adicionar, visualizar, atualizar, completar e excluir tarefas concluídas.',
-      imagem: 'assets/img/gerenciador-background.png',
-      link: 'https://github.com/dutra1904/gerenciador_de_tarefas.git'
+      titulo: 'Organizator',
+      descricao: 'App de gerenciamento de tarefas focado em quem programa — "sua vida de programação organizada". Tarefas com categoria, prioridade e vencimento; dashboard com totais; filtros por status, categoria e prioridade; tema claro/escuro e login com Supabase. Stack: Angular 18, PrimeNG, Node/Express, Supabase.',
+      imagem: 'assets/img/orgaizator.png',
+      link: 'https://organizator.dutramaria165.workers.dev/login'
     },
     {
       titulo: 'Aplicativo BrainHub',
@@ -443,10 +443,10 @@ export class HomeComponent implements OnInit, OnDestroy {
   // Projetos em inglês
   projetosEN = [
     {
-      titulo: 'Task Manager',
-      descricao: 'A simple task manager built in C, with features to add, view, update, complete and delete completed tasks.',
-      imagem: 'assets/img/gerenciador-background.png',
-      link: 'https://github.com/dutra1904/gerenciador_de_tarefas.git'
+      titulo: 'Organizator',
+      descricao: 'Task management app for developers — "Your programming life, organized." Tasks with categories, priorities and due dates; dashboard with totals; filters by status, category and priority; dark/light theme and Supabase auth. Stack: Angular 18, PrimeNG, Node/Express, Supabase.',
+      imagem: 'assets/img/orgaizator.png',
+      link: 'https://organizator.dutramaria165.workers.dev/login'
     },
     {
       titulo: 'BrainHub App',
