@@ -409,6 +409,12 @@ export class HomeComponent implements OnInit, OnDestroy {
       link: 'https://organizator.dutramaria165.workers.dev/login'
     },
     {
+      titulo: 'Flashcards',
+      descricao: 'Flashcard Game — Aplicação web para criação e estudo com flashcards. Permite criar baralhos com várias cartas (pergunta/resposta), jogar em modo de revisão com flip 3D e marcar cartas como corretas ou incorretas — as erradas voltam para a fila. Persistência em localStorage, interface responsiva em tema escuro com Tailwind CSS, usando React 18, TypeScript, Vite e React Router.',
+      imagem: 'assets/img/flashcard.png',
+      link: 'https://flash-card-frontend-qmcl-dvfjra86l.vercel.app/'
+    },
+    {
       titulo: 'Aplicativo BrainHub',
       descricao: 'Nesse projeto mostrei meus conhecimentos, criando uma área de cadastro, login e a plataforma que tem por objetivo ser um app para estudantes.',
       imagem: 'assets/img/brainhub.png',
@@ -419,12 +425,6 @@ export class HomeComponent implements OnInit, OnDestroy {
       descricao: 'Este trabalho apresenta o desenvolvimento de um jogo de batalha espacial, Stellar Clash, que utiliza estruturas de dados avançadas, como listas, filas, árvores e grafos.',
       imagem: 'assets/img/batalha-background.png',
       link: 'https://github.com/dutra1904/stellar_clash.git'
-    },
-    {
-      titulo: 'Flashcards',
-      descricao: 'Ferramenta para estudar com cartões interativos e personalizados.',
-      imagem: 'assets/img/flashcard-background.png',
-      link: 'https://flash-card-frontend-qmcl-dvfjra86l.vercel.app/'
     },
     {
       titulo: 'Random Meal Generator',
@@ -449,6 +449,12 @@ export class HomeComponent implements OnInit, OnDestroy {
       link: 'https://organizator.dutramaria165.workers.dev/login'
     },
     {
+      titulo: 'Flashcards',
+      descricao: 'Flashcard Game — Web application for creating and studying with flashcards. Allows creating decks with multiple cards (question/answer), playing in review mode with 3D flip and marking cards as correct or incorrect — wrong ones return to the queue. localStorage persistence, responsive dark-themed interface with Tailwind CSS, using React 18, TypeScript, Vite and React Router.',
+      imagem: 'assets/img/flashcard.png',
+      link: 'https://flash-card-frontend-qmcl-dvfjra86l.vercel.app/'
+    },
+    {
       titulo: 'BrainHub App',
       descricao: 'In this project I demonstrated my skills by creating a registration area, login and a platform aimed at being an app for students.',
       imagem: 'assets/img/brainhub.png',
@@ -459,12 +465,6 @@ export class HomeComponent implements OnInit, OnDestroy {
       descricao: 'This work presents the development of a space battle game, Stellar Clash, which uses advanced data structures such as lists, queues, trees and graphs.',
       imagem: 'assets/img/batalha-background.png',
       link: 'https://github.com/dutra1904/stellar_clash.git'
-    },
-    {
-      titulo: 'Flashcards',
-      descricao: 'Tool for studying with interactive and personalized cards.',
-      imagem: 'assets/img/flashcard-background.png',
-      link: 'https://flash-card-frontend-qmcl-dvfjra86l.vercel.app/'
     },
     {
       titulo: 'Random Meal Generator',
