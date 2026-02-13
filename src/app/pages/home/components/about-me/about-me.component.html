@@ -39,7 +39,7 @@
     <p class="ultimo-paragrafo">
       <span class="closing-text">{{ translations?.about?.closing }}</span>
       <span class="assinatura-wrapper" id="assinatura">
-        <img src="assets/icons/MariaClaraDutra.png" alt="Assinatura" class="assinatura-img">
+        <img src="assets/icons/MariaClaraDutra.png" alt="Assinatura" class="assinatura-img" loading="lazy">
       </span>
     </p>
   </div>
@@ -55,6 +55,7 @@
             <div class="habilidade-icon-wrapper">
               <img [src]="habilidade.icon" [alt]="habilidade.nome" 
                    class="habilidade-icon"
+                   loading="lazy"
                    [class.icon-light]="habilidade.icon.includes('trabalho.png') || habilidade.icon.includes('design.png')"
                    [class.icon-typescript]="habilidade.icon.includes('Type.webp')">
             </div>
