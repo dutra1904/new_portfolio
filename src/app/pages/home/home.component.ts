@@ -424,7 +424,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       titulo: 'Flashcards',
       descricao: 'Ferramenta para estudar com cartões interativos e personalizados.',
       imagem: 'assets/img/flashcard-background.png',
-      link: 'https://dutra1904.github.io/flash_cards/'
+      link: 'https://flash-card-frontend-qmcl-dvfjra86l.vercel.app/'
     },
     {
       titulo: 'Random Meal Generator',
@@ -464,7 +464,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       titulo: 'Flashcards',
       descricao: 'Tool for studying with interactive and personalized cards.',
       imagem: 'assets/img/flashcard-background.png',
-      link: 'https://dutra1904.github.io/flash_cards/'
+      link: 'https://flash-card-frontend-qmcl-dvfjra86l.vercel.app/'
     },
     {
       titulo: 'Random Meal Generator',
