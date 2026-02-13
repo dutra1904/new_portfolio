@@ -415,6 +415,12 @@ export class HomeComponent implements OnInit, OnDestroy {
       link: 'https://flash-card-frontend-qmcl-dvfjra86l.vercel.app/'
     },
     {
+      titulo: 'Random Meal Generator',
+      descricao: 'Este programa exibe uma refeição aleatória obtida da API TheMealDB. Ao clicar no botão, ele busca uma nova refeição e exibe o nome, imagem, ingredientes e instruções de preparo. Além disso, se disponível, um vídeo do YouTube é incorporado para auxiliar no preparo da receita.',
+      imagem: 'assets/img/randomMeal.png',
+      link: 'https://dutra1904.github.io/random-meal-generator/'
+    },
+    {
       titulo: 'Aplicativo BrainHub',
       descricao: 'Nesse projeto mostrei meus conhecimentos, criando uma área de cadastro, login e a plataforma que tem por objetivo ser um app para estudantes.',
       imagem: 'assets/img/brainhub.png',
@@ -425,12 +431,6 @@ export class HomeComponent implements OnInit, OnDestroy {
       descricao: 'Este trabalho apresenta o desenvolvimento de um jogo de batalha espacial, Stellar Clash, que utiliza estruturas de dados avançadas, como listas, filas, árvores e grafos.',
       imagem: 'assets/img/batalha-background.png',
       link: 'https://github.com/dutra1904/stellar_clash.git'
-    },
-    {
-      titulo: 'Random Meal Generator',
-      descricao: 'Este programa exibe uma refeição aleatória obtida da API TheMealDB. Ao clicar no botão, ele busca uma nova refeição e exibe o nome, imagem, ingredientes e instruções de preparo. Além disso, se disponível, um vídeo do YouTube é incorporado para auxiliar no preparo da receita.',
-      imagem: 'assets/img/random-meal-background.png',
-      link: 'https://dutra1904.github.io/random-meal-generator/'
     },
     {
       titulo: 'Calculadora Simples',
@@ -455,6 +455,12 @@ export class HomeComponent implements OnInit, OnDestroy {
       link: 'https://flash-card-frontend-qmcl-dvfjra86l.vercel.app/'
     },
     {
+      titulo: 'Random Meal Generator',
+      descricao: 'This program displays a random meal obtained from TheMealDB API. When clicking the button, it fetches a new meal and displays the name, image, ingredients and preparation instructions. Additionally, if available, a YouTube video is embedded to assist in recipe preparation.',
+      imagem: 'assets/img/randomMeal.png',
+      link: 'https://dutra1904.github.io/random-meal-generator/'
+    },
+    {
       titulo: 'BrainHub App',
       descricao: 'In this project I demonstrated my skills by creating a registration area, login and a platform aimed at being an app for students.',
       imagem: 'assets/img/brainhub.png',
@@ -465,12 +471,6 @@ export class HomeComponent implements OnInit, OnDestroy {
       descricao: 'This work presents the development of a space battle game, Stellar Clash, which uses advanced data structures such as lists, queues, trees and graphs.',
       imagem: 'assets/img/batalha-background.png',
       link: 'https://github.com/dutra1904/stellar_clash.git'
-    },
-    {
-      titulo: 'Random Meal Generator',
-      descricao: 'This program displays a random meal obtained from TheMealDB API. When clicking the button, it fetches a new meal and displays the name, image, ingredients and preparation instructions. Additionally, if available, a YouTube video is embedded to assist in recipe preparation.',
-      imagem: 'assets/img/random-meal-background.png',
-      link: 'https://dutra1904.github.io/random-meal-generator/'
     },
     {
       titulo: 'Simple Calculator',
