@@ -431,12 +431,6 @@ export class HomeComponent implements OnInit, OnDestroy {
       descricao: 'Este trabalho apresenta o desenvolvimento de um jogo de batalha espacial, Stellar Clash, que utiliza estruturas de dados avançadas, como listas, filas, árvores e grafos.',
       imagem: 'assets/img/batalha-background.png',
       link: 'https://github.com/dutra1904/stellar_clash.git'
-    },
-    {
-      titulo: 'Calculadora Simples',
-      descricao: 'Uma calculadora simples e estilosa com um tema roxo único, desenvolvida com HTML, CSS e JavaScript.',
-      imagem: 'assets/img/calculadora-background.png',
-      link: 'https://dutra1904.github.io/calculadora/'
     }
   ];
 
@@ -471,12 +465,6 @@ export class HomeComponent implements OnInit, OnDestroy {
       descricao: 'This work presents the development of a space battle game, Stellar Clash, which uses advanced data structures such as lists, queues, trees and graphs.',
       imagem: 'assets/img/batalha-background.png',
       link: 'https://github.com/dutra1904/stellar_clash.git'
-    },
-    {
-      titulo: 'Simple Calculator',
-      descricao: 'A simple and stylish calculator with a unique purple theme, developed with HTML, CSS and JavaScript.',
-      imagem: 'assets/img/calculadora-background.png',
-      link: 'https://dutra1904.github.io/calculadora/'
     }
   ];
 
