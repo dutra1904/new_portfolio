@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1DB954"/>
+      <stop offset="100%" style="stop-color:#0f7a3d"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#bg)"/>
+  <rect x="40" y="80" width="160" height="120" rx="8" fill="rgba(255,255,255,0.2)"/>
+  <rect x="220" y="80" width="160" height="120" rx="8" fill="rgba(255,255,255,0.2)"/>
+  <rect x="400" y="80" width="160" height="120" rx="8" fill="rgba(255,255,255,0.2)"/>
+  <rect x="40" y="220" width="520" height="150" rx="8" fill="rgba(255,255,255,0.15)"/>
+  <text x="300" y="300" text-anchor="middle" fill="rgba(255,255,255,0.95)" font-size="20" font-family="system-ui,sans-serif">Power BI � Spotify</text>
+  <text x="300" y="330" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="14" font-family="system-ui,sans-serif">Dashboard de an�lise</text>
+</svg>

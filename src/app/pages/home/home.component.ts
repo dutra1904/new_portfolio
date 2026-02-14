@@ -431,6 +431,12 @@ export class HomeComponent implements OnInit, OnDestroy {
       descricao: 'Este trabalho apresenta o desenvolvimento de um jogo de batalha espacial, Stellar Clash, que utiliza estruturas de dados avançadas, como listas, filas, árvores e grafos.',
       imagem: 'assets/img/batalha-background.png',
       link: 'https://github.com/dutra1904/stellar_clash.git'
+    },
+    {
+      titulo: 'Projeto Livre Spotify (Power BI)',
+      descricao: 'Dashboard interativo: popularidade no Spotify vs. aclamação (Grammy). Comparação com ganhadores do Grammy, filtros por ano e gênero, músicas mais ouvidas, top artists e mapa de onde cada país mais escuta. Rankings Brasil e Global.',
+      imagem: 'assets/img/powerbi-spotify.svg',
+      link: 'https://app.powerbi.com/view?r=eyJrIjoiNDlhOTllNjUtZTUyZi00YzFlLWJjNDItNWIwYmRmODkzNGQyIiwidCI6ImIxY2E3YTgxLWFiZjgtNDJlNS05OGM2LWYyZjJhOTMwYmEzNiJ9&pageName=f33855a7bc54134d0440'
     }
   ];
 
@@ -465,6 +471,12 @@ export class HomeComponent implements OnInit, OnDestroy {
       descricao: 'This work presents the development of a space battle game, Stellar Clash, which uses advanced data structures such as lists, queues, trees and graphs.',
       imagem: 'assets/img/batalha-background.png',
       link: 'https://github.com/dutra1904/stellar_clash.git'
+    },
+    {
+      titulo: 'Spotify Project (Power BI)',
+      descricao: 'Interactive dashboard: Spotify popularity vs. acclaim (Grammy). Compare with Grammy winners, filter by year and genre, most listened songs, top artists, and map of where each country listens most. Brazil and Global rankings.',
+      imagem: 'assets/img/powerbi-spotify.svg',
+      link: 'https://app.powerbi.com/view?r=eyJrIjoiNDlhOTllNjUtZTUyZi00YzFlLWJjNDItNWIwYmRmODkzNGQyIiwidCI6ImIxY2E3YTgxLWFiZjgtNDJlNS05OGM2LWYyZjJhOTMwYmEzNiJ9&pageName=f33855a7bc54134d0440'
     }
   ];
 
