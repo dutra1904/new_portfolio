@@ -415,16 +415,16 @@ export class HomeComponent implements OnInit, OnDestroy {
       link: 'https://flash-card-frontend-qmcl-dvfjra86l.vercel.app/'
     },
     {
+      titulo: 'Calculadora de IMC',
+      descricao: 'Calculadora de IMC — Ferramenta de saúde que calcula o IMC a partir de altura, peso e idade. Classifica o resultado e indica quanto emagrecer ou ganhar. Interface em tema escuro, suporte a escala métrica (kg) e americana (lbs), e idiomas inglês e português. Feita com React, Vite, Chakra UI, React Hook Form e Zod.',
+      imagem: 'assets/img/calories.png',
+      link: 'https://calories-six-flame.vercel.app/'
+    },
+    {
       titulo: 'Random Meal Generator',
       descricao: 'Este programa exibe uma refeição aleatória obtida da API TheMealDB. Ao clicar no botão, ele busca uma nova refeição e exibe o nome, imagem, ingredientes e instruções de preparo. Além disso, se disponível, um vídeo do YouTube é incorporado para auxiliar no preparo da receita.',
       imagem: 'assets/img/randomMeal.png',
       link: 'https://dutra1904.github.io/random-meal-generator/'
-    },
-    {
-      titulo: 'Aplicativo BrainHub',
-      descricao: 'Nesse projeto mostrei meus conhecimentos, criando uma área de cadastro, login e a plataforma que tem por objetivo ser um app para estudantes.',
-      imagem: 'assets/img/brainhub.png',
-      link: 'https://github.com/dutra1904/BrainHub.git'
     },
     {
       titulo: 'Jogo Espacial',
@@ -455,16 +455,16 @@ export class HomeComponent implements OnInit, OnDestroy {
       link: 'https://flash-card-frontend-qmcl-dvfjra86l.vercel.app/'
     },
     {
+      titulo: 'BMI Calculator',
+      descricao: 'BMI Calculator — Health tool that calculates BMI from height, weight and age. Classifies the result and indicates how much to lose or gain. Dark theme interface, support for metric (kg) and American (lbs) scale, and English and Portuguese languages. Built with React, Vite, Chakra UI, React Hook Form and Zod.',
+      imagem: 'assets/img/calories.png',
+      link: 'https://calories-six-flame.vercel.app/'
+    },
+    {
       titulo: 'Random Meal Generator',
       descricao: 'This program displays a random meal obtained from TheMealDB API. When clicking the button, it fetches a new meal and displays the name, image, ingredients and preparation instructions. Additionally, if available, a YouTube video is embedded to assist in recipe preparation.',
       imagem: 'assets/img/randomMeal.png',
       link: 'https://dutra1904.github.io/random-meal-generator/'
-    },
-    {
-      titulo: 'BrainHub App',
-      descricao: 'In this project I demonstrated my skills by creating a registration area, login and a platform aimed at being an app for students.',
-      imagem: 'assets/img/brainhub.png',
-      link: 'https://github.com/dutra1904/BrainHub.git'
     },
     {
       titulo: 'Space Game',
@@ -631,6 +631,16 @@ export class HomeComponent implements OnInit, OnDestroy {
   scrollToNextSection(): void {
     // Rola para a seção "about" que é a próxima seção
     this.scrollToSection('about');
+  }
+
+  goToProjects(): void {
+    this.setActiveTab('portfolio');
+    setTimeout(() => {
+      const element = document.getElementById('about');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 100);
   }
 
   abrirProjeto(link: string): void {

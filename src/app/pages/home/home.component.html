@@ -29,7 +29,7 @@
         <img src="assets/img/me.png" alt="Maria Dutra" class="intro-image" fetchpriority="high" width="400" height="400">
         <!-- Botões de ação -->
         <div class="intro-buttons">
-          <button (click)="scrollToSection('work')" class="btn-primary">
+          <button (click)="goToProjects()" class="btn-primary">
             {{ t.home.viewProjects }}
           </button>
           <a [href]="curriculoPath" [download]="curriculoNome" class="btn-secondary" [attr.aria-label]="t.home.downloadResume">

@@ -8,10 +8,8 @@
   padding: 40px 20px 60px 20px;
   overflow: hidden;
   
-  // Fundo com gradiente espacial
+  // Fundo com gradiente espacial (estático)
   background: linear-gradient(135deg, #1a0033 0%, #330066 25%, #1a0033 50%, #000033 75%, #1a0033 100%);
-  background-size: 400% 400%;
-  animation: cosmicShift 15s ease infinite;
 }
 
 // Header superior da home
@@ -145,11 +143,6 @@
   color: #e5e5e5;
     padding: 8px;
 }
-}
-
-@keyframes cosmicShift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
 }
 
 // Estrelas animadas - solução CSS simples e elegante
