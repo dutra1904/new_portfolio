@@ -86,7 +86,8 @@
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
           "options": {
-            "baseHref": "/new_portfolio/"
+            "baseHref": "/new_portfolio/",
+            "dir": "dist/new-portfolio"
           }
         }
       }
