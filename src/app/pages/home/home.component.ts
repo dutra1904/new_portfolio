@@ -497,9 +497,13 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.currentLanguage = lang;
   }
 
-  // Dados do Resume
-  curriculoPath = 'assets/Curriculo.pdf';
-  curriculoNome = 'Maria_Clara_Curriculo.pdf';
+  // Dados do Currículo
+  get curriculoPath(): string {
+    return this.currentLanguage === 'PT' ? 'assets/CV-Portugues.pdf' : 'assets/CV-english.pdf';
+  }
+  get curriculoNome(): string {
+    return this.currentLanguage === 'PT' ? 'CV-Portugues.pdf' : 'CV-english.pdf';
+  }
 
 
   // Controle do carrossel de projetos
