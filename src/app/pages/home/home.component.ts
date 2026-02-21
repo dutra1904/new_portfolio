@@ -421,6 +421,12 @@ export class HomeComponent implements OnInit, OnDestroy {
       link: 'https://calories-six-flame.vercel.app/'
     },
     {
+      titulo: 'Resumidor IA',
+      descricao: 'Resumidor IA é uma aplicação web feita em Next.js e React que usa a API do Google Gemini para gerar resumos de textos. A interface permite selecionar o estilo do resumo (parágrafos, bullet points ou executivo), suporta português e inglês e foi planejada para deploy no Vercel. O projeto usa cache de modelos, API Routes serverless e Tailwind CSS para interface responsiva e acessível.',
+      imagem: 'assets/img/ia.png',
+      link: 'https://ia-fyi1.vercel.app/'
+    },
+    {
       titulo: 'Random Meal Generator',
       descricao: 'Este programa exibe uma refeição aleatória obtida da API TheMealDB. Ao clicar no botão, ele busca uma nova refeição e exibe o nome, imagem, ingredientes e instruções de preparo. Além disso, se disponível, um vídeo do YouTube é incorporado para auxiliar no preparo da receita.',
       imagem: 'assets/img/randomMeal.png',
@@ -459,6 +465,12 @@ export class HomeComponent implements OnInit, OnDestroy {
       descricao: 'BMI Calculator — Health tool that calculates BMI from height, weight and age. Classifies the result and indicates how much to lose or gain. Dark theme interface, support for metric (kg) and American (lbs) scale, and English and Portuguese languages. Built with React, Vite, Chakra UI, React Hook Form and Zod.',
       imagem: 'assets/img/calories.png',
       link: 'https://calories-six-flame.vercel.app/'
+    },
+    {
+      titulo: 'AI Summarizer',
+      descricao: 'AI Summarizer is a web application built with Next.js and React that uses the Google Gemini API to generate text summaries. The interface allows selecting the summary style (paragraphs, bullet points or executive), supports Portuguese and English, and is designed for Vercel deployment. The project uses model caching, serverless API Routes and Tailwind CSS for a responsive and accessible interface.',
+      imagem: 'assets/img/ia.png',
+      link: 'https://ia-fyi1.vercel.app/'
     },
     {
       titulo: 'Random Meal Generator',
