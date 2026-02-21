@@ -65,7 +65,8 @@ export class HomeComponent implements OnInit, OnDestroy {
         title: 'PORTFÓLIO',
         previous: 'Projeto anterior',
         next: 'Próximo projeto',
-        goToProject: 'Ir para projeto'
+        goToProject: 'Ir para projeto',
+        clickHint: 'Clique no card para abrir o link do projeto'
       },
       // Resume
       resume: {
@@ -154,7 +155,8 @@ export class HomeComponent implements OnInit, OnDestroy {
         title: 'PORTFOLIO',
         previous: 'Previous project',
         next: 'Next project',
-        goToProject: 'Go to project'
+        goToProject: 'Go to project',
+        clickHint: 'Click on the card to open the project link'
       },
       // Resume
       resume: {

@@ -25,6 +25,7 @@
           (keydown.enter)="onCardClick(item, $event)"
           tabindex="0"
           [attr.aria-label]="(item.projeto?.titulo ?? '') + (item.position === 'center' ? ' - Abrir projeto' : ' - Ir para este projeto')">
+          <span class="perspective-card-hint">{{ translations?.projects?.clickHint }}</span>
           <div class="perspective-card-inner">
             <div class="perspective-card-bg" [style.background-image]="'url(' + (item.projeto?.imagem ?? '') + ')'"></div>
             <div class="perspective-card-overlay"></div>
@@ -51,5 +52,7 @@
       [attr.aria-label]="(translations?.projects?.goToProject ?? '') + ' ' + (i + 1)">
     </span>
   </div>
+
+  <p class="portfolio-click-hint">{{ translations?.projects?.clickHint }}</p>
 </div>
 
