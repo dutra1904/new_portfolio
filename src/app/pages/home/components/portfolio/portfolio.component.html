@@ -2,68 +2,53 @@
   <div class="title-tabs-wrapper">
     <h2 class="tab-title" id="projetos-titulo">{{ translations?.projects?.title }}</h2>
     <div class="tabs-navigation-content">
-      <button 
-        class="tab-button-content" 
-        [class.active]="isActiveTab('about')"
-        (click)="setActiveTab('about')">
-        {{ translations?.header?.about }}
-      </button>
-      <button 
-        class="tab-button-content" 
-        [class.active]="isActiveTab('portfolio')"
-        (click)="setActiveTab('portfolio')">
-        {{ translations?.header?.portfolio }}
-      </button>
-      <button 
-        class="tab-button-content" 
-        [class.active]="isActiveTab('resume')"
-        (click)="setActiveTab('resume')">
-        {{ translations?.header?.resume }}
-      </button>
-      <button 
-        class="tab-button-content" 
-        [class.active]="isActiveTab('contact')"
-        (click)="setActiveTab('contact')">
-        {{ translations?.header?.contact }}
+      <button *ngFor="let tab of tabs; trackBy: trackByTabId"
+        class="tab-button-content"
+        [class.active]="isActiveTab(tab.id)"
+        (click)="setActiveTab(tab.id)">
+        {{ translations?.header?.[tab.key] }}
       </button>
     </div>
   </div>
 
-  <div class="carrossel-container">
+  <div class="carrossel-perspective-wrapper">
     <button class="carrossel-btn carrossel-btn-prev" (click)="projetoAnterior()" [attr.aria-label]="translations?.projects?.previous">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
 
-    <div class="carrossel-wrapper">
-      <article
-        class="card fade-in carrossel-card"
-        (click)="abrirProjeto(projetoAtual.link)"
-        (keydown.enter)="abrirProjeto(projetoAtual.link)"
-        tabindex="0"
-        [attr.aria-label]="projetoAtual?.titulo + ' - Abrir projeto'">
-        <div class="card-background" [style.background-image]="'url(' + projetoAtual?.imagem + ')'"></div>
-        <div class="card-title">{{ projetoAtual?.titulo }}</div>
-        <div class="card-content">
-          <p>{{ projetoAtual?.descricao }}</p>
-        </div>
-      </article>
+    <div class="carrossel-perspective">
+        <article
+          *ngFor="let item of carouselItems; trackBy: trackByPosition"
+          class="perspective-card"
+          [attr.data-position]="item.position"
+          (click)="onCardClick(item, $event)"
+          (keydown.enter)="onCardClick(item, $event)"
+          tabindex="0"
+          [attr.aria-label]="(item.projeto?.titulo ?? '') + (item.position === 'center' ? ' - Abrir projeto' : ' - Ir para este projeto')">
+          <div class="perspective-card-inner">
+            <div class="perspective-card-bg" [style.background-image]="'url(' + (item.projeto?.imagem ?? '') + ')'"></div>
+            <div class="perspective-card-overlay"></div>
+            <div class="perspective-card-content-wrapper">
+              <h3 class="perspective-card-title">{{ item.projeto?.titulo }}</h3>
+              <div class="perspective-card-desc">
+                <p>{{ item.projeto?.descricao }}</p>
+              </div>
+            </div>
+          </div>
+        </article>
     </div>
 
     <button class="carrossel-btn carrossel-btn-next" (click)="proximoProjeto()" [attr.aria-label]="translations?.projects?.next">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
   </div>
 
   <div class="carrossel-indicators">
-    <span *ngFor="let projeto of projetos; let i = index" 
-          class="indicator" 
-          [class.active]="i === projetoAtualIndex"
-          (click)="setIndex(i)"
-          [attr.aria-label]="translations?.projects?.goToProject + ' ' + (i + 1)">
+    <span *ngFor="let projeto of projetos; let i = index; trackBy: trackByIndex"
+      class="indicator"
+      [class.active]="i === projetoAtualIndex"
+      (click)="setIndex(i)"
+      [attr.aria-label]="(translations?.projects?.goToProject ?? '') + ' ' + (i + 1)">
     </span>
   </div>
 </div>

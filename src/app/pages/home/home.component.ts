@@ -376,7 +376,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         },
         {
           nome: 'Git & GitHub',
-          icon: 'assets/icons/gitHub.png',
+          icon: 'assets/icons/git.png',
           descricao: 'Code versioning, change control, repository organization and collaborative work with Git.'
         },
         {
