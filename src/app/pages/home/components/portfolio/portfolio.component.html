@@ -11,48 +11,21 @@
     </div>
   </div>
 
-  <div class="carrossel-perspective-wrapper">
-    <button class="carrossel-btn carrossel-btn-prev" (click)="projetoAnterior()" [attr.aria-label]="translations?.projects?.previous">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </button>
-
-    <div class="carrossel-perspective">
-        <article
-          *ngFor="let item of carouselItems; trackBy: trackByPosition"
-          class="perspective-card"
-          [attr.data-position]="item.position"
-          (click)="onCardClick(item, $event)"
-          (keydown.enter)="onCardClick(item, $event)"
-          tabindex="0"
-          [attr.aria-label]="(item.projeto?.titulo ?? '') + (item.position === 'center' ? ' - Abrir projeto' : ' - Ir para este projeto')">
-          <span class="perspective-card-hint">{{ translations?.projects?.clickHint }}</span>
-          <div class="perspective-card-inner">
-            <div class="perspective-card-bg" [style.background-image]="'url(' + (item.projeto?.imagem ?? '') + ')'"></div>
-            <div class="perspective-card-overlay"></div>
-            <div class="perspective-card-content-wrapper">
-              <h3 class="perspective-card-title">{{ item.projeto?.titulo }}</h3>
-              <div class="perspective-card-desc">
-                <p>{{ item.projeto?.descricao }}</p>
-              </div>
-            </div>
+  <div class="work-grid">
+    <article class="work-card" *ngFor="let projeto of projetos; trackBy: trackByTitle">
+      <button type="button" class="work-card-hit" (click)="abrirProjeto(projeto.link)" [attr.aria-label]="projeto.titulo">
+        <div class="work-thumb" [style.background-image]="'url(' + projeto.imagem + ')'"></div>
+        <div class="work-body">
+          <div class="work-head">
+            <h3>{{ projeto.titulo }}</h3>
+            <span class="work-open" aria-hidden="true">↗</span>
           </div>
-        </article>
-    </div>
-
-    <button class="carrossel-btn carrossel-btn-next" (click)="proximoProjeto()" [attr.aria-label]="translations?.projects?.next">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </button>
+          <p>{{ projeto.descricao }}</p>
+          <ul class="work-stack" *ngIf="projeto.stack?.length">
+            <li *ngFor="let tech of projeto.stack">{{ tech }}</li>
+          </ul>
+        </div>
+      </button>
+    </article>
   </div>
-
-  <div class="carrossel-indicators">
-    <span *ngFor="let projeto of projetos; let i = index; trackBy: trackByIndex"
-      class="indicator"
-      [class.active]="i === projetoAtualIndex"
-      (click)="setIndex(i)"
-      [attr.aria-label]="(translations?.projects?.goToProject ?? '') + ' ' + (i + 1)">
-    </span>
-  </div>
-
-  <p class="portfolio-click-hint">{{ translations?.projects?.clickHint }}</p>
 </div>
-

@@ -15,189 +15,196 @@ import { ContactComponent } from './components/contact/contact.component';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit, OnDestroy {
-  // Controle do idioma - padrão: Inglês
   currentLanguage: 'EN' | 'PT' = 'EN';
+  currentYear = new Date().getFullYear();
 
-  // Objeto de traduções completo
   translations = {
     PT: {
-      // Header
       header: {
-        development: 'Desenvolvimento',
-        available: 'Estou disponível',
-        home: 'HOME',
-        about: 'SOBRE MIM',
-        portfolio: 'PORTFÓLIO',
-        resume: 'CURRÍCULO',
-        contact: 'CONTATO'
+        development: 'Produto & engenharia',
+        available: 'Aberta a oportunidades',
+        home: 'Início',
+        about: 'Sobre',
+        portfolio: 'Trabalho',
+        resume: 'Currículo',
+        contact: 'Contato'
       },
-      // Home/Hero
       home: {
-        viewProjects: 'Ver Projetos',
-        downloadResume: 'Baixar Currículo',
-        subtitle: 'Desenvolvedora Full Stack em formação | Engenharia da Computação',
-        tags: {
-          frontend: 'Front-end',
-          backend: 'Back-end',
-          data: 'Dados',
-          ai: 'IA'
-        },
-        description: 'Desenvolvo soluções digitais completas, unindo interface, lógica, dados e tecnologia para resolver problemas reais.'
+        eyebrow: 'Engenharia da Computação · Dados · IA',
+        headline: 'Software, dados e IA.',
+        viewProjects: 'Ver trabalho',
+        downloadResume: 'Baixar CV',
+        stack: ['TypeScript', 'Angular', 'React', 'Next.js', 'Python', 'Dados', 'IA'],
+        description: 'Estudo Engenharia da Computação na UFG, com foco também em dados e inteligência artificial. Desenvolvo aplicações web com TypeScript — interface, APIs, análise e IA — para problemas reais.'
       },
-      // About
       about: {
-        greeting: 'Olá, eu sou a Maria Clara.',
-        paragraph1: 'Crio soluções digitais completas para projetos ambiciosos e orientados por design.',
-        paragraph2: 'Utilizando tecnologias de ponta e código robusto e elegante, desenvolvo aplicações que unem interface, lógica, dados e inteligência artificial para criar experiências impactantes.',
-        paragraph3: 'Atuo tanto no Front-end quanto no Back-end, além de trabalhar com análise de dados, cloud, design de interfaces e inteligência artificial, sempre buscando soluções eficientes e bem estruturadas.',
-        paragraph4: 'Tenho perfil analítico, boa organização e facilidade para aprender novas tecnologias, além de experiência com administração e gerenciamento de projetos.',
-        closing: 'Obrigada por explorar meu portfólio.',
-        technicalSkills: 'Habilidades Técnicas'
+        greeting: 'Olá, sou Maria Clara Dutra.',
+        paragraph1: 'Estudante de Engenharia da Computação na UFG. Além de desenvolvimento full-stack, estudo dados e inteligência artificial — análise, visualização e uso de IA no produto e no dia a dia de código.',
+        paragraph2: 'Trabalho com Angular, React, Next.js e TypeScript para entregar interfaces e backends que conversam com APIs, bancos e dashboards.',
+        paragraph3: 'Uso Python, SQL, Power BI e ferramentas de nuvem quando o problema pede dados, automação ou operação mais estável.',
+        paragraph4: 'Busco estágios e projetos em que eu possa contribuir com produto, qualidade de código e aprendizado rápido em time.',
+        closing: 'Obrigada por ler.',
+        technicalSkills: 'Stack'
       },
-      // Skills topics
       skillsTopics: {
         development: 'Desenvolvimento',
         dataAndIntegrations: 'Dados e Integrações',
         toolsCloudManagement: 'Ferramentas, Cloud e Gestão'
       },
-      // Projects
       projects: {
-        title: 'PORTFÓLIO',
+        title: 'Trabalho selecionado',
         previous: 'Projeto anterior',
         next: 'Próximo projeto',
-        goToProject: 'Ir para projeto',
-        clickHint: 'Clique no card para abrir o link do projeto'
+        goToProject: 'Abrir projeto',
+        clickHint: 'Abrir o projeto'
       },
-      // Resume
       resume: {
-        title: 'CURRÍCULO',
-        academic: 'Formação Acadêmica',
-        engineering: 'Engenharia da Computação',
+        title: 'Currículo',
+        academic: 'Formação',
+        engineering: 'Engenharia da Computação — UFG',
         inProgress: 'Em andamento',
-        technicalKnowledge: 'Conhecimentos Técnicos',
+        experience: 'Experiência',
+        bayerRole: 'Estagiária',
+        bayerOrg: 'Bayer',
+        bayerMeta: 'Atual',
+        teacherRole: 'Professora de inglês',
+        teacherOrg: 'Aliança América',
+        teacherMeta: '2024 · Remoto · 6 meses',
+        tekanaRole: 'Estagiária em desenvolvimento de software',
+        tekanaOrg: 'Tekna.Rocks',
+        tekanaMeta: '2025 — 2026',
+        technicalKnowledge: 'Áreas',
         development: 'Desenvolvimento',
-        developmentDesc: 'Front-end e Back-end, aplicações funcionais e responsivas',
-        dataAnalysis: 'Análise de Dados',
-        dataAnalysisDesc: 'Dashboards e visualizações com Power BI e Excel',
-        cloudSecurity: 'Cloud & Segurança',
-        cloudSecurityDesc: 'Cloudflare, performance e proteção de aplicações',
+        developmentDesc: 'Angular, React, Next.js, TypeScript e APIs para produtos web.',
+        dataAnalysis: 'Dados',
+        dataAnalysisDesc: 'Power BI, Excel, SQL e visualização para decisão.',
+        cloudSecurity: 'Cloud',
+        cloudSecurityDesc: 'Cloudflare, performance e proteção de aplicações.',
         tools: 'Ferramentas',
-        toolsDesc: 'Git, GitHub, Figma, metodologias ágeis',
-        ai: 'Inteligência Artificial',
-        aiDesc: 'Automação e otimização de processos',
+        toolsDesc: 'Git, GitHub, Figma e organização ágil de projetos.',
+        ai: 'IA aplicada',
+        aiDesc: 'Gemini e fluxos de IA para produtividade e produto.',
         languages: 'Idiomas',
         portuguese: 'Português',
         english: 'Inglês',
         native: 'Nativo',
         advanced: 'Avançado',
-        downloadFull: 'Baixar Currículo Completo (PDF)',
-        downloadDesc: 'Versão completa com formação, habilidades, projetos e informações de contato.'
+        downloadFull: 'Baixar CV em PDF',
+        downloadDesc: 'Formação, stack, projetos e contato em um arquivo.'
       },
-      // Contact
       contact: {
-        title: 'CONTATO',
-        subtitle: 'Estudante de Engenharia da Computação',
-        birthYear: '2005',
-        bornIn: 'Nascido em:',
-        openTo: 'Estou aberta a oportunidades, estágios, projetos e conexões profissionais na área de tecnologia.',
+        title: 'Contato',
+        subtitle: 'Engenharia da Computação · Dados e IA',
+        emailLabel: 'Email',
+        locationLabel: 'Local',
+        location: 'Brasil',
+        focusLabel: 'Foco',
+        focus: 'Web, dados e IA',
+        openTo: 'Aberta a estágios, projetos e conversas sobre produto e engenharia. Escreva com contexto — respondo por email.',
         name: 'Nome',
         email: 'Email',
         message: 'Mensagem',
         send: 'Enviar',
-        fillAllFields: 'Por favor, preencha todos os campos do formulário.',
-        invalidEmail: 'Por favor, insira um endereço de email válido.',
-        emailSubject: 'Contato do Portfólio',
-        emailError: 'Não foi possível abrir o cliente de email. Por favor, envie um email diretamente para dutramaria165@gmail.com'
+        sending: 'Enviando…',
+        sent: 'Mensagem enviada. Eu respondo por email.',
+        fillAllFields: 'Preencha todos os campos.',
+        invalidEmail: 'Insira um email válido.',
+        emailSubject: 'Contato do portfólio',
+        emailError: 'Não foi possível enviar. Tente de novo ou escreva para dutramaria165@gmail.com'
       }
     },
     EN: {
-      // Header
       header: {
-        development: 'Development',
-        available: 'I\'m available',
-        home: 'HOME',
-        about: 'ABOUT ME',
-        portfolio: 'PORTFOLIO',
-        resume: 'RESUME',
-        contact: 'CONTACT'
+        development: 'Product & engineering',
+        available: 'Open to work',
+        home: 'Home',
+        about: 'About',
+        portfolio: 'Work',
+        resume: 'Resume',
+        contact: 'Contact'
       },
-      // Home/Hero
       home: {
-        viewProjects: 'View Projects',
-        downloadResume: 'Download Resume',
-        subtitle: 'Full Stack Developer in training | Computer Engineering',
-        tags: {
-          frontend: 'Front-end',
-          backend: 'Back-end',
-          data: 'Data',
-          ai: 'AI'
-        },
-        description: 'I develop complete digital solutions, combining interface, logic, data and technology to solve real problems.'
+        eyebrow: 'Computer Engineering · Data · AI',
+        headline: 'Software, data and AI.',
+        viewProjects: 'View work',
+        downloadResume: 'Download CV',
+        stack: ['TypeScript', 'Angular', 'React', 'Next.js', 'Python', 'Data', 'AI'],
+        description: 'I study Computer Engineering at UFG, with a focus on data and artificial intelligence as well. I build web applications with TypeScript — UI, APIs, analysis and AI — for real-world problems.'
       },
-      // About
       about: {
-        greeting: 'Hello, I\'m Maria Clara.',
-        paragraph1: 'I create complete digital solutions for ambitious, design-driven projects.',
-        paragraph2: 'Using cutting-edge technologies and robust, elegant code, I develop applications that combine interface, logic, data, and artificial intelligence to create impactful experiences.',
-        paragraph3: 'I work on both Front-end and Back-end, in addition to working with data analysis, cloud, interface design and artificial intelligence, always seeking efficient and well-structured solutions.',
-        paragraph4: 'I have an analytical profile, good organization and ease in learning new technologies, in addition to experience with administration and project management.',
-        closing: 'Thank you for exploring my portfolio.',
-        technicalSkills: 'Technical Skills'
+        greeting: 'Hi, I’m Maria Clara Dutra.',
+        paragraph1: 'Computer Engineering student at UFG. Alongside full-stack development, I study data and artificial intelligence — analysis, visualization, and AI in both product and everyday coding.',
+        paragraph2: 'I use Angular, React, Next.js and TypeScript to ship interfaces and backends that talk to APIs, databases and dashboards.',
+        paragraph3: 'Python, SQL, Power BI and cloud tools come in when the problem needs data, automation or a more reliable operation.',
+        paragraph4: 'I’m looking for internships and product teams where I can contribute with code quality, ownership and fast learning.',
+        closing: 'Thanks for reading.',
+        technicalSkills: 'Stack'
       },
-      // Skills topics
       skillsTopics: {
         development: 'Development',
-        dataAndIntegrations: 'Data and Integrations',
-        toolsCloudManagement: 'Tools, Cloud and Management'
+        dataAndIntegrations: 'Data and integrations',
+        toolsCloudManagement: 'Tools, cloud and delivery'
       },
-      // Projects
       projects: {
-        title: 'PORTFOLIO',
+        title: 'Selected work',
         previous: 'Previous project',
         next: 'Next project',
-        goToProject: 'Go to project',
-        clickHint: 'Click on the card to open the project link'
+        goToProject: 'Open project',
+        clickHint: 'Open project'
       },
-      // Resume
       resume: {
-        title: 'RESUME',
-        academic: 'Academic Background',
-        engineering: 'Computer Engineering',
+        title: 'Resume',
+        academic: 'Education',
+        engineering: 'Computer Engineering — UFG',
         inProgress: 'In progress',
-        technicalKnowledge: 'Technical Knowledge',
-        development: 'Development',
-        developmentDesc: 'Front-end and Back-end, functional and responsive applications',
-        dataAnalysis: 'Data Analysis',
-        dataAnalysisDesc: 'Dashboards and visualizations with Power BI and Excel',
-        cloudSecurity: 'Cloud & Security',
-        cloudSecurityDesc: 'Cloudflare, performance and application protection',
+        experience: 'Experience',
+        bayerRole: 'Intern',
+        bayerOrg: 'Bayer',
+        bayerMeta: 'Current',
+        teacherRole: 'English teacher',
+        teacherOrg: 'Aliança América',
+        teacherMeta: '2024 · Remote · 6 months',
+        tekanaRole: 'Software engineering intern',
+        tekanaOrg: 'Tekna.Rocks',
+        tekanaMeta: '2025 — 2026',
+        technicalKnowledge: 'Focus areas',
+        development: 'Engineering',
+        developmentDesc: 'Angular, React, Next.js, TypeScript and APIs for web products.',
+        dataAnalysis: 'Data',
+        dataAnalysisDesc: 'Power BI, Excel, SQL and visualization for decisions.',
+        cloudSecurity: 'Cloud',
+        cloudSecurityDesc: 'Cloudflare, performance and application protection.',
         tools: 'Tools',
-        toolsDesc: 'Git, GitHub, Figma, agile methodologies',
-        ai: 'Artificial Intelligence',
-        aiDesc: 'Automation and process optimization',
+        toolsDesc: 'Git, GitHub, Figma and agile project organization.',
+        ai: 'Applied AI',
+        aiDesc: 'Gemini and AI workflows for productivity and product.',
         languages: 'Languages',
         portuguese: 'Portuguese',
         english: 'English',
         native: 'Native',
         advanced: 'Advanced',
-        downloadFull: 'Download Full Resume (PDF)',
-        downloadDesc: 'Complete version with education, skills, projects and contact information.'
+        downloadFull: 'Download PDF resume',
+        downloadDesc: 'Education, stack, projects and contact in one file.'
       },
-      // Contact
       contact: {
-        title: 'CONTACT',
-        subtitle: 'Computer Engineering Student',
-        birthYear: '2005',
-        bornIn: 'Born in:',
-        openTo: 'I\'m open to opportunities, internships, projects and professional connections in the technology field.',
+        title: 'Contact',
+        subtitle: 'Computer Engineering · Data and AI',
+        emailLabel: 'Email',
+        locationLabel: 'Location',
+        location: 'Brazil',
+        focusLabel: 'Focus',
+        focus: 'Web, data and AI',
+        openTo: 'Open to internships, projects and conversations about product and engineering. Include context — I reply by email.',
         name: 'Name',
         email: 'Email',
         message: 'Message',
         send: 'Send',
-        fillAllFields: 'Please fill in all form fields.',
+        sending: 'Sending…',
+        sent: 'Message sent. I’ll reply by email.',
+        fillAllFields: 'Please fill in all fields.',
         invalidEmail: 'Please enter a valid email address.',
-        emailSubject: 'Portfolio Contact',
-        emailError: 'Unable to open email client. Please send an email directly to dutramaria165@gmail.com'
+        emailSubject: 'Portfolio contact',
+        emailError: 'Could not send. Try again or write to dutramaria165@gmail.com'
       }
     }
   };
@@ -208,14 +215,24 @@ export class HomeComponent implements OnInit, OnDestroy {
       topico: 'Desenvolvimento',
       habilidades: [
         {
-          nome: 'HTML5',
+          nome: 'HTML5 & CSS',
           icon: 'assets/icons/html.png',
-          descricao: 'Estruturação semântica de páginas web, boas práticas de acessibilidade e organização de conteúdo.'
+          descricao: 'Estruturação semântica, acessibilidade e layout responsivo.'
         },
         {
           nome: 'JavaScript',
           icon: 'assets/icons/js.png',
-          descricao: 'Manipulação do DOM, lógica de programação, eventos, validações e interações dinâmicas no front-end.'
+          descricao: 'Lógica, DOM, eventos e integração com APIs no front-end.'
+        },
+        {
+          nome: 'Angular',
+          icon: 'assets/icons/angular.png',
+          descricao: 'Componentes, roteamento e aplicações de produto com TypeScript.'
+        },
+        {
+          nome: 'React & Next.js',
+          icon: 'assets/icons/react.png',
+          descricao: 'Interfaces e apps com Vite/Next, rotas e deploy em Vercel.'
         },
         {
           nome: 'Python',
@@ -239,7 +256,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       habilidades: [
         {
           nome: 'APIs & Integrações',
-          icon: 'assets/icons/js.png',
+          icon: 'assets/icons/api.png',
           descricao: 'Consumo de APIs REST, integração entre front-end e back-end e manipulação de dados externos.'
         },
         {
@@ -279,7 +296,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         },
         {
           nome: 'Git & GitHub',
-          icon: 'assets/icons/gitHub.png',
+          icon: 'assets/icons/git.png',
           descricao: 'Versionamento de código, controle de alterações, organização de repositórios e trabalho colaborativo com Git.'
         },
         {
@@ -307,14 +324,24 @@ export class HomeComponent implements OnInit, OnDestroy {
       topico: 'Development',
       habilidades: [
         {
-          nome: 'HTML5',
+          nome: 'HTML5 & CSS',
           icon: 'assets/icons/html.png',
-          descricao: 'Semantic structuring of web pages, accessibility best practices and content organization.'
+          descricao: 'Semantic markup, accessibility and responsive layout.'
         },
         {
           nome: 'JavaScript',
           icon: 'assets/icons/js.png',
-          descricao: 'DOM manipulation, programming logic, events, validations and dynamic interactions on the front-end.'
+          descricao: 'Logic, DOM, events and API integration on the front-end.'
+        },
+        {
+          nome: 'Angular',
+          icon: 'assets/icons/angular.png',
+          descricao: 'Components, routing and product apps with TypeScript.'
+        },
+        {
+          nome: 'React & Next.js',
+          icon: 'assets/icons/react.png',
+          descricao: 'UIs and apps with Vite/Next, routing and Vercel deploys.'
         },
         {
           nome: 'Python',
@@ -338,7 +365,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       habilidades: [
         {
           nome: 'APIs & Integrations',
-          icon: 'assets/icons/js.png',
+          icon: 'assets/icons/api.png',
           descricao: 'REST API consumption, front-end and back-end integration and external data manipulation.'
         },
         {
@@ -406,91 +433,104 @@ export class HomeComponent implements OnInit, OnDestroy {
   projetosPT = [
     {
       titulo: 'Organizator',
-      descricao: 'App de gerenciamento de tarefas focado em quem programa — "sua vida de programação organizada". Tarefas com categoria, prioridade e vencimento; dashboard com totais; filtros por status, categoria e prioridade; tema claro/escuro e login com Supabase. Stack: Angular 18, PrimeNG, Node/Express, Supabase.',
+      descricao: 'Gestão de tarefas para quem programa: categorias, prioridades, dashboard e autenticação. Angular 18, PrimeNG, Node e Supabase.',
       imagem: 'assets/img/orgaizator.png',
-      link: 'https://organizator.dutramaria165.workers.dev/login'
+      link: 'https://organizator.dutramaria165.workers.dev/login',
+      stack: ['Angular', 'PrimeNG', 'Supabase', 'Node']
     },
     {
       titulo: 'Flashcards',
-      descricao: 'Flashcard Game — Aplicação web para criação e estudo com flashcards. Permite criar baralhos com várias cartas (pergunta/resposta), jogar em modo de revisão com flip 3D e marcar cartas como corretas ou incorretas — as erradas voltam para a fila. Persistência em localStorage, interface responsiva em tema escuro com Tailwind CSS, usando React 18, TypeScript, Vite e React Router.',
+      descricao: 'Baralhos com revisão 3D, fila de erros e persistência local. React 18, TypeScript, Vite e Tailwind.',
       imagem: 'assets/img/flashcard.png',
-      link: 'https://flash-card-frontend-qmcl-dvfjra86l.vercel.app/'
+      link: 'https://flash-card-frontend-qmcl-dvfjra86l.vercel.app/',
+      stack: ['React', 'TypeScript', 'Vite', 'Tailwind']
     },
     {
       titulo: 'Calculadora de IMC',
-      descricao: 'Calculadora de IMC — Ferramenta de saúde que calcula o IMC a partir de altura, peso e idade. Classifica o resultado e indica quanto emagrecer ou ganhar. Interface em tema escuro, suporte a escala métrica (kg) e americana (lbs), e idiomas inglês e português. Feita com React, Vite, Chakra UI, React Hook Form e Zod.',
+      descricao: 'IMC com métrica e imperial, PT/EN e validação de formulário. React, Chakra UI, Hook Form e Zod.',
       imagem: 'assets/img/calories.png',
-      link: 'https://calories-six-flame.vercel.app/'
+      link: 'https://calories-six-flame.vercel.app/',
+      stack: ['React', 'Chakra UI', 'Zod']
     },
     {
       titulo: 'Resumidor IA',
-      descricao: 'Resumidor IA é uma aplicação web feita em Next.js e React que usa a API do Google Gemini para gerar resumos de textos. A interface permite selecionar o estilo do resumo (parágrafos, bullet points ou executivo), suporta português e inglês e foi planejada para deploy no Vercel. O projeto usa cache de modelos, API Routes serverless e Tailwind CSS para interface responsiva e acessível.',
+      descricao: 'Resumos com Gemini: parágrafos, bullets ou executivo. Next.js, API Routes e Tailwind.',
       imagem: 'assets/img/ia.png',
-      link: 'https://ia-fyi1.vercel.app/'
+      link: 'https://ia-fyi1.vercel.app/',
+      stack: ['Next.js', 'Gemini', 'Tailwind']
     },
     {
       titulo: 'Random Meal Generator',
-      descricao: 'Este programa exibe uma refeição aleatória obtida da API TheMealDB. Ao clicar no botão, ele busca uma nova refeição e exibe o nome, imagem, ingredientes e instruções de preparo. Além disso, se disponível, um vídeo do YouTube é incorporado para auxiliar no preparo da receita.',
+      descricao: 'Refeição aleatória via TheMealDB: ingredientes, instruções e vídeo quando disponível.',
       imagem: 'assets/img/randomMeal.png',
-      link: 'https://dutra1904.github.io/random-meal-generator/'
+      link: 'https://dutra1904.github.io/random-meal-generator/',
+      stack: ['JavaScript', 'REST API']
     },
     {
-      titulo: 'Jogo Espacial',
-      descricao: 'Este trabalho apresenta o desenvolvimento de um jogo de batalha espacial, Stellar Clash, que utiliza estruturas de dados avançadas, como listas, filas, árvores e grafos.',
+      titulo: 'Stellar Clash',
+      descricao: 'Jogo de batalha espacial com listas, filas, árvores e grafos.',
       imagem: 'assets/img/batalha-background.png',
-      link: 'https://github.com/dutra1904/stellar_clash.git'
+      link: 'https://github.com/dutra1904/stellar_clash.git',
+      stack: ['C', 'Estruturas de dados']
     },
     {
-      titulo: 'Projeto Livre Spotify (Power BI)',
-      descricao: 'Dashboard interativo: popularidade no Spotify vs. aclamação (Grammy). Comparação com ganhadores do Grammy, filtros por ano e gênero, músicas mais ouvidas, top artists e mapa de onde cada país mais escuta. Rankings Brasil e Global.',
+      titulo: 'Spotify × Grammy (Power BI)',
+      descricao: 'Dashboard de popularidade vs. aclamação, filtros por ano/gênero e rankings Brasil e global.',
       imagem: 'assets/img/powerbi-spotify.svg',
-      link: 'https://app.powerbi.com/view?r=eyJrIjoiNDlhOTllNjUtZTUyZi00YzFlLWJjNDItNWIwYmRmODkzNGQyIiwidCI6ImIxY2E3YTgxLWFiZjgtNDJlNS05OGM2LWYyZjJhOTMwYmEzNiJ9&pageName=f33855a7bc54134d0440'
+      link: 'https://app.powerbi.com/view?r=eyJrIjoiNDlhOTllNjUtZTUyZi00YzFlLWJjNDItNWIwYmRmODkzNGQyIiwidCI6ImIxY2E3YTgxLWFiZjgtNDJlNS05OGM2LWYyZjJhOTMwYmEzNiJ9&pageName=f33855a7bc54134d0440',
+      stack: ['Power BI', 'Data viz']
     }
   ];
 
-  // Projetos em inglês
   projetosEN = [
     {
       titulo: 'Organizator',
-      descricao: 'Task management app for developers — "Your programming life, organized." Tasks with categories, priorities and due dates; dashboard with totals; filters by status, category and priority; dark/light theme and Supabase auth. Stack: Angular 18, PrimeNG, Node/Express, Supabase.',
+      descricao: 'Task management for developers: categories, priorities, dashboard and auth. Angular 18, PrimeNG, Node and Supabase.',
       imagem: 'assets/img/orgaizator.png',
-      link: 'https://organizator.dutramaria165.workers.dev/login'
+      link: 'https://organizator.dutramaria165.workers.dev/login',
+      stack: ['Angular', 'PrimeNG', 'Supabase', 'Node']
     },
     {
       titulo: 'Flashcards',
-      descricao: 'Flashcard Game — Web application for creating and studying with flashcards. Allows creating decks with multiple cards (question/answer), playing in review mode with 3D flip and marking cards as correct or incorrect — wrong ones return to the queue. localStorage persistence, responsive dark-themed interface with Tailwind CSS, using React 18, TypeScript, Vite and React Router.',
+      descricao: 'Decks with 3D review, miss queue and local persistence. React 18, TypeScript, Vite and Tailwind.',
       imagem: 'assets/img/flashcard.png',
-      link: 'https://flash-card-frontend-qmcl-dvfjra86l.vercel.app/'
+      link: 'https://flash-card-frontend-qmcl-dvfjra86l.vercel.app/',
+      stack: ['React', 'TypeScript', 'Vite', 'Tailwind']
     },
     {
       titulo: 'BMI Calculator',
-      descricao: 'BMI Calculator — Health tool that calculates BMI from height, weight and age. Classifies the result and indicates how much to lose or gain. Dark theme interface, support for metric (kg) and American (lbs) scale, and English and Portuguese languages. Built with React, Vite, Chakra UI, React Hook Form and Zod.',
+      descricao: 'BMI with metric and imperial units, EN/PT and form validation. React, Chakra UI, Hook Form and Zod.',
       imagem: 'assets/img/calories.png',
-      link: 'https://calories-six-flame.vercel.app/'
+      link: 'https://calories-six-flame.vercel.app/',
+      stack: ['React', 'Chakra UI', 'Zod']
     },
     {
       titulo: 'AI Summarizer',
-      descricao: 'AI Summarizer is a web application built with Next.js and React that uses the Google Gemini API to generate text summaries. The interface allows selecting the summary style (paragraphs, bullet points or executive), supports Portuguese and English, and is designed for Vercel deployment. The project uses model caching, serverless API Routes and Tailwind CSS for a responsive and accessible interface.',
+      descricao: 'Gemini summaries: paragraphs, bullets or executive. Next.js, API Routes and Tailwind.',
       imagem: 'assets/img/ia.png',
-      link: 'https://ia-fyi1.vercel.app/'
+      link: 'https://ia-fyi1.vercel.app/',
+      stack: ['Next.js', 'Gemini', 'Tailwind']
     },
     {
       titulo: 'Random Meal Generator',
-      descricao: 'This program displays a random meal obtained from TheMealDB API. When clicking the button, it fetches a new meal and displays the name, image, ingredients and preparation instructions. Additionally, if available, a YouTube video is embedded to assist in recipe preparation.',
+      descricao: 'Random meal from TheMealDB: ingredients, instructions and video when available.',
       imagem: 'assets/img/randomMeal.png',
-      link: 'https://dutra1904.github.io/random-meal-generator/'
+      link: 'https://dutra1904.github.io/random-meal-generator/',
+      stack: ['JavaScript', 'REST API']
     },
     {
-      titulo: 'Space Game',
-      descricao: 'This work presents the development of a space battle game, Stellar Clash, which uses advanced data structures such as lists, queues, trees and graphs.',
+      titulo: 'Stellar Clash',
+      descricao: 'Space battle game using lists, queues, trees and graphs.',
       imagem: 'assets/img/batalha-background.png',
-      link: 'https://github.com/dutra1904/stellar_clash.git'
+      link: 'https://github.com/dutra1904/stellar_clash.git',
+      stack: ['C', 'Data structures']
     },
     {
-      titulo: 'Spotify Project (Power BI)',
-      descricao: 'Interactive dashboard: Spotify popularity vs. acclaim (Grammy). Compare with Grammy winners, filter by year and genre, most listened songs, top artists, and map of where each country listens most. Brazil and Global rankings.',
+      titulo: 'Spotify × Grammy (Power BI)',
+      descricao: 'Dashboard of popularity vs. acclaim, year/genre filters and Brazil/global rankings.',
       imagem: 'assets/img/powerbi-spotify.svg',
-      link: 'https://app.powerbi.com/view?r=eyJrIjoiNDlhOTllNjUtZTUyZi00YzFlLWJjNDItNWIwYmRmODkzNGQyIiwidCI6ImIxY2E3YTgxLWFiZjgtNDJlNS05OGM2LWYyZjJhOTMwYmEzNiJ9&pageName=f33855a7bc54134d0440'
+      link: 'https://app.powerbi.com/view?r=eyJrIjoiNDlhOTllNjUtZTUyZi00YzFlLWJjNDItNWIwYmRmODkzNGQyIiwidCI6ImIxY2E3YTgxLWFiZjgtNDJlNS05OGM2LWYyZjJhOTMwYmEzNiJ9&pageName=f33855a7bc54134d0440',
+      stack: ['Power BI', 'Data viz']
     }
   ];
 
@@ -651,14 +691,15 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.scrollToSection('about');
   }
 
-  goToProjects(): void {
-    this.setActiveTab('portfolio');
+  goToTab(tab: 'about' | 'portfolio' | 'resume' | 'contact'): void {
+    this.setActiveTab(tab);
     setTimeout(() => {
-      const element = document.getElementById('about');
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }, 100);
+      document.getElementById('about')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 80);
+  }
+
+  goToProjects(): void {
+    this.goToTab('portfolio');
   }
 
   abrirProjeto(link: string): void {

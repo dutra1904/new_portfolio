@@ -1,4 +1,89 @@
-// Estilos específicos do componente Portfolio
-// Os estilos principais estão no home.component.scss e styles.scss globais
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
 
+.work-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  overflow: hidden;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
 
+.work-card:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-2px);
+}
+
+.work-card-hit {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  padding: 0;
+}
+
+.work-thumb {
+  height: 168px;
+  background-size: cover;
+  background-position: center;
+  background-color: #0c0c0e;
+  border-bottom: 1px solid var(--border);
+}
+
+.work-body {
+  padding: 16px 16px 18px;
+}
+
+.work-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+
+.work-head h3 {
+  font-size: 1.05rem;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+}
+
+.work-open {
+  color: var(--accent);
+  font-size: 0.95rem;
+}
+
+.work-body p {
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.55;
+  margin-bottom: 12px;
+}
+
+.work-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  list-style: none;
+
+  li {
+    font-size: 0.7rem;
+    font-weight: 650;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 4px 8px;
+  }
+}
+
+@media (max-width: 720px) {
+  .work-grid {
+    grid-template-columns: 1fr;
+  }
+}

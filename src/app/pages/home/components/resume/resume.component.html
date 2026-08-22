@@ -2,36 +2,34 @@
   <div class="title-tabs-wrapper">
     <h2 class="tab-title">{{ translations?.resume?.title }}</h2>
     <div class="tabs-navigation-content">
-      <button 
-        class="tab-button-content" 
-        [class.active]="isActiveTab('about')"
-        (click)="setActiveTab('about')">
-        {{ translations?.header?.about }}
-      </button>
-      <button 
-        class="tab-button-content" 
-        [class.active]="isActiveTab('portfolio')"
-        (click)="setActiveTab('portfolio')">
-        {{ translations?.header?.portfolio }}
-      </button>
-      <button 
-        class="tab-button-content" 
-        [class.active]="isActiveTab('resume')"
-        (click)="setActiveTab('resume')">
-        {{ translations?.header?.resume }}
-      </button>
-      <button 
-        class="tab-button-content" 
-        [class.active]="isActiveTab('contact')"
-        (click)="setActiveTab('contact')">
-        {{ translations?.header?.contact }}
-      </button>
+      <button class="tab-button-content" [class.active]="isActiveTab('about')" (click)="setActiveTab('about')">{{ translations?.header?.about }}</button>
+      <button class="tab-button-content" [class.active]="isActiveTab('portfolio')" (click)="setActiveTab('portfolio')">{{ translations?.header?.portfolio }}</button>
+      <button class="tab-button-content" [class.active]="isActiveTab('resume')" (click)="setActiveTab('resume')">{{ translations?.header?.resume }}</button>
+      <button class="tab-button-content" [class.active]="isActiveTab('contact')" (click)="setActiveTab('contact')">{{ translations?.header?.contact }}</button>
     </div>
   </div>
+
   <div class="resume-content-wrapper">
     <div class="resume-section unified-resume">
       <div class="resume-content">
-        <!-- Formação -->
+        <div class="resume-subsection">
+          <h3 class="resume-section-title">{{ translations?.resume?.experience }}</h3>
+          <div class="resume-timeline">
+            <div class="resume-item">
+              <h4>{{ translations?.resume?.bayerRole }} — {{ translations?.resume?.bayerOrg }}</h4>
+              <p class="resume-status">{{ translations?.resume?.bayerMeta }}</p>
+            </div>
+            <div class="resume-item">
+              <h4>{{ translations?.resume?.teacherRole }} — {{ translations?.resume?.teacherOrg }}</h4>
+              <p class="resume-status">{{ translations?.resume?.teacherMeta }}</p>
+            </div>
+            <div class="resume-item">
+              <h4>{{ translations?.resume?.tekanaRole }} — {{ translations?.resume?.tekanaOrg }}</h4>
+              <p class="resume-status">{{ translations?.resume?.tekanaMeta }}</p>
+            </div>
+          </div>
+        </div>
+
         <div class="resume-subsection">
           <h3 class="resume-section-title">{{ translations?.resume?.academic }}</h3>
           <div class="resume-item">
@@ -40,7 +38,6 @@
           </div>
         </div>
 
-        <!-- Conhecimentos Técnicos -->
         <div class="resume-subsection">
           <h3 class="resume-section-title">{{ translations?.resume?.technicalKnowledge }}</h3>
           <div class="resume-skills">
@@ -67,7 +64,6 @@
           </div>
         </div>
 
-        <!-- Idiomas -->
         <div class="resume-subsection">
           <h3 class="resume-section-title">{{ translations?.resume?.languages }}</h3>
           <div class="resume-languages">
@@ -82,10 +78,8 @@
           </div>
         </div>
 
-        <!-- Download -->
         <div class="resume-subsection resume-download">
-          <a [href]="curriculoPath" [download]="curriculoNome" class="btn-download" [attr.aria-label]="translations?.resume?.downloadFull">
-            <span>📄</span>
+          <a [href]="curriculoPath" [download]="curriculoNome" class="btn-download">
             {{ translations?.resume?.downloadFull }}
           </a>
           <p class="download-description">{{ translations?.resume?.downloadDesc }}</p>
@@ -94,5 +88,3 @@
     </div>
   </div>
 </div>
-
-

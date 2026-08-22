@@ -1,178 +1,125 @@
-<!-- Seção Home / Hero -->
-<section id="home" class="cosmic-home">
-  <!-- Estrelas no fundo -->
-  <div class="stars"></div>
-  
-  <!-- Header superior -->
-  <div class="home-header">
-    <div class="home-header-left">
-      <span class="logo-text">Maria Dutra</span>
-    </div>
-    <div class="home-header-right">
-      <span class="header-label">{{ t.header.development }}</span>
-      <div class="status-badge">
-        <span class="status-dot"></span>
-        <span class="status-text">{{ t.header.available }}</span>
+<section id="home" class="hero">
+  <div class="hero-frame">
+    <header class="site-nav">
+      <a href="#home" class="logo" (click)="scrollToSection('home'); $event.preventDefault()">Maria Dutra</a>
+
+      <nav class="site-nav-links" aria-label="Primary">
+        <button type="button" (click)="goToTab('about')">{{ t.header.about }}</button>
+        <button type="button" (click)="goToTab('portfolio')">{{ t.header.portfolio }}</button>
+        <button type="button" (click)="goToTab('resume')">{{ t.header.resume }}</button>
+        <button type="button" (click)="goToTab('contact')">{{ t.header.contact }}</button>
+      </nav>
+
+      <div class="site-nav-end">
+        <span class="status-badge">
+          <span class="status-dot"></span>
+          {{ t.header.available }}
+        </span>
+        <select class="language-selector" [(ngModel)]="currentLanguage" aria-label="Language">
+          <option value="EN">EN</option>
+          <option value="PT">PT</option>
+        </select>
       </div>
-      <select class="language-selector" [(ngModel)]="currentLanguage">
-        <option value="EN">EN</option>
-        <option value="PT">PT</option>
-      </select>
-    </div>
-  </div>
-  
-  <!-- Conteúdo de apresentação -->
-  <div class="intro-container">
-    <div class="intro-content">
-      <!-- Imagem de perfil -->
-      <div class="intro-image-wrapper">
-        <img src="assets/img/me.png" alt="Maria Dutra" class="intro-image" fetchpriority="high" width="400" height="400">
-        <!-- Botões de ação -->
-        <div class="intro-buttons">
-          <button (click)="goToProjects()" class="btn-primary">
-            {{ t.home.viewProjects }}
-          </button>
-          <a [href]="curriculoPath" [download]="curriculoNome" class="btn-secondary" [attr.aria-label]="t.home.downloadResume">
-            {{ t.home.downloadResume }}
-          </a>
+    </header>
+
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <p class="eyebrow">{{ t.home.eyebrow }}</p>
+        <h1>{{ t.home.headline }}</h1>
+        <p class="lede">{{ t.home.description }}</p>
+        <div class="hero-actions">
+          <button type="button" class="btn-primary" (click)="goToProjects()">{{ t.home.viewProjects }}</button>
+          <a [href]="curriculoPath" [download]="curriculoNome" class="btn-ghost">{{ t.home.downloadResume }}</a>
         </div>
+        <ul class="stack-line" aria-label="Core stack">
+          <li *ngFor="let item of t.home.stack">{{ item }}</li>
+        </ul>
       </div>
-      
-      <!-- Texto de apresentação -->
-      <div class="intro-text">
-        <h1 class="intro-title">Maria Dutra</h1>
-        <p class="intro-subtitle">{{ t.home.subtitle }}</p>
-        <div class="intro-tags">
-          <span class="tag">{{ t.home.tags.frontend }}</span>
-          <span class="tag-separator">•</span>
-          <span class="tag">{{ t.home.tags.backend }}</span>
-          <span class="tag-separator">•</span>
-          <span class="tag">{{ t.home.tags.data }}</span>
-          <span class="tag-separator">•</span>
-          <span class="tag">{{ t.home.tags.ai }}</span>
-        </div>
-        <p class="intro-description">{{ t.home.description }}</p>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Seta para baixo indicando scroll -->
-  <button 
-    class="scroll-down-arrow" 
-    (click)="scrollToNextSection()"
-    aria-label="Rolar para próxima seção">
-    <i class="pi pi-arrow-down"></i>
-  </button>
-</section>
-
-<!-- Seção com Tabs - About Me, Portfolio, Resume, Contact -->
-<section id="about" class="content-section about-section">
-  <div class="stars-about"></div>
-  
-  <!-- Container principal com layout de duas colunas -->
-  <div class="tabs-container">
-    <!-- Conteúdo principal -->
-    <div class="tabs-content-wrapper">
-      <!-- Sidebar esquerda - Informações pessoais -->
-      <aside class="sidebar-left">
-        <div class="sidebar-content">
-          <!-- Foto de perfil -->
-          <img src="assets/icons/foto.jpeg" alt="Foto de perfil de Maria Clara Dutra" class="sidebar-photo" loading="lazy" width="150" height="150">
-          
-          <!-- Nome -->
-          <h1 class="sidebar-name">Maria Clara Dutra</h1>
-          
-          <!-- Subtítulo -->
-          <p class="sidebar-subtitle">{{ t.contact.subtitle }}</p>
-          
-          <!-- Informações de contato -->
-          <div class="contact-info">
-            <div class="contact-item">
-              <span class="contact-label">
-                <i class="pi pi-envelope"></i> EMAIL
-              </span>
-              <a href="mailto:dutramaria165&#64;gmail.com" class="contact-value">dutramaria165&#64;gmail.com</a>
-        </div>
-            <div class="contact-item">
-              <span class="contact-label">
-                <i class="pi pi-map-marker"></i> CURRENT PLACE
-            </span>
-              <span class="contact-value">Brazil</span>
-            </div>
-            <div class="contact-item">
-              <span class="contact-label">
-                <i class="pi pi-calendar"></i> BIRTH YEAR
-            </span>
-              <span class="contact-value">{{ t.contact.birthYear }}</span>
-            </div>
-        </div>
-        
-        <!-- Redes sociais -->
-        <div class="social-icons" role="list" aria-label="Redes sociais">
-          <a href="https://github.com/dutra1904" target="_blank" rel="noopener noreferrer" class="icon" aria-label="Visitar perfil no GitHub">
-            <i class="pi pi-github"></i>
-          </a>
-          <a href="https://www.linkedin.com/in/maria-clara-dutra/" target="_blank" rel="noopener noreferrer" class="icon" aria-label="Visitar perfil no LinkedIn">
-            <i class="pi pi-linkedin"></i>
-          </a>
-          <a href="https://www.instagram.com/maclaradutra_/" target="_blank" rel="noopener noreferrer" class="icon" aria-label="Visitar perfil no Instagram">
-            <i class="pi pi-instagram"></i>
-          </a>
-          <a href="mailto:dutramaria165&#64;gmail.com" class="icon" aria-label="Enviar email">
-            <i class="pi pi-google"></i>
-          </a>
-        </div>
-      </div>
-      </aside>
-
-      <!-- Conteúdo direito - muda conforme a tab -->
-      <div class="content-right">
-        <!-- Tab About Me -->
-        <app-about-me 
-          *ngIf="activeTab === 'about'"
-          [translations]="t"
-          [habilidadesPorTopico]="habilidadesPorTopico"
-          [activeTab]="activeTab"
-          [isActiveTab]="isActiveTab.bind(this)"
-          [setActiveTab]="setActiveTab.bind(this)">
-        </app-about-me>
-
-        <!-- Tab Portfolio -->
-        <app-portfolio 
-          *ngIf="activeTab === 'portfolio'"
-          [translations]="t"
-          [projetos]="projetos"
-          [projetoAtualIndex]="projetoAtualIndex"
-          [activeTab]="activeTab"
-          [isActiveTab]="isActiveTab.bind(this)"
-          [setActiveTab]="setActiveTab.bind(this)"
-          [abrirProjeto]="abrirProjeto.bind(this)"
-          (projetoAnteriorEvent)="projetoAnterior()"
-          (proximoProjetoEvent)="proximoProjeto()"
-          (indexChangeEvent)="projetoAtualIndex = $event">
-        </app-portfolio>
-
-        <!-- Tab Resume -->
-        <app-resume 
-          *ngIf="activeTab === 'resume'"
-          [translations]="t"
-          [curriculoPath]="curriculoPath"
-          [curriculoNome]="curriculoNome"
-          [activeTab]="activeTab"
-          [isActiveTab]="isActiveTab.bind(this)"
-          [setActiveTab]="setActiveTab.bind(this)">
-        </app-resume>
-
-        <!-- Tab Contact -->
-        <app-contact 
-          *ngIf="activeTab === 'contact'"
-          [translations]="t"
-          [activeTab]="activeTab"
-          [isActiveTab]="isActiveTab.bind(this)"
-          [setActiveTab]="setActiveTab.bind(this)"
-          (enviarMensagemEvent)="enviarMensagem($event)">
-        </app-contact>
+      <div class="hero-media">
+        <img src="assets/img/me-hero.jpg" alt="Maria Dutra" width="480" height="600" fetchpriority="high">
       </div>
     </div>
   </div>
 </section>
+
+<section id="about" class="studio">
+  <div class="studio-shell">
+    <aside class="profile-card">
+      <img src="assets/icons/foto.jpeg" alt="Maria Clara Dutra" class="profile-photo" loading="lazy" width="160" height="160">
+      <h2>Maria Clara Dutra</h2>
+      <p class="profile-role">{{ t.contact.subtitle }}</p>
+      <dl class="profile-meta">
+        <div>
+          <dt>{{ t.contact.emailLabel }}</dt>
+          <dd><a href="mailto:dutramaria165&#64;gmail.com">dutramaria165&#64;gmail.com</a></dd>
+        </div>
+        <div>
+          <dt>{{ t.contact.locationLabel }}</dt>
+          <dd>{{ t.contact.location }}</dd>
+        </div>
+        <div>
+          <dt>{{ t.contact.focusLabel }}</dt>
+          <dd>{{ t.contact.focus }}</dd>
+        </div>
+      </dl>
+      <div class="social-icons">
+        <a href="https://github.com/dutra1904" target="_blank" rel="noopener noreferrer" class="icon" aria-label="GitHub">
+          <i class="pi pi-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/maria-clara-dutra/" target="_blank" rel="noopener noreferrer" class="icon" aria-label="LinkedIn">
+          <i class="pi pi-linkedin"></i>
+        </a>
+        <a href="mailto:dutramaria165&#64;gmail.com" class="icon" aria-label="Email">
+          <i class="pi pi-envelope"></i>
+        </a>
+      </div>
+    </aside>
+
+    <div class="studio-main">
+      <app-about-me
+        *ngIf="activeTab === 'about'"
+        [translations]="t"
+        [habilidadesPorTopico]="habilidadesPorTopico"
+        [activeTab]="activeTab"
+        [isActiveTab]="isActiveTab.bind(this)"
+        [setActiveTab]="setActiveTab.bind(this)">
+      </app-about-me>
+
+      <app-portfolio
+        *ngIf="activeTab === 'portfolio'"
+        [translations]="t"
+        [projetos]="projetos"
+        [projetoAtualIndex]="projetoAtualIndex"
+        [activeTab]="activeTab"
+        [isActiveTab]="isActiveTab.bind(this)"
+        [setActiveTab]="setActiveTab.bind(this)"
+        [abrirProjeto]="abrirProjeto.bind(this)"
+        (projetoAnteriorEvent)="projetoAnterior()"
+        (proximoProjetoEvent)="proximoProjeto()"
+        (indexChangeEvent)="projetoAtualIndex = $event">
+      </app-portfolio>
+
+      <app-resume
+        *ngIf="activeTab === 'resume'"
+        [translations]="t"
+        [curriculoPath]="curriculoPath"
+        [curriculoNome]="curriculoNome"
+        [activeTab]="activeTab"
+        [isActiveTab]="isActiveTab.bind(this)"
+        [setActiveTab]="setActiveTab.bind(this)">
+      </app-resume>
+
+      <app-contact
+        *ngIf="activeTab === 'contact'"
+        [translations]="t"
+        [activeTab]="activeTab"
+        [isActiveTab]="isActiveTab.bind(this)"
+        [setActiveTab]="setActiveTab.bind(this)">
+      </app-contact>
+    </div>
+  </div>
+</section>
+
+<footer role="contentinfo">
+  <p>© {{ currentYear }} Maria Clara Dutra</p>
+</footer>
