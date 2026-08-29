@@ -432,6 +432,13 @@ export class HomeComponent implements OnInit, OnDestroy {
   // Dados do Portfolio em português
   projetosPT = [
     {
+      titulo: 'feelingss',
+      descricao: 'Visão computacional no navegador: emoção, idade e sexo em tempo real. A imagem não sai do dispositivo.',
+      imagem: 'assets/img/feelingss.png',
+      link: 'https://feelingss.vercel.app/',
+      stack: ['Computer Vision', 'ML', 'Webcam']
+    },
+    {
       titulo: 'Organizator',
       descricao: 'Gestão de tarefas para quem programa: categorias, prioridades, dashboard e autenticação. Angular 18, PrimeNG, Node e Supabase.',
       imagem: 'assets/img/orgaizator.png',
@@ -483,6 +490,13 @@ export class HomeComponent implements OnInit, OnDestroy {
   ];
 
   projetosEN = [
+    {
+      titulo: 'feelingss',
+      descricao: 'In-browser computer vision: emotion, age and gender in real time. The image never leaves the device.',
+      imagem: 'assets/img/feelingss.png',
+      link: 'https://feelingss.vercel.app/',
+      stack: ['Computer Vision', 'ML', 'Webcam']
+    },
     {
       titulo: 'Organizator',
       descricao: 'Task management for developers: categories, priorities, dashboard and auth. Angular 18, PrimeNG, Node and Supabase.',
