@@ -439,6 +439,13 @@ export class HomeComponent implements OnInit, OnDestroy {
       stack: ['Computer Vision', 'ML', 'Webcam']
     },
     {
+      titulo: 'MenuMatch AI',
+      descricao: 'Pedido certo em uma frase: o agente monta o pedido com restrições alimentares e o painel mostra receita, ticket médio e itens mais pedidos.',
+      imagem: 'assets/img/MenuMatch.png',
+      link: 'https://github.com/dutra1904',
+      stack: ['Next.js', 'Python', 'IA']
+    },
+    {
       titulo: 'Organizator',
       descricao: 'Gestão de tarefas para quem programa: categorias, prioridades, dashboard e autenticação. Angular 18, PrimeNG, Node e Supabase.',
       imagem: 'assets/img/orgaizator.png',
@@ -496,6 +503,13 @@ export class HomeComponent implements OnInit, OnDestroy {
       imagem: 'assets/img/feelingss.png',
       link: 'https://feelingss.vercel.app/',
       stack: ['Computer Vision', 'ML', 'Webcam']
+    },
+    {
+      titulo: 'MenuMatch AI',
+      descricao: 'The right order in one sentence: the agent builds the order with dietary restrictions, and the dashboard tracks revenue, average ticket and top items.',
+      imagem: 'assets/img/MenuMatch.png',
+      link: 'https://github.com/dutra1904',
+      stack: ['Next.js', 'Python', 'IA']
     },
     {
       titulo: 'Organizator',
