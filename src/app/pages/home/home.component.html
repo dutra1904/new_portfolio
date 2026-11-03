@@ -1,125 +1,93 @@
-<section id="home" class="hero">
-  <div class="hero-frame">
-    <header class="site-nav">
-      <a href="#home" class="logo" (click)="scrollToSection('home'); $event.preventDefault()">Maria Dutra</a>
+<div class="nav-wrap">
+  <header class="site-nav">
+    <a href="#home" class="logo" (click)="scrollTo('home', $event)">Maria Dutra</a>
 
-      <nav class="site-nav-links" aria-label="Primary">
-        <button type="button" (click)="goToTab('about')">{{ t.header.about }}</button>
-        <button type="button" (click)="goToTab('portfolio')">{{ t.header.portfolio }}</button>
-        <button type="button" (click)="goToTab('resume')">{{ t.header.resume }}</button>
-        <button type="button" (click)="goToTab('contact')">{{ t.header.contact }}</button>
-      </nav>
+    <nav class="site-nav-links" [attr.aria-label]="lang === 'PT' ? 'Seções' : 'Sections'">
+      <button
+        *ngFor="let item of navItems"
+        type="button"
+        [class.active]="activeSection === item.id"
+        (click)="scrollTo(item.id)">
+        {{ copy.nav[item.key] }}
+      </button>
+    </nav>
 
-      <div class="site-nav-end">
-        <span class="status-badge">
-          <span class="status-dot"></span>
-          {{ t.header.available }}
-        </span>
-        <select class="language-selector" [(ngModel)]="currentLanguage" aria-label="Language">
-          <option value="EN">EN</option>
-          <option value="PT">PT</option>
-        </select>
-      </div>
-    </header>
+    <div class="site-nav-end">
+      <a class="skip" href="#projects" (click)="scrollTo('projects', $event)">{{ copy.nav.skip }}</a>
+      <span class="status-badge">
+        <span class="status-dot"></span>
+        {{ copy.nav.available }}
+      </span>
+      <select class="language-selector" [value]="lang" (change)="setLanguage($event)" [attr.aria-label]="copy.nav.language">
+        <option value="EN">EN</option>
+        <option value="PT">PT</option>
+      </select>
+    </div>
+  </header>
+</div>
 
-    <div class="hero-inner">
-      <div class="hero-copy">
-        <p class="eyebrow">{{ t.home.eyebrow }}</p>
-        <h1>{{ t.home.headline }}</h1>
-        <p class="lede">{{ t.home.description }}</p>
-        <div class="hero-actions">
-          <button type="button" class="btn-primary" (click)="goToProjects()">{{ t.home.viewProjects }}</button>
-          <a [href]="curriculoPath" [download]="curriculoNome" class="btn-ghost">{{ t.home.downloadResume }}</a>
-        </div>
-        <ul class="stack-line" aria-label="Core stack">
-          <li *ngFor="let item of t.home.stack">{{ item }}</li>
-        </ul>
+<section id="home" class="hero" aria-labelledby="hero-title">
+  <div class="shell hero-inner">
+    <div class="hero-copy">
+      <ul class="badges" [attr.aria-label]="lang === 'PT' ? 'Destaques' : 'Highlights'">
+        <li *ngFor="let badge of copy.hero.badges">{{ badge }}</li>
+      </ul>
+      <h1 id="hero-title">
+        {{ copy.hero.titleName }}
+        <span class="h1-role"><span class="dash">— </span>{{ copy.hero.titleRole }}</span>
+      </h1>
+      <p class="lede">{{ copy.hero.tagline }}</p>
+      <div class="hero-actions">
+        <button type="button" class="btn-primary" (click)="scrollTo('projects')">{{ copy.hero.primaryCta }}</button>
+        <a class="btn-ghost" [href]="cv.href" [download]="cv.filename">{{ copy.hero.secondaryCta }}</a>
       </div>
-      <div class="hero-media">
-        <img src="assets/img/me-hero.jpg" alt="Maria Dutra" width="480" height="600" fetchpriority="high">
-      </div>
+      <app-social-links [links]="copy.social"></app-social-links>
+      <ul class="stack-line" [attr.aria-label]="copy.hero.stackLabel">
+        <li *ngFor="let item of copy.hero.stack">{{ item }}</li>
+      </ul>
+    </div>
+    <div class="hero-media">
+      <img
+        src="assets/img/me-hero.jpg"
+        [alt]="copy.hero.photoAlt"
+        width="480"
+        height="600"
+        fetchpriority="high"
+        decoding="async">
     </div>
   </div>
 </section>
 
-<section id="about" class="studio">
-  <div class="studio-shell">
-    <aside class="profile-card">
-      <img src="assets/icons/foto.jpeg" alt="Maria Clara Dutra" class="profile-photo" loading="lazy" width="160" height="160">
-      <h2>Maria Clara Dutra</h2>
-      <p class="profile-role">{{ t.contact.subtitle }}</p>
-      <dl class="profile-meta">
-        <div>
-          <dt>{{ t.contact.emailLabel }}</dt>
-          <dd><a href="mailto:dutramaria165&#64;gmail.com">dutramaria165&#64;gmail.com</a></dd>
-        </div>
-        <div>
-          <dt>{{ t.contact.locationLabel }}</dt>
-          <dd>{{ t.contact.location }}</dd>
-        </div>
-        <div>
-          <dt>{{ t.contact.focusLabel }}</dt>
-          <dd>{{ t.contact.focus }}</dd>
-        </div>
-      </dl>
-      <div class="social-icons">
-        <a href="https://github.com/dutra1904" target="_blank" rel="noopener noreferrer" class="icon" aria-label="GitHub">
-          <i class="pi pi-github"></i>
-        </a>
-        <a href="https://www.linkedin.com/in/maria-clara-dutra/" target="_blank" rel="noopener noreferrer" class="icon" aria-label="LinkedIn">
-          <i class="pi pi-linkedin"></i>
-        </a>
-        <a href="mailto:dutramaria165&#64;gmail.com" class="icon" aria-label="Email">
-          <i class="pi pi-envelope"></i>
-        </a>
-      </div>
-    </aside>
+<section id="projects" class="band" aria-labelledby="projects-title">
+  <div class="shell">
+    <app-portfolio [copy]="copy.projects"></app-portfolio>
+  </div>
+</section>
 
-    <div class="studio-main">
-      <app-about-me
-        *ngIf="activeTab === 'about'"
-        [translations]="t"
-        [habilidadesPorTopico]="habilidadesPorTopico"
-        [activeTab]="activeTab"
-        [isActiveTab]="isActiveTab.bind(this)"
-        [setActiveTab]="setActiveTab.bind(this)">
-      </app-about-me>
+<section id="ecosystem" class="band" aria-labelledby="ecosystem-title">
+  <div class="shell">
+    <app-ecosystem [copy]="copy.ecosystem"></app-ecosystem>
+  </div>
+</section>
 
-      <app-portfolio
-        *ngIf="activeTab === 'portfolio'"
-        [translations]="t"
-        [projetos]="projetos"
-        [projetoAtualIndex]="projetoAtualIndex"
-        [activeTab]="activeTab"
-        [isActiveTab]="isActiveTab.bind(this)"
-        [setActiveTab]="setActiveTab.bind(this)"
-        [abrirProjeto]="abrirProjeto.bind(this)"
-        (projetoAnteriorEvent)="projetoAnterior()"
-        (proximoProjetoEvent)="proximoProjeto()"
-        (indexChangeEvent)="projetoAtualIndex = $event">
-      </app-portfolio>
+<section id="experience" class="band" aria-labelledby="experience-title">
+  <div class="shell">
+    <app-resume [copy]="copy.experience" [cvHref]="cv.href" [cvFilename]="cv.filename"></app-resume>
+  </div>
+</section>
 
-      <app-resume
-        *ngIf="activeTab === 'resume'"
-        [translations]="t"
-        [curriculoPath]="curriculoPath"
-        [curriculoNome]="curriculoNome"
-        [activeTab]="activeTab"
-        [isActiveTab]="isActiveTab.bind(this)"
-        [setActiveTab]="setActiveTab.bind(this)">
-      </app-resume>
+<section id="about" class="band" aria-labelledby="about-title">
+  <div class="shell">
+    <app-about-me [copy]="copy.about"></app-about-me>
+  </div>
+</section>
 
-      <app-contact
-        *ngIf="activeTab === 'contact'"
-        [translations]="t"
-        [activeTab]="activeTab"
-        [isActiveTab]="isActiveTab.bind(this)"
-        [setActiveTab]="setActiveTab.bind(this)">
-      </app-contact>
-    </div>
+<section id="contact" class="band" aria-labelledby="contact-title">
+  <div class="shell contact-shell">
+    <app-contact [copy]="copy.contact"></app-contact>
   </div>
 </section>
 
 <footer role="contentinfo">
-  <p>© {{ currentYear }} Maria Clara Dutra</p>
+  <p>© {{ year }} Maria Clara Dutra · {{ copy.footer }}</p>
 </footer>

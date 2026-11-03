@@ -1,38 +1,30 @@
-import { Component, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-type TabId = 'about' | 'portfolio' | 'resume' | 'contact';
-
-const TABS: { id: TabId; key: string }[] = [
-  { id: 'about', key: 'about' },
-  { id: 'portfolio', key: 'portfolio' },
-  { id: 'resume', key: 'resume' },
-  { id: 'contact', key: 'contact' }
-];
+import { Project, ProjectsCopy } from '../../content/site.models';
 
 @Component({
   selector: 'app-portfolio',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './portfolio.component.html',
-  styleUrls: ['./portfolio.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./portfolio.component.scss']
 })
 export class PortfolioComponent {
-  readonly tabs = TABS;
+  @Input({ required: true }) copy!: ProjectsCopy;
 
-  @Input() translations: any;
-  @Input() projetos: any[] = [];
-  @Input() projetoAtualIndex = 0;
-  @Input() activeTab = '';
-  @Input() isActiveTab: (tab: TabId) => boolean = () => false;
-  @Input() setActiveTab: (tab: TabId) => void = () => {};
-  @Input() abrirProjeto: (link: string) => void = () => {};
+  get featured(): Project | undefined {
+    return this.copy.items.find((item) => item.featured);
+  }
 
-  @Output() projetoAnteriorEvent = new EventEmitter<void>();
-  @Output() proximoProjetoEvent = new EventEmitter<void>();
-  @Output() indexChangeEvent = new EventEmitter<number>();
+  get rest(): readonly Project[] {
+    const featuredId = this.featured?.id;
+    if (!featuredId) {
+      return this.copy.items;
+    }
+    return this.copy.items.filter((item) => item.id !== featuredId);
+  }
 
-  trackByTabId = (_: number, tab: { id: TabId }) => tab.id;
-  trackByTitle = (_: number, projeto: { titulo: string }) => projeto.titulo;
+  trackById(_index: number, project: Project): string {
+    return project.id;
+  }
 }

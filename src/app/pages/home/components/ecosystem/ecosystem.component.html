@@ -1,0 +1,24 @@
+<div class="section-head">
+  <p class="kicker">{{ copy.kicker }}</p>
+  <h2 id="ecosystem-title">{{ copy.title }}</h2>
+  <p>{{ copy.lead }}</p>
+</div>
+
+<div class="eco-grid">
+  <article class="eco-card hover-card" *ngFor="let card of copy.cards; trackBy: trackById">
+    <p class="eco-kicker">{{ card.kicker }}</p>
+    <h3>{{ card.title }}</h3>
+    <p class="eco-description">{{ card.description }}</p>
+    <ul class="eco-items">
+      <li *ngFor="let item of card.items">
+        <strong>{{ item.title }}</strong>
+        <span>{{ item.detail }}</span>
+      </li>
+    </ul>
+    <div class="eco-links">
+      <a *ngFor="let link of card.links" [href]="link.href" target="_blank" rel="noopener noreferrer">
+        {{ link.label }} <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </article>
+</div>

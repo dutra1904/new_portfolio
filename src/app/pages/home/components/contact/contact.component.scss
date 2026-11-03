@@ -1,9 +1,31 @@
-.contact-lead {
-  color: var(--muted);
-  font-size: 1.05rem;
-  line-height: 1.7;
-  max-width: 560px;
-  margin-bottom: 28px;
+:host {
+  display: block;
+}
+
+.direct-mail {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  align-items: baseline;
+  margin: -12px 0 28px;
+
+  span {
+    color: var(--accent);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  a {
+    color: var(--text);
+    font-weight: 600;
+    text-decoration: none;
+
+    &:hover {
+      color: var(--accent);
+    }
+  }
 }
 
 .contact-form {
@@ -49,7 +71,7 @@
     border: 1px solid var(--border);
     background: var(--bg-elevated);
     color: var(--text);
-    font-size: 0.95rem;
+    font-size: 1rem;
 
     &::placeholder {
       color: var(--faint);

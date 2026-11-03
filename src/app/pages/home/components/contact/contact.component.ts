@@ -1,6 +1,7 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ContactCopy } from '../../content/site.models';
 
 const CONTACT_EMAIL = 'dutramaria165@gmail.com';
 
@@ -9,14 +10,10 @@ const CONTACT_EMAIL = 'dutramaria165@gmail.com';
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent {
-  @Input() translations: any;
-  @Input() activeTab = '';
-  @Input() isActiveTab: (tab: 'about' | 'portfolio' | 'resume' | 'contact') => boolean = () => false;
-  @Input() setActiveTab: (tab: 'about' | 'portfolio' | 'resume' | 'contact') => void = () => {};
+  @Input({ required: true }) copy!: ContactCopy;
 
   nome = '';
   email = '';
@@ -31,20 +28,20 @@ export class ContactComponent {
 
     if (this.honeypot) {
       this.status = 'sent';
-      this.statusMessage = this.translations?.contact?.sent;
+      this.statusMessage = this.copy.sent;
       return;
     }
 
     if (!this.nome.trim() || !this.email.trim() || !this.mensagem.trim()) {
       this.status = 'error';
-      this.statusMessage = this.translations?.contact?.fillAllFields;
+      this.statusMessage = this.copy.fillAllFields;
       return;
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(this.email.trim())) {
       this.status = 'error';
-      this.statusMessage = this.translations?.contact?.invalidEmail;
+      this.statusMessage = this.copy.invalidEmail;
       return;
     }
 
@@ -61,7 +58,7 @@ export class ContactComponent {
           name: this.nome.trim(),
           email: this.email.trim(),
           message: this.mensagem.trim(),
-          _subject: this.translations?.contact?.emailSubject ?? 'Portfolio contact',
+          _subject: this.copy.emailSubject,
           _template: 'table',
           _captcha: 'false',
           _replyto: this.email.trim()
@@ -73,13 +70,13 @@ export class ContactComponent {
       }
 
       this.status = 'sent';
-      this.statusMessage = this.translations?.contact?.sent;
+      this.statusMessage = this.copy.sent;
       this.nome = '';
       this.email = '';
       this.mensagem = '';
     } catch {
       this.status = 'error';
-      this.statusMessage = this.translations?.contact?.emailError;
+      this.statusMessage = this.copy.emailError;
     }
   }
 }

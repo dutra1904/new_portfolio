@@ -1,31 +1,72 @@
-<div class="tab-content">
-  <div class="title-tabs-wrapper">
-    <h2 class="tab-title" id="projetos-titulo">{{ translations?.projects?.title }}</h2>
-    <div class="tabs-navigation-content">
-      <button *ngFor="let tab of tabs; trackBy: trackByTabId"
-        class="tab-button-content"
-        [class.active]="isActiveTab(tab.id)"
-        (click)="setActiveTab(tab.id)">
-        {{ translations?.header?.[tab.key] }}
-      </button>
+<div class="section-head">
+  <p class="kicker">{{ copy.kicker }}</p>
+  <h2 id="projects-title">{{ copy.title }}</h2>
+  <p>{{ copy.lead }}</p>
+</div>
+
+<article class="project-card featured hover-card" *ngIf="featured as project">
+  <div class="project-media">
+    <img [src]="project.image" [alt]="project.imageAlt" width="960" height="600" loading="lazy" decoding="async">
+  </div>
+  <div class="project-body">
+    <p class="featured-flag">{{ copy.featured }}</p>
+    <h3>{{ project.title }}</h3>
+    <dl class="story">
+      <div>
+        <dt>{{ copy.problem }}</dt>
+        <dd>{{ project.problem }}</dd>
+      </div>
+      <div>
+        <dt>{{ copy.solution }}</dt>
+        <dd>{{ project.solution }}</dd>
+      </div>
+      <div>
+        <dt>{{ copy.impact }}</dt>
+        <dd>{{ project.impact }}</dd>
+      </div>
+    </dl>
+    <p class="project-note" *ngIf="project.note">{{ project.note }}</p>
+    <ul class="tags" [attr.aria-label]="project.title">
+      <li *ngFor="let tag of project.tags">{{ tag }}</li>
+    </ul>
+    <div class="project-links">
+      <a *ngFor="let link of project.links" [href]="link.href" target="_blank" rel="noopener noreferrer">
+        {{ link.label }} <span aria-hidden="true">↗</span>
+      </a>
     </div>
   </div>
+</article>
 
-  <div class="work-grid">
-    <article class="work-card" *ngFor="let projeto of projetos; trackBy: trackByTitle">
-      <button type="button" class="work-card-hit" (click)="abrirProjeto(projeto.link)" [attr.aria-label]="projeto.titulo">
-        <div class="work-thumb" [style.background-image]="'url(' + projeto.imagem + ')'"></div>
-        <div class="work-body">
-          <div class="work-head">
-            <h3>{{ projeto.titulo }}</h3>
-            <span class="work-open" aria-hidden="true">↗</span>
-          </div>
-          <p>{{ projeto.descricao }}</p>
-          <ul class="work-stack" *ngIf="projeto.stack?.length">
-            <li *ngFor="let tech of projeto.stack">{{ tech }}</li>
-          </ul>
+<div class="project-grid">
+  <article class="project-card hover-card" *ngFor="let project of rest; trackBy: trackById">
+    <div class="project-media">
+      <img [src]="project.image" [alt]="project.imageAlt" width="640" height="400" loading="lazy" decoding="async">
+    </div>
+    <div class="project-body">
+      <h3>{{ project.title }}</h3>
+      <dl class="story">
+        <div>
+          <dt>{{ copy.problem }}</dt>
+          <dd>{{ project.problem }}</dd>
         </div>
-      </button>
-    </article>
-  </div>
+        <div>
+          <dt>{{ copy.solution }}</dt>
+          <dd>{{ project.solution }}</dd>
+        </div>
+        <div>
+          <dt>{{ copy.impact }}</dt>
+          <dd>{{ project.impact }}</dd>
+        </div>
+      </dl>
+      <p class="project-note" *ngIf="project.note">{{ project.note }}</p>
+      <ul class="tags">
+        <li *ngFor="let tag of project.tags">{{ tag }}</li>
+      </ul>
+      <div class="project-links">
+        <a *ngFor="let link of project.links" [href]="link.href" target="_blank" rel="noopener noreferrer">
+          {{ link.label }} <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </div>
+  </article>
 </div>

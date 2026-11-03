@@ -1,4 +1,125 @@
-// Estilos específicos do componente Resume
-// Os estilos principais estão no home.component.scss e styles.scss globais
+:host {
+  display: block;
+}
 
+.timeline {
+  list-style: none;
+  display: grid;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+}
 
+.timeline > li {
+  display: grid;
+  grid-template-columns: 140px minmax(0, 1fr);
+  gap: 16px;
+  align-items: stretch;
+}
+
+.timeline-meta {
+  position: relative;
+  padding-top: 22px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 28px;
+    bottom: -14px;
+    width: 1px;
+    background: var(--border-strong);
+  }
+
+  .period {
+    position: relative;
+    padding-left: 18px;
+    color: var(--accent);
+    font-size: 0.82rem;
+    font-weight: 700;
+  }
+
+  .period::before {
+    content: '';
+    position: absolute;
+    left: -4px;
+    top: 0.35em;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 2px solid var(--accent);
+    box-shadow: 0 0 0 4px rgba(94, 234, 212, 0.12);
+  }
+}
+
+.timeline > li:last-child .timeline-meta::before {
+  bottom: auto;
+  height: 0;
+}
+
+.timeline-body {
+  padding: 20px 22px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+
+  h3 {
+    font-size: 1.15rem;
+    letter-spacing: -0.03em;
+    margin-bottom: 4px;
+  }
+
+  .role {
+    color: var(--text);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  p {
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  ul {
+    margin-top: 12px;
+    padding-left: 18px;
+    color: var(--text);
+    display: grid;
+    gap: 6px;
+  }
+
+  li {
+    max-width: 62ch;
+  }
+}
+
+.experience-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 22px;
+  padding-top: 8px;
+
+  p {
+    color: var(--muted);
+    font-weight: 600;
+  }
+}
+
+@media (max-width: 720px) {
+  .timeline > li {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .timeline-meta {
+    padding-top: 0;
+
+    &::before {
+      display: none;
+    }
+  }
+}

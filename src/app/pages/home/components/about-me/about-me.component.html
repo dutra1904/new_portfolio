@@ -1,47 +1,18 @@
-<div class="tab-content">
-  <div class="title-tabs-wrapper">
-    <h2 class="tab-title">{{ translations?.header?.about }}</h2>
-    <div class="tabs-navigation-content">
-      <button class="tab-button-content" [class.active]="isActiveTab('about')" (click)="setActiveTab('about')">{{ translations?.header?.about }}</button>
-      <button class="tab-button-content" [class.active]="isActiveTab('portfolio')" (click)="setActiveTab('portfolio')">{{ translations?.header?.portfolio }}</button>
-      <button class="tab-button-content" [class.active]="isActiveTab('resume')" (click)="setActiveTab('resume')">{{ translations?.header?.resume }}</button>
-      <button class="tab-button-content" [class.active]="isActiveTab('contact')" (click)="setActiveTab('contact')">{{ translations?.header?.contact }}</button>
-    </div>
-  </div>
+<div class="section-head">
+  <p class="kicker">{{ copy.kicker }}</p>
+  <h2 id="about-title">{{ copy.title }}</h2>
+</div>
 
-  <div class="about-text">
-    <p>{{ translations?.about?.greeting }}</p>
-    <p>{{ translations?.about?.paragraph1 }}</p>
-    <p>{{ translations?.about?.paragraph2 }}</p>
-    <p>{{ translations?.about?.paragraph3 }}</p>
-    <p>{{ translations?.about?.paragraph4 }}</p>
-    <p class="closing-row">
-      <span>{{ translations?.about?.closing }}</span>
-      <img src="assets/icons/MariaClaraDutra.png" alt="" class="assinatura-img" loading="lazy">
-    </p>
+<div class="about-layout">
+  <div class="about-copy">
+    <p *ngFor="let paragraph of copy.paragraphs">{{ paragraph }}</p>
   </div>
-
-  <h3 class="skills-title" id="habilidades-titulo">{{ translations?.about?.technicalSkills }}</h3>
-  <section class="habilidades-modernas" aria-labelledby="habilidades-titulo">
-    <div class="topicos-container">
-      <div class="topico-section" *ngFor="let topico of habilidadesPorTopico">
-        <h4 class="topico-titulo">{{ topico.topico }}</h4>
-        <div class="habilidades-grid-modern">
-          <div class="habilidade-card" *ngFor="let habilidade of topico.habilidades">
-            <div class="habilidade-icon-wrapper">
-              <img [src]="habilidade.icon" [alt]="habilidade.nome"
-                   class="habilidade-icon"
-                   loading="lazy"
-                   [class.icon-light]="habilidade.icon.includes('trabalho.png') || habilidade.icon.includes('design.png')"
-                   [class.icon-typescript]="habilidade.icon.includes('Type.webp')">
-            </div>
-            <div class="habilidade-content">
-              <h5 class="habilidade-nome">{{ habilidade.nome }}</h5>
-              <p class="habilidade-descricao" *ngIf="habilidade.descricao">{{ habilidade.descricao }}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <div class="skill-groups">
+    <article class="skill-group hover-card" *ngFor="let group of copy.groups; trackBy: trackByTitle">
+      <h3>{{ group.title }}</h3>
+      <ul>
+        <li *ngFor="let item of group.items">{{ item }}</li>
+      </ul>
+    </article>
+  </div>
 </div>
