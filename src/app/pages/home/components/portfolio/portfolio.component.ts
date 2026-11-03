@@ -12,18 +12,6 @@ import { Project, ProjectsCopy } from '../../content/site.models';
 export class PortfolioComponent {
   @Input({ required: true }) copy!: ProjectsCopy;
 
-  get featured(): Project | undefined {
-    return this.copy.items.find((item) => item.featured);
-  }
-
-  get rest(): readonly Project[] {
-    const featuredId = this.featured?.id;
-    if (!featuredId) {
-      return this.copy.items;
-    }
-    return this.copy.items.filter((item) => item.id !== featuredId);
-  }
-
   trackById(_index: number, project: Project): string {
     return project.id;
   }

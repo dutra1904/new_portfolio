@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,13 +6,4 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
-  title = 'Portfólio - Maria Clara Dutra';
-
-  constructor() {}
-
-  ngOnInit(): void {
-    // Sempre mostrar header agora que tudo é uma página única
-  }
-}
-
+export class AppComponent {}

@@ -4,41 +4,8 @@
   <p>{{ copy.lead }}</p>
 </div>
 
-<article class="project-card featured hover-card" *ngIf="featured as project">
-  <div class="project-media">
-    <img [src]="project.image" [alt]="project.imageAlt" width="960" height="600" loading="lazy" decoding="async">
-  </div>
-  <div class="project-body">
-    <p class="featured-flag">{{ copy.featured }}</p>
-    <h3>{{ project.title }}</h3>
-    <dl class="story">
-      <div>
-        <dt>{{ copy.problem }}</dt>
-        <dd>{{ project.problem }}</dd>
-      </div>
-      <div>
-        <dt>{{ copy.solution }}</dt>
-        <dd>{{ project.solution }}</dd>
-      </div>
-      <div>
-        <dt>{{ copy.impact }}</dt>
-        <dd>{{ project.impact }}</dd>
-      </div>
-    </dl>
-    <p class="project-note" *ngIf="project.note">{{ project.note }}</p>
-    <ul class="tags" [attr.aria-label]="project.title">
-      <li *ngFor="let tag of project.tags">{{ tag }}</li>
-    </ul>
-    <div class="project-links">
-      <a *ngFor="let link of project.links" [href]="link.href" target="_blank" rel="noopener noreferrer">
-        {{ link.label }} <span aria-hidden="true">↗</span>
-      </a>
-    </div>
-  </div>
-</article>
-
 <div class="project-grid">
-  <article class="project-card hover-card" *ngFor="let project of rest; trackBy: trackById">
+  <article class="project-card hover-card" *ngFor="let project of copy.items; trackBy: trackById">
     <div class="project-media">
       <img [src]="project.image" [alt]="project.imageAlt" width="640" height="400" loading="lazy" decoding="async">
     </div>

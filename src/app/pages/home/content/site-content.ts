@@ -73,7 +73,6 @@ export const CONTENT: Record<Language, SiteContent> = {
       kicker: 'Trabalho selecionado',
       title: 'Projetos em destaque',
       lead: 'Do agente de IA ao jogo em C: o problema, a decisão técnica e o efeito no uso no mesmo card.',
-      featured: 'Destaque',
       problem: 'Problema',
       solution: 'Solução técnica',
       impact: 'Impacto',
@@ -81,8 +80,7 @@ export const CONTENT: Record<Language, SiteContent> = {
         {
           id: 'menumatch',
           title: 'MenuMatch AI',
-          featured: false,
-          image: 'assets/img/MenuMatch.png',
+          image: 'assets/img/MenuMatch.webp',
           imageAlt: 'Interface do MenuMatch AI, agente de pedidos e cardápios',
           problem: 'Restrições alimentares obrigam a pessoa a ler o cardápio inteiro antes de fechar um pedido de delivery.',
           solution: 'Sistema ponta a ponta com busca semântica híbrida (RAG com embeddings vetoriais) e um agente orquestrador com tool calling para montar o pedido sozinho.',
@@ -96,8 +94,7 @@ export const CONTENT: Record<Language, SiteContent> = {
         {
           id: 'feelingss',
           title: 'Feelingss',
-          featured: false,
-          image: 'assets/img/feelingss.png',
+          image: 'assets/img/feelingss.webp',
           imageAlt: 'Feelingss classificando expressão facial no navegador',
           problem: 'Estimar expressão, idade e gênero em tempo real sem enviar o rosto da pessoa para um servidor.',
           solution: 'Classificação e inferência direto no navegador, pela webcam, com modelos rodando no cliente.',
@@ -112,8 +109,7 @@ export const CONTENT: Record<Language, SiteContent> = {
         {
           id: 'summarizer',
           title: 'AI Summarizer',
-          featured: false,
-          image: 'assets/img/ia.png',
+          image: 'assets/img/ia.webp',
           imageAlt: 'AI Summarizer gerando um resumo de texto longo',
           problem: 'Texto longo atrasa leitura, estudo e decisão.',
           solution: 'Aplicação web serverless, com arquitetura AI-first, para extração semântica e sumarização de textos longos.',
@@ -127,7 +123,6 @@ export const CONTENT: Record<Language, SiteContent> = {
         {
           id: 'spotify-grammy',
           title: 'Spotify × Grammy',
-          featured: false,
           image: 'assets/img/powerbi-spotify.svg',
           imageAlt: 'Marca do painel Spotify versus Grammy',
           problem: 'Popularidade no streaming e reconhecimento da crítica não medem a mesma coisa, e a diferença some sem um recorte analítico.',
@@ -139,8 +134,7 @@ export const CONTENT: Record<Language, SiteContent> = {
         {
           id: 'organizator',
           title: 'Organizator',
-          featured: false,
-          image: 'assets/img/orgaizator.png',
+          image: 'assets/img/orgaizator.webp',
           imageAlt: 'Organizator, quadro de tarefas com dashboard',
           problem: 'Tarefas de estudo e de código se perdem sem categoria, prioridade e um lugar para ver o andamento.',
           solution: 'Gestão de tarefas com categorias, prioridades, dashboard e autenticação. Angular, PrimeNG, Node e Supabase.',
@@ -154,8 +148,7 @@ export const CONTENT: Record<Language, SiteContent> = {
         {
           id: 'flashcards',
           title: 'Flashcards',
-          featured: false,
-          image: 'assets/img/flashcard.png',
+          image: 'assets/img/flashcard.webp',
           imageAlt: 'Flashcards com revisão de baralhos',
           problem: 'A revisão some quando a fila de erros e o histórico ficam só na memória da sessão.',
           solution: 'Baralhos com revisão 3D, fila de erros e persistência local. React, TypeScript, Vite e Tailwind.',
@@ -166,8 +159,7 @@ export const CONTENT: Record<Language, SiteContent> = {
         {
           id: 'bmi',
           title: 'Calculadora de IMC',
-          featured: false,
-          image: 'assets/img/calories.png',
+          image: 'assets/img/calories.webp',
           imageAlt: 'Calculadora de IMC com unidades métrica e imperial',
           problem: 'Calcular o IMC e ler a classificação muda de unidade e de idioma conforme quem usa.',
           solution: 'Calculadora com sistema métrico e imperial, PT/EN e validação de formulário. React, Chakra UI, Hook Form e Zod.',
@@ -181,8 +173,7 @@ export const CONTENT: Record<Language, SiteContent> = {
         {
           id: 'random-meal',
           title: 'Random Meal Generator',
-          featured: false,
-          image: 'assets/img/randomMeal.png',
+          image: 'assets/img/randomMeal.webp',
           imageAlt: 'Gerador de refeição aleatória com ingredientes e modo de preparo',
           problem: 'Escolher uma refeição trava quando falta uma sugestão com ingredientes e modo de preparo.',
           solution: 'Gerador que busca uma refeição aleatória na TheMealDB, com ingredientes, instruções e vídeo quando existe.',
@@ -196,8 +187,7 @@ export const CONTENT: Record<Language, SiteContent> = {
         {
           id: 'stellar-clash',
           title: 'Stellar Clash',
-          featured: false,
-          image: 'assets/img/batalha-background.png',
+          image: 'assets/img/batalha-background.webp',
           imageAlt: 'Stellar Clash, jogo de batalha espacial',
           problem: 'Lista, fila, árvore e grafo ficam abstratos sem um uso que junte as quatro estruturas.',
           solution: 'Jogo de batalha espacial em C que usa listas, filas, árvores e grafos.',
@@ -382,7 +372,6 @@ export const CONTENT: Record<Language, SiteContent> = {
       kicker: 'Selected work',
       title: 'Featured projects',
       lead: 'From the AI agent to the C game: the problem, the technical decision, and the effect on use on the same card.',
-      featured: 'Featured',
       problem: 'Problem',
       solution: 'Technical solution',
       impact: 'Impact',
@@ -390,8 +379,7 @@ export const CONTENT: Record<Language, SiteContent> = {
         {
           id: 'menumatch',
           title: 'MenuMatch AI',
-          featured: false,
-          image: 'assets/img/MenuMatch.png',
+          image: 'assets/img/MenuMatch.webp',
           imageAlt: 'MenuMatch AI interface for orders and menus',
           problem: 'Dietary restrictions force someone to read an entire delivery menu before they can place an order.',
           solution: 'End-to-end system with hybrid semantic search (RAG over vector embeddings) and an orchestrator agent that uses tool calling to assemble the order on its own.',
@@ -405,8 +393,7 @@ export const CONTENT: Record<Language, SiteContent> = {
         {
           id: 'feelingss',
           title: 'Feelingss',
-          featured: false,
-          image: 'assets/img/feelingss.png',
+          image: 'assets/img/feelingss.webp',
           imageAlt: 'Feelingss classifying a facial expression in the browser',
           problem: 'Estimate expression, age, and gender in real time without sending a person’s face to a server.',
           solution: 'Classification and inference run in the browser, from the webcam, with models executed on the client.',
@@ -421,8 +408,7 @@ export const CONTENT: Record<Language, SiteContent> = {
         {
           id: 'summarizer',
           title: 'AI Summarizer',
-          featured: false,
-          image: 'assets/img/ia.png',
+          image: 'assets/img/ia.webp',
           imageAlt: 'AI Summarizer producing a summary of a long text',
           problem: 'Long text slows reading, study, and decisions.',
           solution: 'Serverless, AI-first web app for semantic extraction and summarization of long texts.',
@@ -436,7 +422,6 @@ export const CONTENT: Record<Language, SiteContent> = {
         {
           id: 'spotify-grammy',
           title: 'Spotify × Grammy',
-          featured: false,
           image: 'assets/img/powerbi-spotify.svg',
           imageAlt: 'Mark for the Spotify versus Grammy dashboard',
           problem: 'Streaming popularity and critical recognition do not measure the same thing, and the gap disappears without an analytical cut.',
@@ -448,8 +433,7 @@ export const CONTENT: Record<Language, SiteContent> = {
         {
           id: 'organizator',
           title: 'Organizator',
-          featured: false,
-          image: 'assets/img/orgaizator.png',
+          image: 'assets/img/orgaizator.webp',
           imageAlt: 'Organizator task board with a dashboard',
           problem: 'Study and coding tasks get lost without a category, a priority, and one place to see what is in progress.',
           solution: 'Task manager with categories, priorities, a dashboard, and authentication. Angular, PrimeNG, Node, and Supabase.',
@@ -463,8 +447,7 @@ export const CONTENT: Record<Language, SiteContent> = {
         {
           id: 'flashcards',
           title: 'Flashcards',
-          featured: false,
-          image: 'assets/img/flashcard.png',
+          image: 'assets/img/flashcard.webp',
           imageAlt: 'Flashcards deck review',
           problem: 'Review disappears when the miss queue and the history live only in the session.',
           solution: 'Decks with 3D review, a miss queue, and local persistence. React, TypeScript, Vite, and Tailwind.',
@@ -475,8 +458,7 @@ export const CONTENT: Record<Language, SiteContent> = {
         {
           id: 'bmi',
           title: 'BMI Calculator',
-          featured: false,
-          image: 'assets/img/calories.png',
+          image: 'assets/img/calories.webp',
           imageAlt: 'BMI calculator with metric and imperial units',
           problem: 'Calculating BMI and reading the result changes with the unit system and the language of the person using it.',
           solution: 'Calculator with metric and imperial units, EN/PT, and form validation. React, Chakra UI, Hook Form, and Zod.',
@@ -490,8 +472,7 @@ export const CONTENT: Record<Language, SiteContent> = {
         {
           id: 'random-meal',
           title: 'Random Meal Generator',
-          featured: false,
-          image: 'assets/img/randomMeal.png',
+          image: 'assets/img/randomMeal.webp',
           imageAlt: 'Random meal generator with ingredients and instructions',
           problem: 'Picking a meal stalls when there is no suggestion with ingredients and a method.',
           solution: 'Generator that fetches a random meal from TheMealDB, with ingredients, instructions, and a video when one exists.',
@@ -505,8 +486,7 @@ export const CONTENT: Record<Language, SiteContent> = {
         {
           id: 'stellar-clash',
           title: 'Stellar Clash',
-          featured: false,
-          image: 'assets/img/batalha-background.png',
+          image: 'assets/img/batalha-background.webp',
           imageAlt: 'Stellar Clash space battle game',
           problem: 'Lists, queues, trees, and graphs stay abstract without one use that brings the four structures together.',
           solution: 'Space battle game in C that uses lists, queues, trees, and graphs.',

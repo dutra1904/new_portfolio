@@ -17,7 +17,6 @@ export interface TextLink {
 export interface Project {
   id: string;
   title: string;
-  featured: boolean;
   image: string;
   imageAlt: string;
   problem: string;
@@ -82,7 +81,6 @@ export interface ProjectsCopy {
   kicker: string;
   title: string;
   lead: string;
-  featured: string;
   problem: string;
   solution: string;
   impact: string;
